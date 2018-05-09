@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class Empleado : Usuario
+    public class Empleado : Usuario
     {
         private long id_empleado;
         private DateTime hora_entrada;

@@ -19,6 +19,9 @@ namespace Vista
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+           
+
             SelectorPizzas sp = new SelectorPizzas();
             sp.ShowDialog();
         }

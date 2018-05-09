@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class LoginDAO
+    public class LoginDAO
     {
 
         private static DBConnection dataSource;

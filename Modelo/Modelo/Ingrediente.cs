@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    
-    class Ingrediente : Producto
+
+    public class Ingrediente : Producto
     {
         private long id_ingrediente;
     

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class DBConnection
+    public class DBConnection
     {
         private static readonly String HOST = "localhost";
         private static readonly String BD = "mypizza";

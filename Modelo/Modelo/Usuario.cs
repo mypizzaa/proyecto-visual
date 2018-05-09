@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class Usuario
+    public class Usuario
     {
         private long id_usuario;
         private String dni;

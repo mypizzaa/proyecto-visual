@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class Refresco : Producto
+    public class Refresco : Producto
     {
         private long id_refresco;
 
