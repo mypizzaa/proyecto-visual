@@ -133,6 +133,16 @@ namespace Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap closeButton {
+            get {
+                object obj = ResourceManager.GetObject("closeButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delaterra {
             get {
                 object obj = ResourceManager.GetObject("delaterra", resourceCulture);
@@ -156,6 +166,16 @@ namespace Vista.Properties {
         internal static System.Drawing.Bitmap FondoLogin {
             get {
                 object obj = ResourceManager.GetObject("FondoLogin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fondopizza {
+            get {
+                object obj = ResourceManager.GetObject("fondopizza", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -193,9 +213,9 @@ namespace Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pizza_pattern_dribbble {
+        internal static System.Drawing.Bitmap mypizza {
             get {
-                object obj = ResourceManager.GetObject("pizza_pattern_dribbble", resourceCulture);
+                object obj = ResourceManager.GetObject("mypizza", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -206,16 +226,6 @@ namespace Vista.Properties {
         internal static System.Drawing.Bitmap salami {
             get {
                 object obj = ResourceManager.GetObject("salami", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap thumb_1920_172065 {
-            get {
-                object obj = ResourceManager.GetObject("thumb-1920-172065", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -195,10 +195,16 @@
     <None Include="Resources\Mahou.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\thumb-1920-172065.jpg" />
+    <None Include="Resources\mypizza.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\pizza_pattern_dribbble.jpg" />
+    <None Include="Resources\fondopizza.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\closeButton.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -78,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Vista.Properties.Resources.pizza_pattern_dribbble;
+      
             this.ClientSize = new System.Drawing.Size(1898, 1024);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
