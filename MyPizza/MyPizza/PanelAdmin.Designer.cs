@@ -28,75 +28,91 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.menuVertical = new System.Windows.Forms.Panel();
+            this.panelTitulo = new System.Windows.Forms.Panel();
+            this.panelContenedor = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.menuVertical.SuspendLayout();
+            this.panelTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // menuVertical
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(165, 180);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(342, 98);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Administrar pizzas";
-            this.button1.UseVisualStyleBackColor = false;
+            this.menuVertical.BackColor = System.Drawing.Color.DarkRed;
+            this.menuVertical.Controls.Add(this.pictureBox2);
+            this.menuVertical.Dock = System.Windows.Forms.DockStyle.Left;
+            this.menuVertical.Location = new System.Drawing.Point(0, 0);
+            this.menuVertical.Name = "menuVertical";
+            this.menuVertical.Size = new System.Drawing.Size(250, 788);
+            this.menuVertical.TabIndex = 0;
             // 
-            // button2
+            // panelTitulo
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(165, 348);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(342, 98);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Administrar Stock";
-            this.button2.UseVisualStyleBackColor = false;
+            this.panelTitulo.Controls.Add(this.pictureBox1);
+            this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTitulo.Location = new System.Drawing.Point(250, 0);
+            this.panelTitulo.Name = "panelTitulo";
+            this.panelTitulo.Size = new System.Drawing.Size(1136, 50);
+            this.panelTitulo.TabIndex = 1;
             // 
-            // button3
+            // panelContenedor
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(165, 516);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(342, 98);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Administrar Empleados";
-            this.button3.UseVisualStyleBackColor = false;
+            this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelContenedor.Location = new System.Drawing.Point(250, 50);
+            this.panelContenedor.Name = "panelContenedor";
+            this.panelContenedor.Size = new System.Drawing.Size(1136, 738);
+            this.panelContenedor.TabIndex = 2;
             // 
-            // button4
+            // pictureBox1
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(165, 684);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(342, 98);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "Administrar Ventas";
-            this.button4.UseVisualStyleBackColor = false;
+            this.pictureBox1.Image = global::Vista.Properties.Resources.menu;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::Vista.Properties.Resources.fondopizza;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(250, 188);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // PanelAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      
-            this.ClientSize = new System.Drawing.Size(1898, 1024);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.Controls.Add(this.panelContenedor);
+            this.Controls.Add(this.panelTitulo);
+            this.Controls.Add(this.menuVertical);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "PanelAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Panel de Administrador";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.menuVertical.ResumeLayout(false);
+            this.panelTitulo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel menuVertical;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panelTitulo;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panelContenedor;
     }
 }

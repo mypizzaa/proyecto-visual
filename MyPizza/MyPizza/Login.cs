@@ -85,5 +85,11 @@ namespace Vista
         {
             Application.Exit();
         }
+
+        private void bAcceder_Click(object sender, EventArgs e)
+        {
+            PanelAdmin pa = new PanelAdmin();
+            pa.ShowDialog();
+        }
     }
 }
