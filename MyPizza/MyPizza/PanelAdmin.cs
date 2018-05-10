@@ -10,23 +10,11 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class Login : Form
+    public partial class PanelAdmin : Form
     {
-        public Login()
+        public PanelAdmin()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            PanelAdmin ap = new PanelAdmin();
-            ap.ShowDialog();
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

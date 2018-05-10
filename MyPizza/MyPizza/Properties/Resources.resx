@@ -133,17 +133,17 @@
   <data name="amstel1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\amstel1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-
- 
   <data name="atun" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\atun.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-
   <data name="Mahou" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mahou.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hawaiana" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hawaiana.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="thumb-1920-172065" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\thumb-1920-172065.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="burger" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\burger.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -154,16 +154,16 @@
   <data name="cebolla" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cebolla.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-
   <data name="Champiñones" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Champiñones.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="doble" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\doble.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
- 
   <data name="kebab" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\kebab.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
- 
+  <data name="pizza_pattern_dribbble" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pizza_pattern_dribbble.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

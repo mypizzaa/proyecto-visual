@@ -193,9 +193,29 @@ namespace Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pizza_pattern_dribbble {
+            get {
+                object obj = ResourceManager.GetObject("pizza_pattern_dribbble", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap salami {
             get {
                 object obj = ResourceManager.GetObject("salami", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap thumb_1920_172065 {
+            get {
+                object obj = ResourceManager.GetObject("thumb-1920-172065", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
