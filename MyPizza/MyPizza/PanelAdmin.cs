@@ -17,6 +17,7 @@ namespace Vista
             InitializeComponent();
         }
 
+        //Menu burger
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (menuVertical.Width == 250)
@@ -28,11 +29,13 @@ namespace Vista
             }
         }
 
+        //Icono de cerrar ventana
         private void iconoCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //Icono de maximizar ventana
         private void iconoMaxi_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
@@ -41,6 +44,7 @@ namespace Vista
             
         }
 
+        //Icono de restaurar ventana
         private void iconoRestaurar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Normal;
@@ -48,11 +52,17 @@ namespace Vista
             iconoRestaurar.Visible = false;
         }
 
+        //Icono de minimizar
         private void iconoMini_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
+        /// <summary>
+        /// Este metodo recibe como parametro un objeto que sera el formulario que se 
+        /// quiere cargar en el panel contenedor.
+        /// </summary>
+        /// <param name="formhijo">formulario</param>
         private void AbrirPanel(object formhijo)
         {
             if (this.panelContenedor.Controls.Count > 0)
@@ -66,10 +76,34 @@ namespace Vista
             fh.Show();
         }
 
-
+        //Menu vertical - PIZZA
         private void button1_Click(object sender, EventArgs e)
         {
-            AbrirPanel(new SelectorPizzas());
+            AbrirPanel(new AdminPizza());
+        }
+
+        //Menu vertical - BEBIDAS
+        private void button4_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new AdminBebidas());
+        }
+
+        //Menu vertical - EMPLEADOS
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new AdminEmpleados());
+        }
+
+        //Menu Vertical - STOCK
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new AdminStock());
+        }
+
+        //Menu Vertical - VENTAS
+        private void button5_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new AdminVentas());
         }
     }
 }

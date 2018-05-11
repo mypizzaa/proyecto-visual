@@ -64,11 +64,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminBebidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminBebidas.Designer.cs">
+      <DependentUpon>AdminBebidas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminEmpleados.Designer.cs">
+      <DependentUpon>AdminEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdministrarPizzas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdministrarPizzas.Designer.cs">
       <DependentUpon>AdministrarPizzas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPizza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminPizza.Designer.cs">
+      <DependentUpon>AdminPizza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminStock.Designer.cs">
+      <DependentUpon>AdminStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminVentas.Designer.cs">
+      <DependentUpon>AdminVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="LocalizadorEnvios.cs">
       <SubType>Form</SubType>
@@ -101,8 +131,23 @@
     <Compile Include="SelectorPizzas.Designer.cs">
       <DependentUpon>SelectorPizzas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AdminBebidas.resx">
+      <DependentUpon>AdminBebidas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminEmpleados.resx">
+      <DependentUpon>AdminEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdministrarPizzas.resx">
       <DependentUpon>AdministrarPizzas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminPizza.resx">
+      <DependentUpon>AdminPizza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminStock.resx">
+      <DependentUpon>AdminStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminVentas.resx">
+      <DependentUpon>AdminVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LocalizadorEnvios.resx">
       <DependentUpon>LocalizadorEnvios.cs</DependentUpon>
