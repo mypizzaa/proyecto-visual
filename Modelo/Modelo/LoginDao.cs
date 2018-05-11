@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,10 +22,44 @@ namespace Modelo
         /// </summary>
         /// <param name="correo">correo</param>
         /// <param name="password">password</param>
-        /// <returns>Un usuario si existe si no develve null.</returns>
+        /// <returns>Devuelve un usuario si existe y si no develve null.</returns>
         public Usuario LoginUsuario(String correo, String password)
         {
             Usuario u = null;
+            
+            MySqlConnection connection = null;
+            MySqlCommand mysqlCmd = null;
+            MySqlDataReader mysqlReader = null;
+
+            string sql = "SELECT tipo_usuario FROM tb_usuario where correo=@correo and password=@Pwd;";
+            try
+            {
+                connection = dataSource.getConnection();
+                connection.Open();
+
+                mysqlCmd = new MySqlCommand(sql, connection);
+                mysqlCmd.Parameters.Add(new MySqlParameter("@correo", correo));
+                mysqlCmd.Parameters.Add(new MySqlParameter("@Pwd", password));
+
+
+                mysqlReader = mysqlCmd.ExecuteReader();
+                String tipo_usuario = null;
+                while (mysqlReader.Read())
+                {
+                    tipo_usuario = mysqlReader.GetString("tipo_usuario");
+                }
+                u.setTipoUsiario(tipo_usuario);
+            }
+            catch (Exception e)
+            {
+                u = null;
+            }
+            finally
+            {
+                if (mysqlCmd != null) mysqlCmd.Dispose();
+                if (mysqlReader != null) mysqlReader.Dispose();
+                if (connection != null) connection.Close();
+            }
 
             return u;
         }
