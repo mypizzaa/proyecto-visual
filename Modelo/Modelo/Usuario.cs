@@ -30,6 +30,12 @@ namespace Modelo
             this.correo = correo;
         }
 
+        public Usuario(string correo, string password)
+        {
+            this.correo = correo;
+            this.password = password;
+        }
+
         //Getters
         public long getIdUsuario()
         {
