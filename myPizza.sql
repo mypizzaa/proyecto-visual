@@ -1,3 +1,8 @@
+DROP USER'administrator'@'localhost';
+
+DROP DATABASE mypizza;
+
+
 CREATE USER 'administrator'@'localhost' IDENTIFIED BY 'adminpsw';
 -- Crear base de dades.
 
@@ -115,12 +120,12 @@ CREATE TABLE `tb_empleado` (
     PRIMARY KEY (`id_empleado`)
 ) ENGINE=InnoDB;
 
-CREATE TABLE `Usuario` (
+CREATE TABLE `tb_usuario` (
     `id_usuario` INT(4) NOT NULL AUTO_INCREMENT,
     `dni` VARCHAR(9) DEFAULT NULL UNIQUE,
     `nombre` VARCHAR(40) DEFAULT NULL,
     `apellidos` VARCHAR(40) DEFAULT NULL,
-    `contraseÃ±a` VARCHAR(40) DEFAULT NULL,
+    `contraseña` VARCHAR(40) DEFAULT NULL,
     `imagen` VARCHAR(40) DEFAULT NULL,
     `tipo_usuario` VARCHAR(40) DEFAULT NULL,
     `correo` VARCHAR(40) NOT NULL UNIQUE,
@@ -183,11 +188,11 @@ foreign key (id_factura) references tb_Factura(id_factura)
 on update cascade;
 
 alter table tb_cliente ADD CONSTRAINT FK_tbCliente_tbUsuario
-foreign key (id_usuario) references Usuario(id_usuario)
+foreign key (id_usuario) references tb_usuario(id_usuario)
 on update cascade;
 
 alter table tb_empleado ADD CONSTRAINT FK_tbEmpleado_tbUsuario
-foreign key (id_usuario) references Usuario(id_usuario)
+foreign key (id_usuario) references tb_usuario(id_usuario)
 on update cascade;
 
 alter table tb_estado ADD CONSTRAINT FK_tbEstado_tbEmpleado
@@ -205,5 +210,5 @@ INSERT INTO tb_producto(`nombre`, `precio`, `imagen`, id_tipo ) VALUES
 ('Coca-Cola', 1.8, 'beb', 2),
 ('Aquarius', 1.6, 'beb', 2);
 
-INSERT INTO Usuario(`dni`, `nombre`, `apellidos`, `contraseÃ±a`, `imagen`, `tipo_usuario`, `correo` ) VALUES 
+INSERT INTO tb_usuario(`dni`, `nombre`, `apellidos`, `contraseña`, `imagen`, `tipo_usuario`, `correo` ) VALUES 
 ('46472595Z', 'Javi', 'Delgado', 'admin','imagen', 'admin', 'javii.delgaado@gmail.com');

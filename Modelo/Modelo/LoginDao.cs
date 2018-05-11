@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +23,25 @@ namespace Modelo
         /// <param name="correo">correo</param>
         /// <param name="password">password</param>
         /// <returns>Un usuario si existe si no develve null.</returns>
-        public Usuario LoginUsuario(String correo, String password)
+        public Usuario loginUsuario(String correo, String password)
         {
             Usuario u = null;
+            string sql = "SELECT *  FROM tb_usuario WHERE correo = '" + correo + "' AND contraseña = '" + password + "'; ";
+            try { 
+                MySqlConnection conn = dataSource.getConnection();
+                conn.Open();
+                MySqlCommand mysqlCmd = new MySqlCommand(sql, conn);
+                MySqlDataReader sqlReader = mysqlCmd.ExecuteReader();
+                while (sqlReader.Read())
+                {
+                
+                }
+                sqlReader.Close();
+                mysqlCmd.Dispose();
+                conn.Close();
+             } catch (Exception e) {
+                
+             }
 
             return u;
         }
