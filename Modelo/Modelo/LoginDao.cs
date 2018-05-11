@@ -23,7 +23,7 @@ namespace Modelo
         /// <param name="correo">correo</param>
         /// <param name="password">password</param>
         /// <returns>Devuelve un usuario si existe y si no develve null.</returns>
-        public Usuario LoginUsuario(String correo, String password)
+        public Usuario LoginUsuario(Usuario usuario)
         {
             Usuario u = null;
             
@@ -38,8 +38,8 @@ namespace Modelo
                 connection.Open();
 
                 mysqlCmd = new MySqlCommand(sql, connection);
-                mysqlCmd.Parameters.Add(new MySqlParameter("@correo", correo));
-                mysqlCmd.Parameters.Add(new MySqlParameter("@Pwd", password));
+                mysqlCmd.Parameters.Add(new MySqlParameter("@correo", usuario.getCorreo()));
+                mysqlCmd.Parameters.Add(new MySqlParameter("@Pwd", usuario.getPassword()));
 
 
                 mysqlReader = mysqlCmd.ExecuteReader();
