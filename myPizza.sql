@@ -1,10 +1,5 @@
-DROP USER'administrator'@'localhost';
-
-DROP DATABASE mypizza;
-
 
 CREATE USER 'administrator'@'localhost' IDENTIFIED BY 'adminpsw';
--- Crear base de dades.
 
 CREATE DATABASE mypizza  DEFAULT CHARACTER SET utf8  DEFAULT COLLATE utf8_general_ci;
 
@@ -125,7 +120,7 @@ CREATE TABLE `tb_usuario` (
     `dni` VARCHAR(9) DEFAULT NULL UNIQUE,
     `nombre` VARCHAR(40) DEFAULT NULL,
     `apellidos` VARCHAR(40) DEFAULT NULL,
-    `contraseña` VARCHAR(40) DEFAULT NULL,
+    `contraseÃ±a` VARCHAR(40) DEFAULT NULL,
     `imagen` VARCHAR(40) DEFAULT NULL,
     `tipo_usuario` VARCHAR(40) DEFAULT NULL,
     `correo` VARCHAR(40) NOT NULL UNIQUE,
@@ -137,7 +132,8 @@ CREATE TABLE `tb_cliente` (
     `id_cliente` INT(4) NOT NULL AUTO_INCREMENT,
     `id_usuario` INT(4),
     `direccion1` VARCHAR(40) DEFAULT NULL,
-    `direccion2` VARCHAR(40) DEFAULT NULL,   
+    `direccion2` VARCHAR(40) DEFAULT NULL,
+    `telefono` VARCHAR(9) DEFAULT NULL,
     PRIMARY KEY (`id_cliente`)
 ) ENGINE=InnoDB;
 
@@ -210,5 +206,5 @@ INSERT INTO tb_producto(`nombre`, `precio`, `imagen`, id_tipo ) VALUES
 ('Coca-Cola', 1.8, 'beb', 2),
 ('Aquarius', 1.6, 'beb', 2);
 
-INSERT INTO tb_usuario(`dni`, `nombre`, `apellidos`, `contraseña`, `imagen`, `tipo_usuario`, `correo` ) VALUES 
+INSERT INTO tb_usuario(`dni`, `nombre`, `apellidos`, `contraseÃ±a`, `imagen`, `tipo_usuario`, `correo` ) VALUES 
 ('46472595Z', 'Javi', 'Delgado', 'admin','imagen', 'admin', 'javii.delgaado@gmail.com');
