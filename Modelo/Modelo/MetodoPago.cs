@@ -19,6 +19,7 @@ namespace Modelo
             this.detalles = detalles;
         }
 
+
         //getters
         public long getIdMetodoPago()
         {
