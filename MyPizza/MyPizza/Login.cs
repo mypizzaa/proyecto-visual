@@ -90,6 +90,8 @@ namespace Vista
         {
             PanelAdmin pa = new PanelAdmin();
             pa.ShowDialog();
+            //SelectorPizzas sp = new SelectorPizzas();
+            //sp.ShowDialog();
         }
     }
 }

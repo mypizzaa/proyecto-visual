@@ -112,6 +112,18 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="NuevoPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuevoPedido.Designer.cs">
+      <DependentUpon>NuevoPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Observaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Observaciones.Designer.cs">
+      <DependentUpon>Observaciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="PanelAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,6 +167,12 @@
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NuevoPedido.resx">
+      <DependentUpon>NuevoPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Observaciones.resx">
+      <DependentUpon>Observaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PanelAdmin.resx">
       <DependentUpon>PanelAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -192,6 +210,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Modelo\Modelo\Modelo.csproj">
+      <Project>{E4004408-B0B3-4B43-9B1B-E5DC6BCF23B1}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Controlador\Controlador.csproj">
       <Project>{cc66851f-9e5e-40b5-9b19-ade38fd2c703}</Project>
       <Name>Controlador</Name>

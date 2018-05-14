@@ -30,9 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.label2 = new System.Windows.Forms.Label();
             this.Id_Prod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -129,6 +129,7 @@
             // 
             // button4
             // 
+            this.button4.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.button4.Location = new System.Drawing.Point(342, 237);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(130, 30);
