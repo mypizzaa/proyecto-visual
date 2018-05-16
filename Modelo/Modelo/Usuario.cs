@@ -36,6 +36,8 @@ namespace Modelo
             this.password = password;
         }
 
+        public Usuario() { }
+
         //Getters
         public long getIdUsuario()
         {
