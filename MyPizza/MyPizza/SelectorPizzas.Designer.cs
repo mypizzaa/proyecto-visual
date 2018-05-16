@@ -48,6 +48,8 @@
             this.button24 = new System.Windows.Forms.Button();
             this.button23 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button20 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button16 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
@@ -65,8 +67,6 @@
             this.localizarPedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPedidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label12 = new System.Windows.Forms.Label();
-            this.button21 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
@@ -230,6 +230,25 @@
             this.button22.TabIndex = 2;
             this.button22.UseVisualStyleBackColor = true;
             // 
+            // button21
+            // 
+            this.button21.Image = global::Vista.Properties.Resources.Mahou;
+            this.button21.Location = new System.Drawing.Point(43, 149);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(90, 90);
+            this.button21.TabIndex = 1;
+            this.button21.UseVisualStyleBackColor = true;
+            // 
+            // button20
+            // 
+            this.button20.BackgroundImage = global::Vista.Properties.Resources.amstel1;
+            this.button20.Location = new System.Drawing.Point(43, 44);
+            this.button20.Name = "button20";
+            this.button20.Size = new System.Drawing.Size(90, 90);
+            this.button20.TabIndex = 0;
+            this.button20.UseVisualStyleBackColor = true;
+            this.button20.Click += new System.EventHandler(this.button20_Click);
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -361,8 +380,8 @@
             // pedidosToolStripMenuItem
             // 
             this.pedidosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.localizarPedidosToolStripMenuItem,
-            this.nuevoPedidoToolStripMenuItem});
+            this.nuevoPedidoToolStripMenuItem,
+            this.localizarPedidosToolStripMenuItem});
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
             this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.pedidosToolStripMenuItem.Text = "Pedidos";
@@ -372,6 +391,7 @@
             this.localizarPedidosToolStripMenuItem.Name = "localizarPedidosToolStripMenuItem";
             this.localizarPedidosToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.localizarPedidosToolStripMenuItem.Text = "Localizar pedidos";
+            this.localizarPedidosToolStripMenuItem.Click += new System.EventHandler(this.localizarPedidosToolStripMenuItem_Click);
             // 
             // nuevoPedidoToolStripMenuItem
             // 
@@ -390,25 +410,6 @@
             this.label12.Size = new System.Drawing.Size(58, 13);
             this.label12.TabIndex = 35;
             this.label12.Text = "PEDIDO:";
-            // 
-            // button21
-            // 
-            this.button21.Image = global::Vista.Properties.Resources.Mahou;
-            this.button21.Location = new System.Drawing.Point(43, 149);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(90, 90);
-            this.button21.TabIndex = 1;
-            this.button21.UseVisualStyleBackColor = true;
-            // 
-            // button20
-            // 
-            this.button20.BackgroundImage = global::Vista.Properties.Resources.amstel1;
-            this.button20.Location = new System.Drawing.Point(43, 44);
-            this.button20.Name = "button20";
-            this.button20.Size = new System.Drawing.Size(90, 90);
-            this.button20.TabIndex = 0;
-            this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
             // button14
             // 

@@ -50,6 +50,18 @@ namespace Vista
         }
 
         /// <summary>
+        /// Este metodo es al que acuden todos los botones de cada pizza
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void botonesPizza(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            
+        }
+
+
+        /// <summary>
         /// Este metodo añade una pizza con sus ingredientes al treeview
         /// </summary>
         /// <param name="nombre">nombre de la pizza</param>
@@ -72,6 +84,7 @@ namespace Vista
             treeViewPedido.Nodes.Add(pizza);
             treeViewPedido.ImageList = imagelist1;
         }
+        
 
         /// <summary>
         /// Este metodo añade una bebida la cual seleccionemos en el treeview
@@ -103,6 +116,12 @@ namespace Vista
         {
             Observaciones obs = new Observaciones();
             obs.ShowDialog();
+        }
+
+        private void localizarPedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LocalizadorEnvios le = new LocalizadorEnvios();
+            le.ShowDialog();
         }
     }
 }

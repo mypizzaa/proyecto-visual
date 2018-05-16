@@ -20,12 +20,14 @@ namespace Vista
         //Menu burger
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (menuVertical.Width == 250)
+            if (menuVertical.Width == 188)
             {
                 menuVertical.Width = 40;
+                pictureBox2.Visible = false;
             }else
             {
-                menuVertical.Width = 250;
+                menuVertical.Width = 188;
+                pictureBox2.Visible = true;
             }
         }
 

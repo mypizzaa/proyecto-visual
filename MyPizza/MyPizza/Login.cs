@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Net;
+using Controlador;
 
 namespace Vista
 {
@@ -24,6 +26,9 @@ namespace Vista
         public Login()
         {
             InitializeComponent();
+            //using (WebClient wc = new WebClient()) {
+            //    MessageBox.Show(wc.DownloadString("http://192.168.127.92:8084/mypizza/login?correo=3&password=a"));
+            //}
         }
                 
 
@@ -38,9 +43,7 @@ namespace Vista
         {
 
         }
-
-
-        
+                
         private void txtCorreo_Enter(object sender, EventArgs e)
         {
             if(txtCorreo.Text == "Usuario")
@@ -88,10 +91,18 @@ namespace Vista
 
         private void bAcceder_Click(object sender, EventArgs e)
         {
+
+            ControladorProducto c = new ControladorProducto();
+            MessageBox.Show(c.listarpizzas());
+
+
             PanelAdmin pa = new PanelAdmin();
             pa.ShowDialog();
             //SelectorPizzas sp = new SelectorPizzas();
             //sp.ShowDialog();
+
+            
+
         }
     }
 }

@@ -16,5 +16,17 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            String direccion = tbDireccion.Text;
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("http://maps.google.com/maps?q=");
+            sb.Append(direccion);
+
+            webBrowser1.Navigate(sb.ToString());
+
+        }
     }
 }
