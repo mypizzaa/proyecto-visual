@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.ListViewPizzas = new System.Windows.Forms.ListView();
             this.Id_Prod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxIngredientes = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.bAñadirImagen = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,25 +51,25 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label1.Location = new System.Drawing.Point(469, 31);
+            this.label1.Location = new System.Drawing.Point(133, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 21);
             this.label1.TabIndex = 0;
             this.label1.Text = "ADMINISTRAR PIZZAS";
             // 
-            // listView1
+            // ListViewPizzas
             // 
-            this.listView1.BackColor = System.Drawing.Color.DarkRed;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ListViewPizzas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.ListViewPizzas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id_Prod,
             this.columnHeader1});
-            this.listView1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(850, 119);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(228, 524);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.ListViewPizzas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ListViewPizzas.GridLines = true;
+            this.ListViewPizzas.Location = new System.Drawing.Point(850, 119);
+            this.ListViewPizzas.Name = "ListViewPizzas";
+            this.ListViewPizzas.Size = new System.Drawing.Size(228, 524);
+            this.ListViewPizzas.TabIndex = 1;
+            this.ListViewPizzas.UseCompatibleStateImageBehavior = false;
             // 
             // label2
             // 
@@ -82,41 +83,56 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(345, 601);
+            this.button1.BackColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(409, 601);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 40);
             this.button1.TabIndex = 8;
             this.button1.Text = "GUARDAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(473, 601);
+            this.button2.BackColor = System.Drawing.Color.Black;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button2.Location = new System.Drawing.Point(505, 601);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(90, 40);
             this.button2.TabIndex = 9;
             this.button2.Text = "CANCELAR";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
+            this.button3.BackColor = System.Drawing.Color.Black;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button3.Location = new System.Drawing.Point(601, 601);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(90, 40);
             this.button3.TabIndex = 10;
             this.button3.Text = "AÑADIR";
-            this.button3.UseVisualStyleBackColor = true;
+            this.button3.UseVisualStyleBackColor = false;
             // 
-            // groupBox1
+            // groupBoxIngredientes
             // 
-            this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(137, 317);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(554, 232);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "INGREDIENTES";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            this.groupBoxIngredientes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxIngredientes.Location = new System.Drawing.Point(137, 317);
+            this.groupBoxIngredientes.Name = "groupBoxIngredientes";
+            this.groupBoxIngredientes.Size = new System.Drawing.Size(554, 232);
+            this.groupBoxIngredientes.TabIndex = 11;
+            this.groupBoxIngredientes.TabStop = false;
+            this.groupBoxIngredientes.Text = "INGREDIENTES";
+            this.groupBoxIngredientes.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // pictureBox1
             // 
@@ -124,18 +140,24 @@
             this.pictureBox1.Location = new System.Drawing.Point(137, 108);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(182, 159);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
-            // button4
+            // bAñadirImagen
             // 
-            this.button4.Font = new System.Drawing.Font("Century Gothic", 8.25F);
-            this.button4.Location = new System.Drawing.Point(342, 237);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(130, 30);
-            this.button4.TabIndex = 28;
-            this.button4.Text = "Añadir imagen";
-            this.button4.UseVisualStyleBackColor = true;
+            this.bAñadirImagen.BackColor = System.Drawing.Color.Black;
+            this.bAñadirImagen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.bAñadirImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bAñadirImagen.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bAñadirImagen.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bAñadirImagen.Location = new System.Drawing.Point(342, 237);
+            this.bAñadirImagen.Name = "bAñadirImagen";
+            this.bAñadirImagen.Size = new System.Drawing.Size(221, 30);
+            this.bAñadirImagen.TabIndex = 28;
+            this.bAñadirImagen.Text = "Añadir imagen";
+            this.bAñadirImagen.UseVisualStyleBackColor = false;
+            this.bAñadirImagen.Click += new System.EventHandler(this.bAñadirImagen_Click);
             // 
             // textBox2
             // 
@@ -167,28 +189,33 @@
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(342, 108);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 17);
+            this.label3.Size = new System.Drawing.Size(106, 17);
             this.label3.TabIndex = 24;
-            this.label3.Text = "Nombre bebida :";
+            this.label3.Text = "Nombre pizza :";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // AdminPizza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1136, 738);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.bAñadirImagen);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxIngredientes);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.ListViewPizzas);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminPizza";
@@ -205,7 +232,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView ListViewPizzas;
         private System.Windows.Forms.ColumnHeader Id_Prod;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label label2;
@@ -213,11 +240,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBoxIngredientes;
+        private System.Windows.Forms.Button bAñadirImagen;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="mqx/VOAcmKWDqbONm1+cW2RtrAg=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="YgKtSybQuqf4fBFJKGwtpMoLi0A=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="WSProductoPortBinding">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSProductoPort" contract="ServiceProducto.WSProducto" bindingType="basicHttpBinding" address="http://localhost:8080/ServicioWeb/WSProducto" bindingConfiguration="WSProductoPortBinding">
+    <endpoint name="WSProductoPort" contract="ServiceReference1.WSProducto" bindingType="basicHttpBinding" address="http://localhost:8080/ServicioMyPizza/WSProducto" bindingConfiguration="WSProductoPortBinding">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8080/ServicioWeb/WSProducto</serializedValue>
+          <serializedValue>http://localhost:8080/ServicioMyPizza/WSProducto</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -127,7 +127,7 @@
           <serializedValue>WSProductoPortBinding</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>ServiceProducto.WSProducto</serializedValue>
+          <serializedValue>ServiceReference1.WSProducto</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

@@ -9,7 +9,7 @@ namespace Modelo
 
     public class Ingrediente : Producto
     {
-        private long id_ingrediente;
+        public long id_ingrediente;
     
         //constructor
         public Ingrediente(long id_prod, string nombre, double precio, string img, long id_tip, long id_ingrediente) : base(id_prod, nombre, precio, img, id_tip)

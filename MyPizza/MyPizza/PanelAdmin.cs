@@ -24,6 +24,7 @@ namespace Vista
             {
                 menuVertical.Width = 40;
                 pictureBox2.Visible = false;
+                
             }else
             {
                 menuVertical.Width = 188;
@@ -94,12 +95,6 @@ namespace Vista
         private void button2_Click(object sender, EventArgs e)
         {
             AbrirPanel(new AdminEmpleados());
-        }
-
-        //Menu Vertical - STOCK
-        private void button3_Click(object sender, EventArgs e)
-        {
-            AbrirPanel(new AdminStock());
         }
 
         //Menu Vertical - VENTAS

@@ -8,19 +8,37 @@ namespace Modelo
 {
     public class Usuario
     {
-        private long id_usuario;
-        private String dni;
-        private String nombre;
-        private String apellidos;
-        private String password;
-        private String imagen;
-        private String tipo_Usuario;
-        private String correo;
+        public long id_usuario;
+        public String dni;
+        public String nombre;
+        public String apellidos;
+        public String password;
+        public String imagen;
+        public String tipo_Usuario;
+        public String correo;
+        public int activo;
 
         //Constructor
-        public Usuario(long id_usuario, String dni, String nombre, String apellidos, String password, String imagen, String tipo_Usuario, String correo)
+        public Usuario()
         {
-            this.id_usuario = id_usuario;
+
+        }
+        public Usuario(long id, String dni, String nombre, String apellidos, String password, String imagen, String tipo_Usuario, String correo, int activo)
+        {
+            this.id_usuario = id;
+            this.dni = dni;
+            this.nombre = nombre;
+            this.apellidos = apellidos;
+            this.password = password;
+            this.imagen = imagen;
+            this.tipo_Usuario = tipo_Usuario;
+            this.correo = correo;
+            this.activo = activo;
+        }
+
+        public Usuario(long id, String dni, String nombre, String apellidos, String password, String imagen, String tipo_Usuario, String correo)
+        {
+            this.id_usuario = id;
             this.dni = dni;
             this.nombre = nombre;
             this.apellidos = apellidos;
@@ -29,6 +47,8 @@ namespace Modelo
             this.tipo_Usuario = tipo_Usuario;
             this.correo = correo;
         }
+
+        
 
         public Usuario(string correo, string password)
         {
@@ -77,6 +97,11 @@ namespace Modelo
             return this.correo;
         }
 
+        public int getActivo()
+        {
+            return activo;
+        }
+
 
         //Setters
         public void setIdUsuario(long idUsuario)
@@ -118,6 +143,10 @@ namespace Modelo
         {
             this.correo = correo;
         }
+        public void setActivo(int activo)
+        {
+            this.activo = activo;
+        }
 
         //toString
         public String toString()
@@ -133,6 +162,7 @@ namespace Modelo
             sb.Append(", imagen = " + imagen);
             sb.Append(", tipo_Usuario = " + tipo_Usuario);
             sb.Append(", correo = " + correo);
+            sb.Append(", activo = " + activo);
             sb.Append(" ]");
             
             return sb.ToString();

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://services.proven.cat/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="WSProducto" targetNamespace="http://services.proven.cat/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/ServicioMyPizza/WSProducto?xsd=1" namespace="http://services.proven.cat/" />
+    </xsd:schema>
+  </types>
+  <message name="listAllIngredients">
+    <part name="parameters" element="tns:listAllIngredients" />
+  </message>
+  <message name="listAllIngredientsResponse">
+    <part name="parameters" element="tns:listAllIngredientsResponse" />
+  </message>
+  <message name="listIngredientesOfPizza">
+    <part name="parameters" element="tns:listIngredientesOfPizza" />
+  </message>
+  <message name="listIngredientesOfPizzaResponse">
+    <part name="parameters" element="tns:listIngredientesOfPizzaResponse" />
+  </message>
+  <message name="listallpizzas">
+    <part name="parameters" element="tns:listallpizzas" />
+  </message>
+  <message name="listallpizzasResponse">
+    <part name="parameters" element="tns:listallpizzasResponse" />
+  </message>
+  <message name="listallbebidas">
+    <part name="parameters" element="tns:listallbebidas" />
+  </message>
+  <message name="listallbebidasResponse">
+    <part name="parameters" element="tns:listallbebidasResponse" />
+  </message>
+  <portType name="WSProducto">
+    <operation name="listAllIngredients">
+      <input wsam:Action="http://services.proven.cat/WSProducto/listAllIngredientsRequest" message="tns:listAllIngredients" />
+      <output wsam:Action="http://services.proven.cat/WSProducto/listAllIngredientsResponse" message="tns:listAllIngredientsResponse" />
+    </operation>
+    <operation name="listIngredientesOfPizza">
+      <input wsam:Action="http://services.proven.cat/WSProducto/listIngredientesOfPizzaRequest" message="tns:listIngredientesOfPizza" />
+      <output wsam:Action="http://services.proven.cat/WSProducto/listIngredientesOfPizzaResponse" message="tns:listIngredientesOfPizzaResponse" />
+    </operation>
+    <operation name="listallpizzas">
+      <input wsam:Action="http://services.proven.cat/WSProducto/listallpizzasRequest" message="tns:listallpizzas" />
+      <output wsam:Action="http://services.proven.cat/WSProducto/listallpizzasResponse" message="tns:listallpizzasResponse" />
+    </operation>
+    <operation name="listallbebidas">
+      <input wsam:Action="http://services.proven.cat/WSProducto/listallbebidasRequest" message="tns:listallbebidas" />
+      <output wsam:Action="http://services.proven.cat/WSProducto/listallbebidasResponse" message="tns:listallbebidasResponse" />
+    </operation>
+  </portType>
+  <binding name="WSProductoPortBinding" type="tns:WSProducto">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="listAllIngredients">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listIngredientesOfPizza">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listallpizzas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="listallbebidas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="WSProducto">
+    <port name="WSProductoPort" binding="tns:WSProductoPortBinding">
+      <soap:address location="http://localhost:8080/ServicioMyPizza/WSProducto" />
+    </port>
+  </service>
+</definitions>

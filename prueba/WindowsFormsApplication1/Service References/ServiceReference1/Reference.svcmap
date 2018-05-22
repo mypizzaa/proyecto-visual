@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="a3ad8934-30d2-4a15-a7bd-1a4ee5159886" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="c6fc15c3-f08c-4090-b590-2f8caa46befc" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,11 +19,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost:8080/ServicioWeb/WSProducto?wsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:8080/ServicioMyPizza/WSProducto?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WSProducto.xsd" MetadataType="Schema" ID="1b06b029-d28c-43b5-bcbc-5f17222c7d19" SourceId="1" SourceUrl="http://localhost:8080/ServicioWeb/WSProducto?xsd=1" />
-    <MetadataFile FileName="WSProducto.wsdl" MetadataType="Wsdl" ID="c4d6f5f0-8e07-4337-8d98-9048d0adf37a" SourceId="1" SourceUrl="http://localhost:8080/ServicioWeb/WSProducto?wsdl" />
+    <MetadataFile FileName="WSProducto.xsd" MetadataType="Schema" ID="bf930411-7bd5-464e-b6a2-2dd1b765c63a" SourceId="1" SourceUrl="http://localhost:8080/ServicioMyPizza/WSProducto?xsd=1" />
+    <MetadataFile FileName="WSProducto.wsdl" MetadataType="Wsdl" ID="5bc22ee2-7be2-4d1d-a68f-872d462037c5" SourceId="1" SourceUrl="http://localhost:8080/ServicioMyPizza/WSProducto?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

@@ -8,11 +8,11 @@ namespace Modelo
 {
     public class Producto
     {
-        private long id_producto;
-        private String nombre;
-        private double precio;
-        private String imagen;
-        private long id_tipo;
+        public long id_producto;
+        public String nombre;
+        public double precio;
+        public String imagen;
+        public long id_tipo;
 
         //Constructores
         public Producto(long id_prod, String nombre, double precio, String img, long id_tip)

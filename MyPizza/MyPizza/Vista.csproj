@@ -50,9 +50,15 @@
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,23 +82,11 @@
     <Compile Include="AdminEmpleados.Designer.cs">
       <DependentUpon>AdminEmpleados.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdministrarPizzas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdministrarPizzas.Designer.cs">
-      <DependentUpon>AdministrarPizzas.cs</DependentUpon>
-    </Compile>
     <Compile Include="AdminPizza.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AdminPizza.Designer.cs">
       <DependentUpon>AdminPizza.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AdminStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AdminStock.Designer.cs">
-      <DependentUpon>AdminStock.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminVentas.cs">
       <SubType>Form</SubType>
@@ -149,14 +143,8 @@
     <EmbeddedResource Include="AdminEmpleados.resx">
       <DependentUpon>AdminEmpleados.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdministrarPizzas.resx">
-      <DependentUpon>AdministrarPizzas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AdminPizza.resx">
       <DependentUpon>AdminPizza.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminStock.resx">
-      <DependentUpon>AdminStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminVentas.resx">
       <DependentUpon>AdminVentas.cs</DependentUpon>
@@ -184,6 +172,7 @@
     <EmbeddedResource Include="SelectorPizzas.resx">
       <DependentUpon>SelectorPizzas.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

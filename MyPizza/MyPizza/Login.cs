@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Net;
+
+using System.ServiceModel;
+using Modelo;
+using Newtonsoft.Json;
+using System.Net.Http;
 using Controlador;
 
 namespace Vista
@@ -22,13 +27,12 @@ namespace Vista
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wsmg, int wparam, int lparam);
 
+        private Controlador.ControladorProductos controllerProd;
 
         public Login()
         {
-            InitializeComponent();
-            //using (WebClient wc = new WebClient()) {
-            //    MessageBox.Show(wc.DownloadString("http://192.168.127.92:8084/mypizza/login?correo=3&password=a"));
-            //}
+             InitializeComponent();
+           
         }
                 
 
@@ -89,20 +93,53 @@ namespace Vista
             Application.Exit();
         }
 
-        private void bAcceder_Click(object sender, EventArgs e)
+        //Boton para logearse
+        private async void bAcceder_Click(object sender, EventArgs e)
         {
+            String correo = txtCorreo.Text;
+            String password = txtPassword.Text;
 
-            ControladorProducto c = new ControladorProducto();
-            MessageBox.Show(c.listarpizzas());
+            if (correo != null && password != null)
+            {
 
+                ControladorLogin cl = new ControladorLogin();
+                Usuario u = await cl.login(correo, password);
 
-            PanelAdmin pa = new PanelAdmin();
-            pa.ShowDialog();
-            //SelectorPizzas sp = new SelectorPizzas();
-            //sp.ShowDialog();
+                if(u != null)
+                {
+                    saberRolUsuario(u);
+                }else
+                {
+                    MessageBox.Show("Error, usuario incorrecto");
+                }
 
-            
+            }
 
         }
+
+        
+        public void saberRolUsuario(Usuario u)
+        {
+            String tipo = u.getTipoUsuario();
+            switch (tipo)
+            {
+                case "admin":
+                    PanelAdmin pa = new PanelAdmin();
+                    pa.ShowDialog();
+
+                    break;
+
+                case "empleado":
+                    SelectorPizzas sp = new SelectorPizzas();
+                    sp.ShowDialog();
+
+                    break;
+                case "cliente":
+                    break;
+            }
+        }
+
+
+
     }
 }
