@@ -220,6 +220,7 @@
             this.bAñadirImagen.TabIndex = 38;
             this.bAñadirImagen.Text = "Añadir imagen";
             this.bAñadirImagen.UseVisualStyleBackColor = false;
+            this.bAñadirImagen.Visible = false;
             this.bAñadirImagen.Click += new System.EventHandler(this.bAñadirImagen_Click);
             // 
             // openFileDialog1
