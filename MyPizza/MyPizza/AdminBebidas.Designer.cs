@@ -37,12 +37,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.listViewBebidas = new System.Windows.Forms.ListView();
             this.Id_Prod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.bAñadirImagen = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.bEliminar = new System.Windows.Forms.Button();
+            this.bModificar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -139,19 +141,20 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "BEBIDAS:";
             // 
-            // listView1
+            // listViewBebidas
             // 
-            this.listView1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.listViewBebidas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.listViewBebidas.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id_Prod,
             this.columnHeader1});
-            this.listView1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.GridLines = true;
-            this.listView1.Location = new System.Drawing.Point(137, 358);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(817, 187);
-            this.listView1.TabIndex = 13;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listViewBebidas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewBebidas.GridLines = true;
+            this.listViewBebidas.Location = new System.Drawing.Point(137, 358);
+            this.listViewBebidas.Name = "listViewBebidas";
+            this.listViewBebidas.Size = new System.Drawing.Size(817, 187);
+            this.listViewBebidas.TabIndex = 13;
+            this.listViewBebidas.UseCompatibleStateImageBehavior = false;
+            this.listViewBebidas.View = System.Windows.Forms.View.Tile;
             // 
             // label1
             // 
@@ -182,12 +185,42 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // bEliminar
+            // 
+            this.bEliminar.BackColor = System.Drawing.Color.Black;
+            this.bEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.bEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bEliminar.Location = new System.Drawing.Point(233, 579);
+            this.bEliminar.Name = "bEliminar";
+            this.bEliminar.Size = new System.Drawing.Size(90, 40);
+            this.bEliminar.TabIndex = 32;
+            this.bEliminar.Text = "ELIMINAR";
+            this.bEliminar.UseVisualStyleBackColor = false;
+            // 
+            // bModificar
+            // 
+            this.bModificar.BackColor = System.Drawing.Color.Black;
+            this.bModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.bModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bModificar.Location = new System.Drawing.Point(137, 579);
+            this.bModificar.Name = "bModificar";
+            this.bModificar.Size = new System.Drawing.Size(90, 40);
+            this.bModificar.TabIndex = 31;
+            this.bModificar.Text = "MODIFICAR";
+            this.bModificar.UseVisualStyleBackColor = false;
+            // 
             // AdminBebidas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1104, 660);
+            this.Controls.Add(this.bEliminar);
+            this.Controls.Add(this.bModificar);
             this.Controls.Add(this.bAñadirImagen);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -198,7 +231,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listViewBebidas);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AdminBebidas";
@@ -221,11 +254,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listViewBebidas;
         private System.Windows.Forms.ColumnHeader Id_Prod;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button bAñadirImagen;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button bEliminar;
+        private System.Windows.Forms.Button bModificar;
     }
 }

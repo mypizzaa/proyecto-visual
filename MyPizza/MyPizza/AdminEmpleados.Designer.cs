@@ -107,7 +107,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(605, 247);
+            this.textBox3.Location = new System.Drawing.Point(342, 247);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(221, 20);
             this.textBox3.TabIndex = 28;
@@ -116,7 +116,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(605, 227);
+            this.label2.Location = new System.Drawing.Point(342, 227);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 17);
             this.label2.TabIndex = 29;
@@ -214,7 +214,7 @@
             this.bAñadirImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bAñadirImagen.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.bAñadirImagen.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.bAñadirImagen.Location = new System.Drawing.Point(342, 237);
+            this.bAñadirImagen.Location = new System.Drawing.Point(605, 237);
             this.bAñadirImagen.Name = "bAñadirImagen";
             this.bAñadirImagen.Size = new System.Drawing.Size(221, 30);
             this.bAñadirImagen.TabIndex = 38;

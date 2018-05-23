@@ -19,26 +19,67 @@ namespace Controlador
              
         }
 
-        public String listarPizzas()
+        public List<Pizza> listarPizzas()
         {
-            String pizzas = "";
-            
-            return pizzas;
+            List<Pizza> listaPizzas = new List<Pizza>();
+         
+            using (WebClient wc = new WebClient())
+            {
+                String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSProducto/pizzas");
+                listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
+
+            }
+            return listaPizzas;
         }
 
+        
         public List<Ingrediente> listarIngredientes()
         {
             List<Ingrediente> listaIngredientes = new List<Ingrediente>();
-            Ingrediente i = null;
+     
             using(WebClient wc = new WebClient())
             {
                 String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSProducto/ingredientes");
-                i = JsonConvert.DeserializeObject<Ingrediente>(json);
-                listaIngredientes.Add(i);
-                Console.WriteLine(listaIngredientes.ToString());
+                listaIngredientes = JsonConvert.DeserializeObject<List<Ingrediente>>(json);
 
             }
             return listaIngredientes;
+        }
+
+
+        public List<Refresco> listarRefrescos()
+        {
+            List<Refresco> listaBebidas = new List<Refresco>();
+
+            using (WebClient wc = new WebClient())
+            {
+                String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSProducto/bebidas");
+                listaBebidas = JsonConvert.DeserializeObject<List<Refresco>>(json);
+
+            }
+            return listaBebidas;
+        }
+
+
+        public Pizza listarUnaPizza(String nombrePizza)
+        {
+            List<Pizza> listaPizzas;
+
+            Pizza pizza = null;
+
+            using (WebClient wc = new WebClient())
+            {
+                String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSProducto/pizzas");
+                listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
+
+                foreach (Pizza p in listaPizzas)
+                {
+                   if( p.getNombre() == nombrePizza) pizza = p;
+                    
+                }
+
+            }
+            return pizza;
         }
 
 

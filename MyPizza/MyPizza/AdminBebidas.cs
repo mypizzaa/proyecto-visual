@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controlador;
+using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +14,29 @@ namespace Vista
 {
     public partial class AdminBebidas : Form
     {
+
+        private ControladorProductos cp;
+
+
         public AdminBebidas()
         {
+            cp = new ControladorProductos();
             InitializeComponent();
+            cargarBebidas();
         }
+
+
+        public void cargarBebidas()
+        {
+            List<Refresco> listaBebidas = cp.listarRefrescos();
+
+                        foreach (Refresco r in listaBebidas)
+            {
+                listViewBebidas.Items.Add(r.getNombre());
+            }
+            
+        }
+
 
         /// <summary>
         /// Este metodo abre un open file dialog para seleccionar una imagen y ponerla en le picture box

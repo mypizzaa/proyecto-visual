@@ -33,17 +33,19 @@
             this.Id_Prod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.bGuardar = new System.Windows.Forms.Button();
+            this.bCancelar = new System.Windows.Forms.Button();
+            this.bAdd = new System.Windows.Forms.Button();
             this.groupBoxIngredientes = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bAñadirImagen = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtNombrePizza = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.bModificar = new System.Windows.Forms.Button();
+            this.bEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,12 +66,19 @@
             this.Id_Prod,
             this.columnHeader1});
             this.ListViewPizzas.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ListViewPizzas.ForeColor = System.Drawing.SystemColors.Window;
             this.ListViewPizzas.GridLines = true;
             this.ListViewPizzas.Location = new System.Drawing.Point(850, 119);
             this.ListViewPizzas.Name = "ListViewPizzas";
             this.ListViewPizzas.Size = new System.Drawing.Size(228, 524);
             this.ListViewPizzas.TabIndex = 1;
             this.ListViewPizzas.UseCompatibleStateImageBehavior = false;
+            this.ListViewPizzas.View = System.Windows.Forms.View.Tile;
+            this.ListViewPizzas.SelectedIndexChanged += new System.EventHandler(this.ListViewPizzas_SelectedIndexChanged);
+            // 
+            // Id_Prod
+            // 
+            this.Id_Prod.Width = 266;
             // 
             // label2
             // 
@@ -81,50 +90,51 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "PIZZAS:";
             // 
-            // button1
+            // bGuardar
             // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(409, 601);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 40);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "GUARDAR";
-            this.button1.UseVisualStyleBackColor = false;
+            this.bGuardar.BackColor = System.Drawing.Color.Black;
+            this.bGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.bGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bGuardar.Location = new System.Drawing.Point(409, 601);
+            this.bGuardar.Name = "bGuardar";
+            this.bGuardar.Size = new System.Drawing.Size(90, 40);
+            this.bGuardar.TabIndex = 8;
+            this.bGuardar.Text = "GUARDAR";
+            this.bGuardar.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // bCancelar
             // 
-            this.button2.BackColor = System.Drawing.Color.Black;
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(505, 601);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 40);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "CANCELAR";
-            this.button2.UseVisualStyleBackColor = false;
+            this.bCancelar.BackColor = System.Drawing.Color.Black;
+            this.bCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.bCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bCancelar.Location = new System.Drawing.Point(505, 601);
+            this.bCancelar.Name = "bCancelar";
+            this.bCancelar.Size = new System.Drawing.Size(90, 40);
+            this.bCancelar.TabIndex = 9;
+            this.bCancelar.Text = "CANCELAR";
+            this.bCancelar.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // bAdd
             // 
-            this.button3.BackColor = System.Drawing.Color.Black;
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(601, 601);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 40);
-            this.button3.TabIndex = 10;
-            this.button3.Text = "AÑADIR";
-            this.button3.UseVisualStyleBackColor = false;
+            this.bAdd.BackColor = System.Drawing.Color.Black;
+            this.bAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.bAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bAdd.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bAdd.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bAdd.Location = new System.Drawing.Point(601, 601);
+            this.bAdd.Name = "bAdd";
+            this.bAdd.Size = new System.Drawing.Size(90, 40);
+            this.bAdd.TabIndex = 10;
+            this.bAdd.Text = "AÑADIR";
+            this.bAdd.UseVisualStyleBackColor = false;
             // 
             // groupBoxIngredientes
             // 
+            this.groupBoxIngredientes.Enabled = false;
             this.groupBoxIngredientes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxIngredientes.Location = new System.Drawing.Point(137, 317);
             this.groupBoxIngredientes.Name = "groupBoxIngredientes";
@@ -147,6 +157,7 @@
             // bAñadirImagen
             // 
             this.bAñadirImagen.BackColor = System.Drawing.Color.Black;
+            this.bAñadirImagen.Enabled = false;
             this.bAñadirImagen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.bAñadirImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bAñadirImagen.Font = new System.Drawing.Font("Century Gothic", 9.75F);
@@ -157,14 +168,16 @@
             this.bAñadirImagen.TabIndex = 28;
             this.bAñadirImagen.Text = "Añadir imagen";
             this.bAñadirImagen.UseVisualStyleBackColor = false;
+            this.bAñadirImagen.Visible = false;
             this.bAñadirImagen.Click += new System.EventHandler(this.bAñadirImagen_Click);
             // 
-            // textBox2
+            // txtPrecio
             // 
-            this.textBox2.Location = new System.Drawing.Point(342, 187);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(221, 20);
-            this.textBox2.TabIndex = 27;
+            this.txtPrecio.Enabled = false;
+            this.txtPrecio.Location = new System.Drawing.Point(342, 187);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(221, 20);
+            this.txtPrecio.TabIndex = 27;
             // 
             // label4
             // 
@@ -176,12 +189,13 @@
             this.label4.TabIndex = 26;
             this.label4.Text = "Precio:";
             // 
-            // textBox1
+            // txtNombrePizza
             // 
-            this.textBox1.Location = new System.Drawing.Point(342, 128);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 20);
-            this.textBox1.TabIndex = 25;
+            this.txtNombrePizza.Enabled = false;
+            this.txtNombrePizza.Location = new System.Drawing.Point(342, 128);
+            this.txtNombrePizza.Name = "txtNombrePizza";
+            this.txtNombrePizza.Size = new System.Drawing.Size(221, 20);
+            this.txtNombrePizza.TabIndex = 25;
             // 
             // label3
             // 
@@ -197,6 +211,35 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // bModificar
+            // 
+            this.bModificar.BackColor = System.Drawing.Color.Black;
+            this.bModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.bModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bModificar.Location = new System.Drawing.Point(137, 601);
+            this.bModificar.Name = "bModificar";
+            this.bModificar.Size = new System.Drawing.Size(90, 40);
+            this.bModificar.TabIndex = 29;
+            this.bModificar.Text = "MODIFICAR";
+            this.bModificar.UseVisualStyleBackColor = false;
+            this.bModificar.Click += new System.EventHandler(this.bModificar_Click);
+            // 
+            // bEliminar
+            // 
+            this.bEliminar.BackColor = System.Drawing.Color.Black;
+            this.bEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.bEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bEliminar.Location = new System.Drawing.Point(233, 601);
+            this.bEliminar.Name = "bEliminar";
+            this.bEliminar.Size = new System.Drawing.Size(90, 40);
+            this.bEliminar.TabIndex = 30;
+            this.bEliminar.Text = "ELIMINAR";
+            this.bEliminar.UseVisualStyleBackColor = false;
+            // 
             // AdminPizza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,15 +247,17 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1136, 738);
+            this.Controls.Add(this.bEliminar);
+            this.Controls.Add(this.bModificar);
             this.Controls.Add(this.bAñadirImagen);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtNombrePizza);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBoxIngredientes);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bAdd);
+            this.Controls.Add(this.bCancelar);
+            this.Controls.Add(this.bGuardar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ListViewPizzas);
@@ -237,15 +282,17 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button bGuardar;
+        private System.Windows.Forms.Button bCancelar;
+        private System.Windows.Forms.Button bAdd;
         private System.Windows.Forms.GroupBox groupBoxIngredientes;
         private System.Windows.Forms.Button bAñadirImagen;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtNombrePizza;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button bModificar;
+        private System.Windows.Forms.Button bEliminar;
     }
 }

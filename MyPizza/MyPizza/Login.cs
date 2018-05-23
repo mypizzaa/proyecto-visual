@@ -110,7 +110,7 @@ namespace Vista
                     saberRolUsuario(u);
                 }else
                 {
-                    MessageBox.Show("Error, usuario incorrecto");
+                    MessageBox.Show("Usuario o contraseña incorrectos.","Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
