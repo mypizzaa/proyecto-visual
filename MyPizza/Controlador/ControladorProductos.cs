@@ -26,7 +26,14 @@ namespace Controlador
             using (WebClient wc = new WebClient())
             {
                 String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSProducto/pizzas");
+                
+                Encoding utf8 = Encoding.UTF8;
                 listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
+               
+                foreach (Pizza p in listaPizzas)
+                {
+                    Console.WriteLine(p.toString());
+                }
 
             }
             return listaPizzas;

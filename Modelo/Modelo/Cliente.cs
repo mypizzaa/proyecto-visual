@@ -12,6 +12,8 @@ namespace Modelo
         private String primeraDireccion;
         private String segundaDireccion;
         private String telefono;
+        private String poblacion;
+        private String codigoPostal;
 
         public Cliente(long id_usuario, string dni, string nombre, string apellidos, string password, string imagen, string tipo_Usuario, string correo,long id_cliente,string primeraDireccion, string segundaDireccion,String telefono) : base(id_usuario, dni, nombre, apellidos, password, imagen, tipo_Usuario, correo)
         {
@@ -65,7 +67,16 @@ namespace Modelo
         //toString
         public String toString()
         {
-            return "";
+            StringBuilder sb = new StringBuilder();
+            sb.Append("id_cliente = " + id_cliente);
+            sb.Append(" ,primeraDireccion =  " + primeraDireccion);
+            sb.Append(" ,segundaDireccion = " + segundaDireccion);
+            sb.Append(" ,telefono = " + telefono);
+            sb.Append(" ,poblacion = " + poblacion);
+            sb.Append(" ,codigo postal = "+codigoPostal);
+            sb.Append(base.ToString());
+
+            return sb.ToString();
         }
 
 

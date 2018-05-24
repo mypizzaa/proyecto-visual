@@ -32,8 +32,12 @@ namespace Modelo
         //ToString
         public String toString()
         {
-            //todo
-            return "";
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append("id_refresco = " +id_refresco);
+            sb.Append(base.toString());
+
+            return sb.ToString();
         }
 
         

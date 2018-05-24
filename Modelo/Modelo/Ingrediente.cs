@@ -33,7 +33,10 @@ namespace Modelo
        public String toString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("id_ingrediente = "+id_ingrediente);
+
+            sb.Append("id_ingrediente = " + id_ingrediente);
+            sb.Append(base.toString());
+
             return sb.ToString();
         }
 

@@ -89,6 +89,7 @@ namespace Modelo
             sb.Append(" ,hora_entrada = " + hora_entrada);
             sb.Append(" ,horas semanales = " + horasSemanales);
             sb.Append(" ,salario = " + Salario);
+            sb.Append(base.ToString());
 
             return sb.ToString();
         }
