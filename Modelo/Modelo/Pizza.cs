@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -37,6 +38,14 @@ namespace Modelo
 
             return sb.ToString();
            
+        }
+
+        public Pizza toJson(string json) {
+            Pizza p = null;
+
+            p = JsonConvert.DeserializeObject<Pizza>(json);
+
+            return p;
         }
 
 
