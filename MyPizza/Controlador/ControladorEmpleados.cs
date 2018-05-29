@@ -11,9 +11,11 @@ namespace Controlador
 {
     public class ControladorEmpleados
     {
+        private String servidor;
+
         public ControladorEmpleados()
         {
-
+            servidor = "http://localhost:8080";
         }
 
         public List<Empleado> listarEmpleados()
@@ -23,7 +25,7 @@ namespace Controlador
             using (WebClient wc = new WebClient())
             {
                 wc.Encoding = System.Text.Encoding.UTF8;
-                String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSEmpleado/listall");
+                String json = wc.DownloadString(servidor+"/ServicioMyPizza/servicios/WSEmpleado/listall");
 
                 listaEmpleados = JsonConvert.DeserializeObject<List<Empleado>>(json);
 
@@ -39,7 +41,7 @@ namespace Controlador
             using (WebClient wc = new WebClient())
             {
                 wc.Encoding = System.Text.Encoding.UTF8;
-                String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSEmpleado/buscar/"+dni);
+                String json = wc.DownloadString(servidor + "/ServicioMyPizza/servicios/WSEmpleado/buscar/" +dni);
 
                 e = JsonConvert.DeserializeObject<Empleado>(json);
 

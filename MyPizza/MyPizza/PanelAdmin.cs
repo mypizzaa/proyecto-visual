@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Controlador;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,25 @@ namespace Vista
 {
     public partial class PanelAdmin : Form
     {
+        ControladorProductos cp;
         public PanelAdmin()
         {
+            cp = new ControladorProductos();
             InitializeComponent();
-            welcome();
+
+            if(cp.getConnection() != false)
+            {
+                welcome();
+
+            }else
+            {
+                ErrorServicio es = new ErrorServicio();
+                es.ShowDialog();
+            }
+
+
+
+            
 
         }
 

@@ -27,9 +27,21 @@ namespace Vista
         {
             cp = new ControladorProductos();
             InitializeComponent();
-            loadPizzas();
-            loadIngredientes();
-            loadBebidas();
+
+            Boolean connected = cp.getConnection();
+
+            if (connected != false)
+            {
+
+                loadPizzas();
+                loadIngredientes();
+                loadBebidas();
+
+            }else
+            {
+                ErrorServicio es = new ErrorServicio();
+                es.ShowDialog();
+            }
         }
         
         /// <summary>
@@ -160,8 +172,19 @@ namespace Vista
         //listview ingredeintes
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            String item = listViewIngredientes.Items[0].ToString();
-            MessageBox.Show(item);
+
+            String seleccionado= "";
+          
+            ListView.SelectedListViewItemCollection listItems =  this.listViewIngredientes.SelectedItems;
+            foreach (ListViewItem item in listItems)
+            {
+              seleccionado = item.Text;
+             
+            }
+
+
+            
+            
         }
                 
 
@@ -257,18 +280,23 @@ namespace Vista
             obs.ShowDialog();
         }
 
+        //menu localizar pedidos
+        //open a new form
         private void lOCALIZARPEDIDOSToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             LocalizadorEnvios le = new LocalizadorEnvios();
             le.ShowDialog();
         }
 
+        //menu close
+        //close the application
         private void iconoCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void bAñadirImagen_Click(object sender, EventArgs e)
+        
+        private void bRealizarPedido_Click(object sender, EventArgs e)
         {
             DetallesPedido dp = new DetallesPedido();
             dp.ShowDialog();

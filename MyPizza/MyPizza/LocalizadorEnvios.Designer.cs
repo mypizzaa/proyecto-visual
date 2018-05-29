@@ -33,17 +33,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.bConfirmar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtIdPedidos = new System.Windows.Forms.TextBox();
+            this.txtDniEmpleado = new System.Windows.Forms.TextBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.bVerTodos = new System.Windows.Forms.Button();
             this.bBuscar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtDniEmpleado = new System.Windows.Forms.TextBox();
             this.listViewPedidos = new System.Windows.Forms.ListView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.bVerTodos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -51,7 +51,7 @@
             // 
             // txtCodigoPedido
             // 
-            this.txtCodigoPedido.Location = new System.Drawing.Point(12, 52);
+            this.txtCodigoPedido.Location = new System.Drawing.Point(34, 52);
             this.txtCodigoPedido.Name = "txtCodigoPedido";
             this.txtCodigoPedido.Size = new System.Drawing.Size(170, 20);
             this.txtCodigoPedido.TabIndex = 6;
@@ -59,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 27);
+            this.label1.Location = new System.Drawing.Point(31, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 13);
             this.label1.TabIndex = 7;
@@ -67,14 +67,15 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.CadetBlue;
             this.panel1.Controls.Add(this.bConfirmar);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtIdPedidos);
             this.panel1.Controls.Add(this.txtDniEmpleado);
             this.panel1.Controls.Add(this.webBrowser1);
-            this.panel1.Location = new System.Drawing.Point(206, 28);
+            this.panel1.Location = new System.Drawing.Point(213, 46);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1148, 670);
+            this.panel1.Size = new System.Drawing.Size(1141, 703);
             this.panel1.TabIndex = 11;
             // 
             // bConfirmar
@@ -90,48 +91,6 @@
             this.bConfirmar.Text = "confirmar";
             this.bConfirmar.UseVisualStyleBackColor = false;
             // 
-            // txtIdPedidos
-            // 
-            this.txtIdPedidos.Location = new System.Drawing.Point(211, 52);
-            this.txtIdPedidos.Name = "txtIdPedidos";
-            this.txtIdPedidos.Size = new System.Drawing.Size(910, 20);
-            this.txtIdPedidos.TabIndex = 10;
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(3, 148);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(1142, 519);
-            this.webBrowser1.TabIndex = 0;
-            this.webBrowser1.Visible = false;
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.bVerTodos);
-            this.panel2.Controls.Add(this.bBuscar);
-            this.panel2.Controls.Add(this.listViewPedidos);
-            this.panel2.Controls.Add(this.txtCodigoPedido);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(0, 28);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(207, 670);
-            this.panel2.TabIndex = 12;
-            // 
-            // bBuscar
-            // 
-            this.bBuscar.BackColor = System.Drawing.Color.Black;
-            this.bBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.bBuscar.Location = new System.Drawing.Point(12, 78);
-            this.bBuscar.Name = "bBuscar";
-            this.bBuscar.Size = new System.Drawing.Size(170, 29);
-            this.bBuscar.TabIndex = 21;
-            this.bBuscar.Text = "buscar";
-            this.bBuscar.UseVisualStyleBackColor = false;
-            this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -141,6 +100,13 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "DNI Repartidor :";
             // 
+            // txtIdPedidos
+            // 
+            this.txtIdPedidos.Location = new System.Drawing.Point(211, 52);
+            this.txtIdPedidos.Name = "txtIdPedidos";
+            this.txtIdPedidos.Size = new System.Drawing.Size(910, 20);
+            this.txtIdPedidos.TabIndex = 10;
+            // 
             // txtDniEmpleado
             // 
             this.txtDniEmpleado.Location = new System.Drawing.Point(22, 52);
@@ -148,9 +114,60 @@
             this.txtDniEmpleado.Size = new System.Drawing.Size(170, 20);
             this.txtDniEmpleado.TabIndex = 9;
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(22, 148);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(1099, 519);
+            this.webBrowser1.TabIndex = 0;
+            this.webBrowser1.Visible = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel2.Controls.Add(this.bVerTodos);
+            this.panel2.Controls.Add(this.bBuscar);
+            this.panel2.Controls.Add(this.listViewPedidos);
+            this.panel2.Controls.Add(this.txtCodigoPedido);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(0, 46);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(207, 703);
+            this.panel2.TabIndex = 12;
+            // 
+            // bVerTodos
+            // 
+            this.bVerTodos.BackColor = System.Drawing.Color.Black;
+            this.bVerTodos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bVerTodos.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bVerTodos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bVerTodos.Location = new System.Drawing.Point(34, 113);
+            this.bVerTodos.Name = "bVerTodos";
+            this.bVerTodos.Size = new System.Drawing.Size(170, 29);
+            this.bVerTodos.TabIndex = 22;
+            this.bVerTodos.Text = "ver todos los pedidos";
+            this.bVerTodos.UseVisualStyleBackColor = false;
+            this.bVerTodos.Visible = false;
+            this.bVerTodos.Click += new System.EventHandler(this.bVerTodos_Click);
+            // 
+            // bBuscar
+            // 
+            this.bBuscar.BackColor = System.Drawing.Color.Black;
+            this.bBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bBuscar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bBuscar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bBuscar.Location = new System.Drawing.Point(34, 78);
+            this.bBuscar.Name = "bBuscar";
+            this.bBuscar.Size = new System.Drawing.Size(170, 29);
+            this.bBuscar.TabIndex = 21;
+            this.bBuscar.Text = "buscar";
+            this.bBuscar.UseVisualStyleBackColor = false;
+            this.bBuscar.Click += new System.EventHandler(this.bBuscar_Click);
+            // 
             // listViewPedidos
             // 
-            this.listViewPedidos.Location = new System.Drawing.Point(12, 148);
+            this.listViewPedidos.Location = new System.Drawing.Point(31, 148);
             this.listViewPedidos.Name = "listViewPedidos";
             this.listViewPedidos.Size = new System.Drawing.Size(173, 522);
             this.listViewPedidos.TabIndex = 1;
@@ -167,6 +184,7 @@
             this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStrip1.Size = new System.Drawing.Size(1354, 25);
             this.toolStrip1.TabIndex = 13;
             this.toolStrip1.Text = "toolStrip1";
@@ -192,25 +210,11 @@
             this.toolStripButton2.Text = "Salir";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // bVerTodos
-            // 
-            this.bVerTodos.BackColor = System.Drawing.Color.Black;
-            this.bVerTodos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bVerTodos.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bVerTodos.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.bVerTodos.Location = new System.Drawing.Point(12, 113);
-            this.bVerTodos.Name = "bVerTodos";
-            this.bVerTodos.Size = new System.Drawing.Size(170, 29);
-            this.bVerTodos.TabIndex = 22;
-            this.bVerTodos.Text = "ver todos los pedidos";
-            this.bVerTodos.UseVisualStyleBackColor = false;
-            this.bVerTodos.Visible = false;
-            this.bVerTodos.Click += new System.EventHandler(this.bVerTodos_Click);
-            // 
             // LocalizadorEnvios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1354, 752);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel2);

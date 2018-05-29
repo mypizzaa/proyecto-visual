@@ -14,40 +14,67 @@ namespace Controlador
     {
 
         private String servidor;
+        
 
         public ControladorProductos()
         {
-             servidor = "http://localhost:8080";
+            servidor = "http://localhost:8080";
         }
 
-        // Lista todas las pizzas 
-        // return null si no hay o si falla el servicio sino devuelve una lista de pizzas
-        public List<Pizza> listarPizzas()
+        public Boolean getConnection()
         {
-            List<Pizza> listaPizzas;
-
+            Boolean connection = true;
             try
             {
                 using (WebClient wc = new WebClient())
                 {
                     wc.Encoding = System.Text.Encoding.UTF8;
-                    String json = wc.DownloadString(servidor+"/ServicioMyPizza/servicios/WSProducto/pizzas");
-                    
-                    listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
+                    String json = wc.DownloadString(servidor + "/ServicioMyPizza/servicios/WSProducto/pizzas");
 
+                    List<Pizza> listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
+                    if(listaPizzas == null)
+                    {
+                        connection = false;
+                    }
                 }
             }
             catch (System.Net.WebException swe)
             {
-                listaPizzas = null;
+                connection = false;
             }
-          
+
+            return connection;
+        }
+
+
+        // this method call the service method listall and list all pizzas
+        // return null if not found else return list of pizzas
+        public List<Pizza> listarPizzas()
+        {
+            List<Pizza> listaPizzas = null;
+
+                try
+                {
+                    using (WebClient wc = new WebClient())
+                    {
+                        wc.Encoding = System.Text.Encoding.UTF8;
+                        String json = wc.DownloadString(servidor + "/ServicioMyPizza/servicios/WSProducto/pizzas");
+
+                        listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
+
+                    }
+                }
+                catch (System.Net.WebException swe)
+                {
+                    listaPizzas = null;
+                }
+
 
             return listaPizzas;
         }
-         
-        //Lista todos los ingredientes
-        //return null si no hay o si falla el servicio sino devuelve una lista de ingredientes       
+
+        //this method call the service method listall and lista all ingredients
+        //return null if not found else return list of ingredients      
         public List<Ingrediente> listarIngredientes()
         {
 
@@ -83,7 +110,7 @@ namespace Controlador
             using (WebClient wc = new WebClient())
             {
                 wc.Encoding = System.Text.Encoding.UTF8;
-                String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSProducto/bebidas");
+                String json = wc.DownloadString(servidor+"/ServicioMyPizza/servicios/WSProducto/bebidas");
                 listaBebidas = JsonConvert.DeserializeObject<List<Refresco>>(json);
 
             }
@@ -104,7 +131,7 @@ namespace Controlador
                 using (WebClient wc = new WebClient())
                 {
                     wc.Encoding = System.Text.Encoding.UTF8;
-                    String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSProducto/pizzas");
+                    String json = wc.DownloadString(servidor+"/ServicioMyPizza/servicios/WSProducto/pizzas");
                     listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
 
                     foreach (Pizza p in listaPizzas)
@@ -130,7 +157,7 @@ namespace Controlador
             using (WebClient wc = new WebClient())
             {
                 wc.Encoding = System.Text.Encoding.UTF8;
-                String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSProducto/bebidas");
+                String json = wc.DownloadString(servidor+"/ServicioMyPizza/servicios/WSProducto/bebidas");
                 listaBebidas = JsonConvert.DeserializeObject<List<Refresco>>(json);
 
                 foreach (Refresco refresco in listaBebidas)
@@ -151,7 +178,7 @@ namespace Controlador
             using (WebClient wc = new WebClient())
             {
                 wc.Encoding = System.Text.Encoding.UTF8;
-                String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSProducto/ingredientespizza/"+idPizza);
+                String json = wc.DownloadString(servidor+"/ServicioMyPizza/servicios/WSProducto/ingredientespizza/" +idPizza);
                 listaIngredientes = JsonConvert.DeserializeObject<List<Ingrediente>>(json);
 
             }

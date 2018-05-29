@@ -12,12 +12,16 @@ namespace Controlador
 {
     public class ControladorPedidos
     {
+        private String servidor;
 
         public ControladorPedidos()
         {
+            servidor = "http://localhost:8080";
             
         } 
 
+        //this method call the service method listall
+        //return null if not found or list pedidoInfo
         public List<PedidoInfo> listarPedidos()
         {
             List<PedidoInfo> listaPedidosInfo = new List<PedidoInfo>();
@@ -25,7 +29,7 @@ namespace Controlador
             using (WebClient wc = new WebClient())
             {
                 wc.Encoding = System.Text.Encoding.UTF8;
-                String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSPedido/listall");
+                String json = wc.DownloadString(servidor+"/ServicioMyPizza/servicios/WSPedido/listall");
                 listaPedidosInfo = JsonConvert.DeserializeObject<List<PedidoInfo>>(json);
                 Console.WriteLine(json);
                 foreach (PedidoInfo p in listaPedidosInfo)

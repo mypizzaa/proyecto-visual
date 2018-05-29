@@ -12,11 +12,12 @@ namespace Controlador
 {
     public class ControladorLogin
     {
+        private String servidor;
 
        
         public ControladorLogin()
         {
-
+            servidor = "http://localhost:8080";
         }
 
         public async Task<Usuario> login(String correo, String password)
@@ -33,7 +34,7 @@ namespace Controlador
 
                     var content = new FormUrlEncodedContent(values);
 
-                    var response = await client.PostAsync("http://localhost:8080/ServicioMyPizza/servicios/WSLogin/login", content);
+                    var response = await client.PostAsync(servidor+"/ServicioMyPizza/servicios/WSLogin/login", content);
 
                     var json = await response.Content.ReadAsStringAsync();
                     Console.WriteLine(json);
@@ -42,11 +43,7 @@ namespace Controlador
                         u = JsonConvert.DeserializeObject<Usuario>(json);
                         Console.Write(u.toString());
                     }
-
                 }
-            
-
-            
        
             return u;
         }

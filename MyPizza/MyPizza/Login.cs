@@ -98,7 +98,7 @@ namespace Vista
         //Boton para logearse
         private async void bAcceder_Click(object sender, EventArgs e)
         {
-            SelectorPizzas sp = new SelectorPizzas();
+            PanelAdmin sp = new PanelAdmin();
             sp.ShowDialog();
             this.Close();
             //String correo = txtCorreo.Text;

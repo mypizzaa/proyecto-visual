@@ -39,7 +39,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.panelPizzas = new System.Windows.Forms.Panel();
-            this.bAñadirImagen = new System.Windows.Forms.Button();
+            this.bRealizarPedido = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.bObservaciones = new System.Windows.Forms.Button();
             this.bQuitar = new System.Windows.Forms.Button();
@@ -150,20 +150,20 @@
             this.panelPizzas.Size = new System.Drawing.Size(845, 477);
             this.panelPizzas.TabIndex = 38;
             // 
-            // bAñadirImagen
+            // bRealizarPedido
             // 
-            this.bAñadirImagen.BackColor = System.Drawing.Color.Black;
-            this.bAñadirImagen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.bAñadirImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bAñadirImagen.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bAñadirImagen.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.bAñadirImagen.Location = new System.Drawing.Point(1144, 583);
-            this.bAñadirImagen.Name = "bAñadirImagen";
-            this.bAñadirImagen.Size = new System.Drawing.Size(192, 67);
-            this.bAñadirImagen.TabIndex = 39;
-            this.bAñadirImagen.Text = "Realizar pedido";
-            this.bAñadirImagen.UseVisualStyleBackColor = true;
-            this.bAñadirImagen.Click += new System.EventHandler(this.bAñadirImagen_Click);
+            this.bRealizarPedido.BackColor = System.Drawing.Color.Black;
+            this.bRealizarPedido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.bRealizarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bRealizarPedido.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bRealizarPedido.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bRealizarPedido.Location = new System.Drawing.Point(1144, 583);
+            this.bRealizarPedido.Name = "bRealizarPedido";
+            this.bRealizarPedido.Size = new System.Drawing.Size(192, 67);
+            this.bRealizarPedido.TabIndex = 39;
+            this.bRealizarPedido.Text = "Realizar pedido";
+            this.bRealizarPedido.UseVisualStyleBackColor = true;
+            this.bRealizarPedido.Click += new System.EventHandler(this.bRealizarPedido_Click);
             // 
             // button1
             // 
@@ -274,7 +274,7 @@
             this.Controls.Add(this.bQuitar);
             this.Controls.Add(this.bObservaciones);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.bAñadirImagen);
+            this.Controls.Add(this.bRealizarPedido);
             this.Controls.Add(this.panelPizzas);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -306,7 +306,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panelPizzas;
-        private System.Windows.Forms.Button bAñadirImagen;
+        private System.Windows.Forms.Button bRealizarPedido;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button bObservaciones;
         private System.Windows.Forms.Button bQuitar;
