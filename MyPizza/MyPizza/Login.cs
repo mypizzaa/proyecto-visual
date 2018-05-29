@@ -20,18 +20,19 @@ namespace Vista
 {
     public partial class Login : Form
     {
-                
+        private ControladorLogin cl;        
+
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wsmg, int wparam, int lparam);
 
-        private Controlador.ControladorProductos controllerProd;
-
+     
         public Login()
         {
-             InitializeComponent();
+            cl = new ControladorLogin();              
+            InitializeComponent();
            
         }
                 
@@ -81,6 +82,7 @@ namespace Vista
             }
         }
 
+
         private void Login_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -96,24 +98,26 @@ namespace Vista
         //Boton para logearse
         private async void bAcceder_Click(object sender, EventArgs e)
         {
-            String correo = txtCorreo.Text;
-            String password = txtPassword.Text;
+            SelectorPizzas sp = new SelectorPizzas();
+            sp.ShowDialog();
+            this.Close();
+            //String correo = txtCorreo.Text;
+            //String password = txtPassword.Text;
 
-            if (correo != null && password != null)
-            {
+            //if (correo != null && password != null)
+            //{
 
-                ControladorLogin cl = new ControladorLogin();
-                Usuario u = await cl.login(correo, password);
+            //    Usuario u = await cl.login(correo, password);
 
-                if(u != null)
-                {
-                    saberRolUsuario(u);
-                }else
-                {
-                    MessageBox.Show("Usuario o contraseña incorrectos.","Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            //    if(u != null)
+            //    {
+            //        saberRolUsuario(u);
+            //    }else
+            //    {
+            //        MessageBox.Show("Usuario o contraseña incorrectos.","Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
 
-            }
+            //}
 
         }
 
@@ -126,12 +130,14 @@ namespace Vista
                 case "admin":
                     PanelAdmin pa = new PanelAdmin();
                     pa.ShowDialog();
+                    this.Close();
 
                     break;
 
                 case "empleado":
                     SelectorPizzas sp = new SelectorPizzas();
                     sp.ShowDialog();
+                    this.Close();
 
                     break;
                 case "cliente":

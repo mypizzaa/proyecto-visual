@@ -11,61 +11,67 @@ namespace Modelo
 
         private long id_pedido;
         private long id_pedido_info;
-        private long id_producto;
+        private Producto producto;
         private String observaciones;
-        private long id_cliente;
+        private int cantidad;
+        private double precio;
 
-        //Construcor
-        public Pedido(long id_pedido, long id_pedido_info, long id_producto, String observaciones, long id_cliente)
+        public Pedido(long id_pedido, long id_pedido_info, Producto producto, String observaciones, int cantidad, double precio)
         {
             this.id_pedido = id_pedido;
             this.id_pedido_info = id_pedido_info;
-            this.id_producto = id_producto;
+            this.producto = producto;
             this.observaciones = observaciones;
-            this.id_cliente = id_cliente;
+            this.cantidad = cantidad;
+            this.precio = precio;
         }
 
-        //Getters
-        public long getIdPedido()
+
+        public Pedido(Producto producto, String observaciones, int cantidad, double precio)
         {
-            return this.id_pedido;
+            this.producto = producto;
+            this.observaciones = observaciones;
+            this.cantidad = cantidad;
+            this.precio = precio;
         }
 
-        public long getIdPedidoInfo()
+        public Pedido()
         {
-            return this.id_pedido_info;
         }
 
-        public long getIdProducto()
+        public long getId_pedido()
         {
-            return this.id_producto;
+            return id_pedido;
         }
 
-        public string getObservaciones()
+        public void setId_pedido(long id_pedido)
         {
-            return this.observaciones;
+            this.id_pedido = id_pedido;
         }
 
-        public long getIdCliente()
+        public long getId_pedido_info()
         {
-            return this.id_cliente;
+            return id_pedido_info;
         }
 
-        //Setters
-
-        public void setIdPedido(long idPedido)
+        public void setId_pedido_info(long id_pedido_info)
         {
-            this.id_pedido = idPedido;
+            this.id_pedido_info = id_pedido_info;
         }
 
-        public void setIdPedidoInfo(long idPedidoInfo)
+        public Producto getProducto()
         {
-            this.id_pedido = idPedidoInfo;
+            return producto;
         }
 
-        public void setIdProducto(long idProd)
+        public void setProducto(Producto producto)
         {
-            this.id_producto = idProd;
+            this.producto = producto;
+        }
+
+        public String getObservaciones()
+        {
+            return observaciones;
         }
 
         public void setObservaciones(String observaciones)
@@ -73,25 +79,29 @@ namespace Modelo
             this.observaciones = observaciones;
         }
 
-        public void setIdCliente(long idCliente)
+        public int getCantidad()
         {
-            this.id_cliente = idCliente;
+            return cantidad;
         }
 
-
-        //toString
-        public String ToString()
+        public void setCantidad(int cantidad)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append("Pedido [ ");
-            sb.Append(" id_pedido = " + id_pedido);
-            sb.Append(", id_pedido_info = " + id_pedido_info);
-            sb.Append(", id_producto = " + id_producto);
-            sb.Append(", Observaciones = " + observaciones);
-            sb.Append(", id_cliente = " + id_cliente);
-            sb.Append(" ]");
+            this.cantidad = cantidad;
+        }
 
-            return sb.ToString();
+        public double getPrecio()
+        {
+            return precio;
+        }
+
+        public void setPrecio(double precio)
+        {
+            this.precio = precio;
+        }
+
+        public String toString()
+        {
+            return "Pedido{" + "id_pedido=" + id_pedido + ", id_pedido_info=" + id_pedido_info + ", Producto=" + producto + ", observaciones=" + observaciones + ", cantidad=" + cantidad + ", precio=" + precio + '}';
         }
 
 

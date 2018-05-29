@@ -11,7 +11,7 @@ namespace Modelo
         private long id_refresco;
 
 
-        //Construcor
+        //Constructor
         public Refresco(long id_prod, string nombre, double precio, string img, long id_tip, long id_refresco) : base(id_prod, nombre, precio, img, id_tip)
         {
             this.id_refresco = id_refresco;

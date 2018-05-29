@@ -13,6 +13,7 @@ namespace Controlador
     public class ControladorLogin
     {
 
+       
         public ControladorLogin()
         {
 
@@ -20,33 +21,35 @@ namespace Controlador
 
         public async Task<Usuario> login(String correo, String password)
         {
-
             Usuario u = null;
-            using (HttpClient client = new HttpClient())
-            {
-                var values = new Dictionary<String, String>
+            
+                using (HttpClient client = new HttpClient())
+                {
+                    var values = new Dictionary<String, String>
                     {
                         {"correo",correo },
                         {"password",password}
                     };
 
-                var content = new FormUrlEncodedContent(values);
+                    var content = new FormUrlEncodedContent(values);
 
-                var response = await client.PostAsync("http://localhost:8080/ServicioMyPizza/servicios/WSLogin/login", content);
+                    var response = await client.PostAsync("http://localhost:8080/ServicioMyPizza/servicios/WSLogin/login", content);
 
-                var json = await response.Content.ReadAsStringAsync();
+                    var json = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine(json);
+                    if (json != null)
+                    {
+                        u = JsonConvert.DeserializeObject<Usuario>(json);
+                        Console.Write(u.toString());
+                    }
 
-                if (json != null)
-                {
-                          u = JsonConvert.DeserializeObject<Usuario>(json);
-                   
                 }
+            
 
-            }
-
+            
+       
             return u;
         }
-
 
 
 

@@ -53,6 +53,7 @@
     <Compile Include="Factura.cs" />
     <Compile Include="MetodoPago.cs" />
     <Compile Include="Pedido.cs" />
+    <Compile Include="PedidoInfo.cs" />
     <Compile Include="Pizza.cs" />
     <Compile Include="Ingrediente.cs" />
     <Compile Include="Producto.cs" />

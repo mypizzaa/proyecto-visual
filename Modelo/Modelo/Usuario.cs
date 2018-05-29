@@ -8,24 +8,20 @@ namespace Modelo
 {
     public class Usuario
     {
-        public long id_usuario;
-        public String dni;
-        public String nombre;
-        public String apellidos;
-        public String password;
-        public String imagen;
-        public String tipo_Usuario;
-        public String correo;
-        public int activo;
+        private long id_usuario;
+        private String dni;
+        private String nombre;
+        private String apellidos;
+        private String password;
+        private String imagen;
+        private String tipo_Usuario;
+        private String correo;
+        private int activo;
 
         //Constructor
-        public Usuario()
+        public Usuario(long id_usuario, String dni, String nombre, String apellidos, String password, String imagen, String tipo_Usuario, String correo, int activo)
         {
-
-        }
-        public Usuario(long id, String dni, String nombre, String apellidos, String password, String imagen, String tipo_Usuario, String correo, int activo)
-        {
-            this.id_usuario = id;
+            this.id_usuario = id_usuario;
             this.dni = dni;
             this.nombre = nombre;
             this.apellidos = apellidos;
@@ -36,9 +32,27 @@ namespace Modelo
             this.activo = activo;
         }
 
-        public Usuario(long id, String dni, String nombre, String apellidos, String password, String imagen, String tipo_Usuario, String correo)
+        public Usuario(long id_usuario, String dni, String nombre, String apellidos, String password, String imagen, String tipo_Usuario, String correo)
         {
-            this.id_usuario = id;
+            this.id_usuario = id_usuario;
+            this.dni = dni;
+            this.nombre = nombre;
+            this.apellidos = apellidos;
+            this.password = password;
+            this.imagen = imagen;
+            this.tipo_Usuario = tipo_Usuario;
+            this.correo = correo;
+        }
+        
+        public Usuario(String dni, String password)
+        {
+            this.dni = dni;
+            this.password = password;
+        }
+
+
+        public Usuario(String dni, String nombre, String apellidos, String password, String imagen, String tipo_Usuario, String correo)
+        {
             this.dni = dni;
             this.nombre = nombre;
             this.apellidos = apellidos;
@@ -48,15 +62,16 @@ namespace Modelo
             this.correo = correo;
         }
 
-        
-
-        public Usuario(string correo, string password)
+        public Usuario(String dni)
         {
-            this.correo = correo;
-            this.password = password;
+            this.dni = dni;
         }
 
-        public Usuario() { }
+        public Usuario()
+        {
+
+        }
+        //--------------------------------------------------------------------------
 
         //Getters
         public long getIdUsuario()
@@ -104,7 +119,6 @@ namespace Modelo
             return activo;
         }
 
-
         //Setters
         public void setIdUsuario(long idUsuario)
         {
@@ -121,7 +135,7 @@ namespace Modelo
             this.nombre = nombre;
         }
 
-        public  void setApellidos(String apellidos)
+        public void setApellidos(String apellidos)
         {
             this.apellidos = apellidos;
         }
@@ -145,12 +159,15 @@ namespace Modelo
         {
             this.correo = correo;
         }
+
         public void setActivo(int activo)
         {
             this.activo = activo;
         }
 
+
         //toString
+        
         public String toString()
         {
 
@@ -166,7 +183,7 @@ namespace Modelo
             sb.Append(", correo = " + correo);
             sb.Append(", activo = " + activo);
             sb.Append(" ]");
-            
+
             return sb.ToString();
         }
 

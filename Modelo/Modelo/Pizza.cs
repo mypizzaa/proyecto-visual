@@ -32,21 +32,14 @@ namespace Modelo
         //ToString
         public String toString()
         {
-
             StringBuilder sb = new StringBuilder();
+            sb.Append(base.ToString());
             sb.Append("id_pizza = "+id_pizza);
 
             return sb.ToString();
            
         }
 
-        public Pizza toJson(string json) {
-            Pizza p = null;
-
-            p = JsonConvert.DeserializeObject<Pizza>(json);
-
-            return p;
-        }
 
 
     }

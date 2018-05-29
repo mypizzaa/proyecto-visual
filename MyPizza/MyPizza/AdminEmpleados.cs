@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controlador;
+using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,26 @@ namespace Vista
 {
     public partial class AdminEmpleados : Form
     {
+
+
+        private ControladorEmpleados ce;
+        
+
         public AdminEmpleados()
         {
+            ce = new ControladorEmpleados();
             InitializeComponent();
+            cargarListViewEmpleados();
+        }
+
+        private void cargarListViewEmpleados()
+        {
+            List<Empleado> lista = ce.listarEmpleados();
+            foreach(Empleado e in lista)
+            {
+                listViewEmpleados.Items.Add(e.getDni());
+            }
+
         }
 
         private void bAñadirImagen_Click(object sender, EventArgs e)
@@ -37,5 +56,32 @@ namespace Vista
                 }
             }
         }
+
+        private void listViewEmpleados_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (listViewEmpleados.SelectedItems.Count > 0)
+            {
+
+                ListViewItem listItem = listViewEmpleados.SelectedItems[0];
+                String dni = listItem.Text;
+
+                Empleado empleado = ce.buscarEmpleado(dni);
+                rellenarFomrularioEmpleado(empleado);
+        
+            }
+
+        }
+
+        public void rellenarFomrularioEmpleado(Empleado empleado)
+        {
+            txtNombre.Text = empleado.getNombre();
+            txtApellidos.Text = empleado.getApellidos();
+            txtDni.Text = empleado.getDni();
+            txtCorreo.Text = empleado.getCorreo();
+            txtHorasSemanales.Text = empleado.getHorasSemanales().ToString();
+        }
+
+
     }
 }

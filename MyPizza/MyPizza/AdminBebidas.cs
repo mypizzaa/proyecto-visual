@@ -63,6 +63,24 @@ namespace Vista
                 }
             }
         }
+
+        private void listViewBebidas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listViewBebidas.SelectedItems.Count > 0)
+            {
+                ListViewItem listItem = listViewBebidas.SelectedItems[0];
+                String nombreBebida = listItem.Text;
+                txtBebida.Text = nombreBebida;
+
+                Refresco r = cp.listarUnRefresco(nombreBebida);
+                txtPrecio.Text = r.getPrecio().ToString();
+
+                String pathImage = r.getImagen();
+                pictureBox1.ImageLocation = "http://provenapps.cat/~dam1804/Images/bebidas/" + pathImage;
+
+
+            }
+        }
     }
     
 }

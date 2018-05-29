@@ -31,9 +31,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBebida = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -87,12 +87,12 @@
             this.button1.Text = "GUARDAR";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // txtPrecio
             // 
-            this.textBox2.Location = new System.Drawing.Point(342, 187);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(221, 20);
-            this.textBox2.TabIndex = 19;
+            this.txtPrecio.Location = new System.Drawing.Point(342, 187);
+            this.txtPrecio.Name = "txtPrecio";
+            this.txtPrecio.Size = new System.Drawing.Size(221, 20);
+            this.txtPrecio.TabIndex = 19;
             // 
             // label4
             // 
@@ -104,12 +104,12 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "Precio:";
             // 
-            // textBox1
+            // txtBebida
             // 
-            this.textBox1.Location = new System.Drawing.Point(342, 128);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(221, 20);
-            this.textBox1.TabIndex = 17;
+            this.txtBebida.Location = new System.Drawing.Point(342, 128);
+            this.txtBebida.Name = "txtBebida";
+            this.txtBebida.Size = new System.Drawing.Size(221, 20);
+            this.txtBebida.TabIndex = 17;
             // 
             // label3
             // 
@@ -155,6 +155,7 @@
             this.listViewBebidas.TabIndex = 13;
             this.listViewBebidas.UseCompatibleStateImageBehavior = false;
             this.listViewBebidas.View = System.Windows.Forms.View.Tile;
+            this.listViewBebidas.SelectedIndexChanged += new System.EventHandler(this.listViewBebidas_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -225,9 +226,9 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBebida);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -248,9 +249,9 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBebida;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;

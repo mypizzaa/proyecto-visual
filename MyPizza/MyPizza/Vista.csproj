@@ -94,6 +94,18 @@
     <Compile Include="AdminVentas.Designer.cs">
       <DependentUpon>AdminVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuscarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarCliente.Designer.cs">
+      <DependentUpon>BuscarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetallesPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetallesPedido.Designer.cs">
+      <DependentUpon>DetallesPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="LocalizadorEnvios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,12 +117,6 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NuevoPedido.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="NuevoPedido.Designer.cs">
-      <DependentUpon>NuevoPedido.cs</DependentUpon>
     </Compile>
     <Compile Include="Observaciones.cs">
       <SubType>Form</SubType>
@@ -155,14 +161,17 @@
     <EmbeddedResource Include="AdminVentas.resx">
       <DependentUpon>AdminVentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BuscarCliente.resx">
+      <DependentUpon>BuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetallesPedido.resx">
+      <DependentUpon>DetallesPedido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LocalizadorEnvios.resx">
       <DependentUpon>LocalizadorEnvios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NuevoPedido.resx">
-      <DependentUpon>NuevoPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Observaciones.resx">
       <DependentUpon>Observaciones.cs</DependentUpon>
@@ -177,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SelectorPizzas.resx">
       <DependentUpon>SelectorPizzas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Welcome.resx">
+      <DependentUpon>Welcome.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -215,52 +227,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FondoLogin.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Champiñones.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\bbq.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\hawaiana.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\atun.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\burger.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\4quesos.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\cebolla.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\kebab.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\salami.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\delaterra.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\doble.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\amstel1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Mahou.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\mypizza.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\fondopizza.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\close.png" />

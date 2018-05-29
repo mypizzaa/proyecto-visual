@@ -171,7 +171,6 @@
             // 
             // bSalir
             // 
-            this.bSalir.Image = global::Vista.Properties.Resources.closeButton;
             this.bSalir.Location = new System.Drawing.Point(501, 3);
             this.bSalir.Name = "bSalir";
             this.bSalir.Size = new System.Drawing.Size(16, 16);

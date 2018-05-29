@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelAdmin));
             this.menuVertical = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -145,6 +146,7 @@
             // 
             // panelTitulo
             // 
+            this.panelTitulo.BackColor = System.Drawing.Color.Black;
             this.panelTitulo.Controls.Add(this.iconoRestaurar);
             this.panelTitulo.Controls.Add(this.iconoMini);
             this.panelTitulo.Controls.Add(this.iconoMaxi);
@@ -153,14 +155,13 @@
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitulo.Location = new System.Drawing.Point(188, 0);
             this.panelTitulo.Name = "panelTitulo";
-            this.panelTitulo.Size = new System.Drawing.Size(1198, 50);
+            this.panelTitulo.Size = new System.Drawing.Size(1198, 31);
             this.panelTitulo.TabIndex = 1;
             // 
             // iconoRestaurar
             // 
             this.iconoRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconoRestaurar.Image = global::Vista.Properties.Resources.icon_restaurar;
-            this.iconoRestaurar.Location = new System.Drawing.Point(1140, 12);
+            this.iconoRestaurar.Location = new System.Drawing.Point(1140, 5);
             this.iconoRestaurar.Name = "iconoRestaurar";
             this.iconoRestaurar.Size = new System.Drawing.Size(20, 20);
             this.iconoRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -172,8 +173,7 @@
             // iconoMini
             // 
             this.iconoMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconoMini.Image = global::Vista.Properties.Resources.icon_minimizar;
-            this.iconoMini.Location = new System.Drawing.Point(1114, 12);
+            this.iconoMini.Location = new System.Drawing.Point(1114, 5);
             this.iconoMini.Name = "iconoMini";
             this.iconoMini.Size = new System.Drawing.Size(20, 20);
             this.iconoMini.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -184,8 +184,7 @@
             // iconoMaxi
             // 
             this.iconoMaxi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconoMaxi.Image = global::Vista.Properties.Resources.icon_maximizar;
-            this.iconoMaxi.Location = new System.Drawing.Point(1140, 12);
+            this.iconoMaxi.Location = new System.Drawing.Point(1140, 5);
             this.iconoMaxi.Name = "iconoMaxi";
             this.iconoMaxi.Size = new System.Drawing.Size(20, 20);
             this.iconoMaxi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -196,8 +195,8 @@
             // iconoCerrar
             // 
             this.iconoCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconoCerrar.Image = global::Vista.Properties.Resources.icon_cerrar2;
-            this.iconoCerrar.Location = new System.Drawing.Point(1166, 12);
+            this.iconoCerrar.Image = ((System.Drawing.Image)(resources.GetObject("iconoCerrar.Image")));
+            this.iconoCerrar.Location = new System.Drawing.Point(1166, 5);
             this.iconoCerrar.Name = "iconoCerrar";
             this.iconoCerrar.Size = new System.Drawing.Size(20, 20);
             this.iconoCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -208,10 +207,10 @@
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::Vista.Properties.Resources.menu;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 9);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(6, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(35, 35);
+            this.pictureBox1.Size = new System.Drawing.Size(27, 26);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -220,9 +219,9 @@
             // panelContenedor
             // 
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(188, 50);
+            this.panelContenedor.Location = new System.Drawing.Point(188, 31);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1198, 738);
+            this.panelContenedor.Size = new System.Drawing.Size(1198, 757);
             this.panelContenedor.TabIndex = 2;
             // 
             // PanelAdmin

@@ -15,12 +15,14 @@ namespace Modelo
         private String poblacion;
         private String codigoPostal;
 
-        public Cliente(long id_usuario, string dni, string nombre, string apellidos, string password, string imagen, string tipo_Usuario, string correo,long id_cliente,string primeraDireccion, string segundaDireccion,String telefono) : base(id_usuario, dni, nombre, apellidos, password, imagen, tipo_Usuario, correo)
+        public Cliente(long id_usuario, string dni, string nombre, string apellidos, string password, string imagen, string tipo_Usuario, string correo,long id_cliente,string primeraDireccion, string segundaDireccion,String telefono,String poblacion, String codigoPostal) : base(id_usuario, dni, nombre, apellidos, password, imagen, tipo_Usuario, correo)
         {
             this.id_cliente = id_cliente;
             this.primeraDireccion = primeraDireccion;
             this.segundaDireccion = segundaDireccion;
-            this.telefono = telefono; 
+            this.telefono = telefono;
+            this.poblacion = poblacion;
+            this.codigoPostal = codigoPostal;
         }
 
         //getters
@@ -38,9 +40,20 @@ namespace Modelo
         {
             return this.segundaDireccion;
         }
+
         public String getTelefono()
         {
             return this.telefono;
+        }
+
+        public String getPoblacion()
+        {
+            return this.poblacion;
+        }
+
+        public String getCodigoPostal()
+        {
+            return this.codigoPostal;
         }
 
         //setters
@@ -63,6 +76,17 @@ namespace Modelo
         {
             this.telefono = telefono;
         }
+
+        public void setPoblacion(String poblacion)
+        {
+            this.poblacion = poblacion;
+        }
+
+        public void setCodigoPostal(String codigop)
+        {
+            this.codigoPostal = codigop;
+        }
+
 
         //toString
         public String toString()

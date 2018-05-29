@@ -15,7 +15,17 @@ namespace Vista
         public PanelAdmin()
         {
             InitializeComponent();
+            welcome();
+
         }
+
+        public void welcome()
+        {
+            Welcome w = new Welcome();
+            AbrirPanel(w);
+        }
+
+
 
         //Menu burger
         private void pictureBox1_Click(object sender, EventArgs e)

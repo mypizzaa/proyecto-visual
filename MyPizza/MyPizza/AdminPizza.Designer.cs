@@ -46,6 +46,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.bModificar = new System.Windows.Forms.Button();
             this.bEliminar = new System.Windows.Forms.Button();
+            this.bNueva = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,6 +132,8 @@
             this.bAdd.TabIndex = 10;
             this.bAdd.Text = "AÑADIR";
             this.bAdd.UseVisualStyleBackColor = false;
+            this.bAdd.Visible = false;
+            this.bAdd.Click += new System.EventHandler(this.bAdd_Click);
             // 
             // groupBoxIngredientes
             // 
@@ -138,7 +141,7 @@
             this.groupBoxIngredientes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxIngredientes.Location = new System.Drawing.Point(137, 317);
             this.groupBoxIngredientes.Name = "groupBoxIngredientes";
-            this.groupBoxIngredientes.Size = new System.Drawing.Size(554, 232);
+            this.groupBoxIngredientes.Size = new System.Drawing.Size(554, 247);
             this.groupBoxIngredientes.TabIndex = 11;
             this.groupBoxIngredientes.TabStop = false;
             this.groupBoxIngredientes.Text = "INGREDIENTES";
@@ -240,6 +243,21 @@
             this.bEliminar.Text = "ELIMINAR";
             this.bEliminar.UseVisualStyleBackColor = false;
             // 
+            // bNueva
+            // 
+            this.bNueva.BackColor = System.Drawing.Color.Black;
+            this.bNueva.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.bNueva.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bNueva.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bNueva.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bNueva.Location = new System.Drawing.Point(601, 601);
+            this.bNueva.Name = "bNueva";
+            this.bNueva.Size = new System.Drawing.Size(90, 40);
+            this.bNueva.TabIndex = 31;
+            this.bNueva.Text = "NUEVA";
+            this.bNueva.UseVisualStyleBackColor = false;
+            this.bNueva.Click += new System.EventHandler(this.bNueva_Click);
+            // 
             // AdminPizza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -247,6 +265,7 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1136, 738);
+            this.Controls.Add(this.bNueva);
             this.Controls.Add(this.bEliminar);
             this.Controls.Add(this.bModificar);
             this.Controls.Add(this.bAñadirImagen);
@@ -294,5 +313,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button bModificar;
         private System.Windows.Forms.Button bEliminar;
+        private System.Windows.Forms.Button bNueva;
     }
 }

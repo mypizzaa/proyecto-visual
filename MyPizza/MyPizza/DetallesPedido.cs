@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class NuevoPedido : Form
+    public partial class DetallesPedido : Form
     {
-        public NuevoPedido()
+        public DetallesPedido()
         {
             InitializeComponent();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

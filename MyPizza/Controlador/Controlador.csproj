@@ -48,7 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControladorEmpleados.cs" />
     <Compile Include="ControladorLogin.cs" />
+    <Compile Include="ControladorPedidos.cs" />
     <Compile Include="ControladorProductos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
