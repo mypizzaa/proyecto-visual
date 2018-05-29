@@ -14,10 +14,13 @@ using System.Windows.Forms;
 
 namespace Vista
 {
+      
     public partial class SelectorPizzas : Form
     {
-             
+        
+        
         private ControladorProductos cp;
+        private ControladorPedidos cPed;
 
         private List<Pizza> listaPizzas;
         private List<Object> listaPedido = new List<object>();   
@@ -25,9 +28,11 @@ namespace Vista
 
         public SelectorPizzas()
         {
+           
             cp = new ControladorProductos();
+            cPed = new ControladorPedidos();
             InitializeComponent();
-
+            
             Boolean connected = cp.getConnection();
 
             if (connected != false)
@@ -173,20 +178,34 @@ namespace Vista
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            String seleccionado= "";
-          
-            ListView.SelectedListViewItemCollection listItems =  this.listViewIngredientes.SelectedItems;
-            foreach (ListViewItem item in listItems)
+            try
             {
-              seleccionado = item.Text;
-             
+                String nodeSeleccionado = treeViewPedido.SelectedNode.Text; //pizza selected
+
+                String seleccionado = ""; //ingredient selected
+
+                ListView.SelectedListViewItemCollection listItems = this.listViewIngredientes.SelectedItems;
+
+                foreach (ListViewItem item in listItems)
+                {
+                    seleccionado = item.Text;
+                    treeViewPedido.Nodes[nodeSeleccionado].Nodes.Add(seleccionado);
+                    
+
+                }
             }
-
-
-            
-            
+            catch (System.NullReferenceException snf)
+            {
+                Alert("Porfavor seleccione una pizza","Error");
+            }
+                               
         }
-                
+
+        public void Alert(String mensaje, string titulo)
+        {
+            MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
 
 
 
@@ -201,9 +220,8 @@ namespace Vista
 
             String nombrepizza = pb.Name;
             Pizza p = cp.listarUnaPizza(nombrepizza);
-            List<Ingrediente> listaIng = cp.listarIngredientesPizza(p.getIdPizza().ToString());
-            
-            addPizza(nombrepizza,listaIng);
+                        
+            addPizza(p);
             
         }
 
@@ -222,23 +240,27 @@ namespace Vista
         /// </summary>
         /// <param name="nombre">name of pizza</param>
         /// <param name="listIng">lista de ingredientes</param>
-        public void addPizza(String nombre, List<Ingrediente> listIng)
+        public void addPizza(Pizza p)
         {
 
             ImageList imagelist1 = new ImageList();                            
             imagelist1.Images.Add(Image.FromFile("..\\..\\Resources\\pizza.png"));
             
-            string key = nombre;
+            string key = p.getNombre();
+            double num = cPed.sumarTotal(p.getPrecio());
+            actualizarTxtTotal(num);
             
-            treeViewPedido.Nodes.Add(key,nombre); //parent
+            treeViewPedido.Nodes.Add(key, p.getNombre()); //parent
 
-            foreach (Ingrediente i in listIng)
+            List<Ingrediente> listaIng = cp.listarIngredientesPizza(p.getIdPizza().ToString());
+
+            foreach (Ingrediente i in listaIng)
             {
                 treeViewPedido.Nodes[key].Nodes.Add(i.getNombre());   //childs             
             }
             
             treeViewPedido.ImageList = imagelist1;
-            treeViewPedido.ExpandAll();
+            treeViewPedido.ExpandAll();                      
                        
         }
         
@@ -255,17 +277,39 @@ namespace Vista
             String key = bebida.getNombre();
             treeViewPedido.Nodes.Add(key, bebida.getNombre());
 
+            double num = cPed.sumarTotal(bebida.getPrecio());
+            actualizarTxtTotal(num);
+
             treeViewPedido.ImageList = imagelist2;
         }
-                     
+                
              
-
         //remove the node selected
         private void bQuitar_Click(object sender, EventArgs e)
         {
             try
             {
-                treeViewPedido.SelectedNode.Remove();
+
+                String nodeSeleccionado = treeViewPedido.SelectedNode.Text; //producto seleccionado
+                               
+                Pizza p = cp.listarUnaPizza(nodeSeleccionado);
+                Refresco r = cp.listarUnRefresco(nodeSeleccionado);
+
+                if (p != null)
+                {
+                    double num = cPed.restarTotal(p.getPrecio());
+                    treeViewPedido.SelectedNode.Remove();
+                    actualizarTxtTotal(num); 
+                }
+                else if( r != null)
+                {
+                    double num = cPed.restarTotal(r.getPrecio());
+                    treeViewPedido.SelectedNode.Remove();
+                    actualizarTxtTotal(num);
+                }
+
+               
+                
             }
             catch (Exception ex)
             {
@@ -307,6 +351,20 @@ namespace Vista
         {
             BuscarCliente bc = new BuscarCliente();
             bc.ShowDialog();
+        }
+
+
+
+        public void actualizarTxtTotal(double num)
+        {
+            if (num <= 0)
+            {
+                txtTotal.Text = "";
+            }else
+            {
+               
+                txtTotal.Text = num.ToString();
+            }
         }
     }
 }

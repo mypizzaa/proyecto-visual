@@ -172,10 +172,11 @@
             // 
             // bSalir
             // 
+            this.bSalir.Image = global::Vista.Properties.Resources.icon_cerrar2;
             this.bSalir.Location = new System.Drawing.Point(501, 3);
             this.bSalir.Name = "bSalir";
             this.bSalir.Size = new System.Drawing.Size(16, 16);
-            this.bSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.bSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.bSalir.TabIndex = 8;
             this.bSalir.TabStop = false;
             this.bSalir.Click += new System.EventHandler(this.bSalir_Click);

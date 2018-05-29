@@ -98,30 +98,44 @@ namespace Vista
         //Boton para logearse
         private async void bAcceder_Click(object sender, EventArgs e)
         {
-            PanelAdmin sp = new PanelAdmin();
-            sp.ShowDialog();
-            this.Close();
-            //String correo = txtCorreo.Text;
-            //String password = txtPassword.Text;
+            //SelectorPizzas sp = new SelectorPizzas() ;
+            //sp.ShowDialog();
+            //this.Close();
 
-            //if (correo != null && password != null)
-            //{
+            String correo = txtCorreo.Text;
+            String password = txtPassword.Text;
 
-            //    Usuario u = await cl.login(correo, password);
+            if (correo != null && password != null)
+            {
+                    try
+                    {
+                        Token tk = await cl.login(correo, password);
+                
+                    if (tk != null)
+                    {
+                        MessageBox.Show(tk.toString());
+                        //saberRolUsuario(u);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario o contraseña incorrectos.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
-            //    if(u != null)
-            //    {
-            //        saberRolUsuario(u);
-            //    }else
-            //    {
-            //        MessageBox.Show("Usuario o contraseña incorrectos.","Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
+                }catch (System.Net.Http.HttpRequestException hre)
+                {
+                    ErrorServicio es = new ErrorServicio();
+                    es.ShowDialog();
+                }
 
-            //}
+            }
+            else
+            {
+                MessageBox.Show("Inserte un usuario y contraseña");
+            }
 
         }
 
-        
+
         public void saberRolUsuario(Usuario u)
         {
             String tipo = u.getTipoUsuario();

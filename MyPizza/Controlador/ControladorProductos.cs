@@ -31,6 +31,9 @@ namespace Controlador
                     wc.Encoding = System.Text.Encoding.UTF8;
                     String json = wc.DownloadString(servidor + "/ServicioMyPizza/servicios/WSProducto/pizzas");
 
+                    //buscar ingrediente por nombre en el controlador
+                    //sumar al total el precio del ingrediente 
+
                     List<Pizza> listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
                     if(listaPizzas == null)
                     {

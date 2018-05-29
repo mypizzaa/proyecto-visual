@@ -14,6 +14,8 @@ namespace Controlador
     {
         private String servidor;
 
+        private double total = 0;
+
         public ControladorPedidos()
         {
             servidor = "http://localhost:8080";
@@ -51,12 +53,23 @@ namespace Controlador
         //    //    wc.Encoding = System.Text.Encoding.UTF8;
         //    //    String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSPedido/buscar/"+id);
         //    //    pi = JsonConvert.DeserializeObject<PedidoInfo>(json);
-                               
+
         //    //}
 
         //    //return pi;
         //}
+        
+        public double sumarTotal(double num)
+        {
+            this.total = total + num;
+            return this.total; 
+        }
 
+        public double restarTotal(double num)
+        {
+            this.total = total - num;
+            return this.total;
+        }
 
 
 

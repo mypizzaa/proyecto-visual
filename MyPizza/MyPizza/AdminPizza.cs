@@ -33,7 +33,7 @@ namespace Vista
         {
             cp = new ControladorProductos();
             listCheckbox = new List<CheckBox>();
-
+            
             InitializeComponent();
             cargarListViewPizzas();
             cargarCheckBoxesIngredientes();
