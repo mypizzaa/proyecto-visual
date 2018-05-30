@@ -149,18 +149,29 @@ namespace Vista
                 txtNombrePizza.Text = nombrepizza;
 
                 //take the price of the pizza and show it
-                Producto prod = await cp.listarUnProducto(nombrepizza);
-                p = (Pizza)prod;
-                txtPrecio.Text = p.getPrecio().ToString();
 
-                //we call the method marcaIngredientes to select the ingredients that takes the pizza
-                idPizza = p.getIdPizza();
-                List<Ingrediente> listaIngredientes = cp.listarIngredientesPizza(idPizza.ToString());
-                marcarIngredientesPizza(listaIngredientes);
+                
+                Producto p = await cp.listarUnProducto(nombrepizza);
+                
+                if (p != null)
+                {
+                    txtPrecio.Text = p.getPrecio().ToString();
+                
+                    //we call the method marcaIngredientes to select the ingredients that takes the pizza
+                    idPizza = p.getIdPizza();
+                    List<Ingrediente> listaIngredientes = cp.listarIngredientesPizza(idPizza.ToString());
+                    marcarIngredientesPizza(listaIngredientes);
 
-                //load image to the picturebox
-                String pathImage = p.getImagen();
-                pictureBox1.ImageLocation = "http://provenapps.cat/~dam1804/Images/pizzas/" + pathImage;
+                    //load image to the picturebox
+                    String pathImage = p.getImagen();
+                    pictureBox1.ImageLocation = "http://provenapps.cat/~dam1804/Images/pizzas/" + pathImage;
+
+                }
+                else
+                {
+                    Alert("No se ha encontrado ninguna pizza.", "Error");
+                }
+                
 
             }
 
@@ -288,6 +299,11 @@ namespace Vista
             bGuardar.Visible = false;
             bCancelar.Visible = false;
             desactivarControles();
+        }
+
+        public void Alert(String mensaje, string titulo)
+        {
+            MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

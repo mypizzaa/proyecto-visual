@@ -80,7 +80,7 @@ namespace Vista
             }
         }
 
-        private void listViewIngredientes_SelectedIndexChanged(object sender, EventArgs e)
+        private async void listViewIngredientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewIngredientes.SelectedItems.Count > 0)
             {
@@ -88,7 +88,9 @@ namespace Vista
                 String nombreIngrediente = listItem.Text;
                 txtIngrediente.Text = nombreIngrediente;
 
-                Ingrediente i = cp.listarUnIngrediente(nombreIngrediente);
+                Producto p = await cp.listarUnProducto(nombreIngrediente);
+                Ingrediente i = (Ingrediente) p;
+
                 txtPrecio.Text = i.getPrecio().ToString();
 
                 String pathImage = i.getImagen();

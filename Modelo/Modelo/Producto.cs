@@ -13,7 +13,12 @@ namespace Modelo
         public double precio;
         public String imagen;
         public long id_tipo;
+        
 
+        public Producto()
+        {
+
+        }
         //Constructores
         public Producto(long id_prod, String nombre, double precio, String img, long id_tip)
         {

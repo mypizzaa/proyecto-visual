@@ -16,10 +16,23 @@ namespace Controlador
 
         private double total = 0;
 
+        private List<String> listaParam = new List<String>();
+        private List<String> listaValues = new List<String>();
+
         public ControladorPedidos()
         {
             hreq = new HttpRequest();
-        } 
+        }
+
+        public void limpiarListas()
+        {
+            this.listaParam.Clear();
+            this.listaValues.Clear();
+        }
+
+
+        //--- PEDIDO -------------------------------------------------//
+
 
         //this method call the service method listall
         //return null if not found or list pedidoInfo
@@ -58,6 +71,17 @@ namespace Controlador
         //    //return pi;
         //}
         
+        public void crearPedido()
+        {
+
+        }
+
+        public void eliminarPedido()
+        {
+
+        }
+        
+
         public double sumarTotal(double num)
         {
             this.total = total + num;
@@ -70,7 +94,7 @@ namespace Controlador
             return this.total;
         }
 
-
+        //------------------------------------------------------------//
 
     }
 }

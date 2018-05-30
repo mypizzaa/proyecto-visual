@@ -21,7 +21,8 @@ namespace Vista
 {
     public partial class Login : Form
     {
-        private ControladorLogin cl;        
+        private ControladorLogin cl;
+        private ControladorServicio cs;       
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -31,7 +32,8 @@ namespace Vista
 
         public Login()
         {
-            cl = new ControladorLogin();              
+            cl = new ControladorLogin();
+            cs = new ControladorServicio();             
             InitializeComponent();           
         }
                    
@@ -94,28 +96,31 @@ namespace Vista
 
             if (correo != null && password != null)
             {
-                try
-                {
-                    Token tk = await cl.login(correo, password);
+                
+                    Boolean connected = cs.getConnection();
 
-                    if (tk != null)
+                    if (connected != false)
                     {
-                        String token = tk.getToken();
-                        writeTokenInFile(token);
-                        saberRolUsuario(tk.getUsuario());
                         
-                    }
-                    else
-                    {
-                        MessageBox.Show("Usuario o contraseña incorrectos.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                        Token tk = await cl.login(correo, password);
 
-                }
-                catch (System.Net.Http.HttpRequestException hre)
-                {
-                    ErrorServicio es = new ErrorServicio();
-                    es.ShowDialog();
-                }
+                        if (tk != null)
+                        {
+                            String token = tk.getToken();
+                            writeTokenInFile(token);
+                            saberRolUsuario(tk.getUsuario());
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario o contraseña incorrectos.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                    }else
+                    {
+                        ErrorServicio es = new ErrorServicio();
+                        es.ShowDialog();
+                    }  
 
             }
             else

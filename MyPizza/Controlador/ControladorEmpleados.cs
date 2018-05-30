@@ -53,7 +53,20 @@ namespace Controlador
 
         }
 
+        public void darAltaEmpleado()
+        {
 
+        }
+
+        public void darBajaEmpleado()
+        {
+
+        }
+
+        public void modificarEmpleado()
+        {
+
+        }
 
 
     }

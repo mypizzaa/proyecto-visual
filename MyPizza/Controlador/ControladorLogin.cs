@@ -26,27 +26,33 @@ namespace Controlador
         /// <returns>if exists retruns a token else return null</returns>
         public async Task<Token> login(String correo, String password)
         {
-            Token token = null;            
-
-            using (HttpClient client = new HttpClient())
+            Token token = null;
+            try
             {
-                var values = new Dictionary<String, String>
+                using (HttpClient client = new HttpClient())
+                {
+                    var values = new Dictionary<String, String>
                 {
                     {"correo",correo },
                     {"password",password}
                 };
 
-                var content = new FormUrlEncodedContent(values);
+                    var content = new FormUrlEncodedContent(values);
 
-                var response = await client.PostAsync(servidor+ "/ServicioMyPizza/servicios/WSLogin/login", content);
+                    var response = await client.PostAsync(servidor + "/ServicioMyPizza/servicios/WSLogin/login", content);
 
-                var json = await response.Content.ReadAsStringAsync();
-                
-                if (json != null)
-                {
-                    token = JsonConvert.DeserializeObject<Token>(json); 
-                                                    
+                    var json = await response.Content.ReadAsStringAsync();
+
+                    if (json != null)
+                    {
+                        token = JsonConvert.DeserializeObject<Token>(json);
+
+                    }
                 }
+            }
+            catch (HttpRequestException htre)
+            {
+                token = null;
             }
 
             return token;

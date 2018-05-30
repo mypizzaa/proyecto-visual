@@ -89,7 +89,7 @@ namespace Vista
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void listViewBebidas_SelectedIndexChanged(object sender, EventArgs e)
+        private async void listViewBebidas_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewBebidas.SelectedItems.Count > 0)
             {
@@ -97,7 +97,9 @@ namespace Vista
                 String nombreBebida = listItem.Text;
                 txtBebida.Text = nombreBebida;
 
-                Refresco r = cp.listarUnRefresco(nombreBebida);
+
+                Producto p = await cp.listarUnProducto(nombreBebida);
+                Refresco r = (Refresco)p;
                 txtPrecio.Text = r.getPrecio().ToString();
 
                 String pathImage = r.getImagen();

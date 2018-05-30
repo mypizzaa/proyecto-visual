@@ -178,7 +178,7 @@ namespace Vista
 
 
         //listview ingredeintes
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        private async void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             try
@@ -193,7 +193,9 @@ namespace Vista
                 {
                     seleccionado = item.Text;
                     treeViewPedido.Nodes[nodeSeleccionado].Nodes.Add(seleccionado);
-                    Ingrediente i = cp.listarUnIngrediente(seleccionado);
+                    Producto p = await cp.listarUnProducto(seleccionado);
+                    Ingrediente i = (Ingrediente)p;
+
                     MessageBox.Show(i.toString());
                     //buscar ingrediente por nombre
 
@@ -202,9 +204,9 @@ namespace Vista
             }
             catch (System.NullReferenceException snf)
             {
-                Alert("Porfavor seleccione una pizza","Error");
+                Alert("Porfavor seleccione una pizza", "Error");
             }
-                               
+
         }
 
         public void Alert(String mensaje, string titulo)
@@ -225,17 +227,18 @@ namespace Vista
             PictureBox pb = (PictureBox)sender;
 
             String nombrepizza = pb.Name;
-            Pizza p = cp.listarUnaPizza(nombrepizza);
+            Pizza p = cp.buscarPizzaPorNombre(nombrepizza);
                         
             addPizza(p);
             
         }
 
-        private void pressedBebida(object sender, EventArgs e)
+        private async void pressedBebida(object sender, EventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
 
-            Refresco refresco = cp.listarUnRefresco(pb.Name);
+            Producto p = await cp.listarUnProducto(pb.Name);
+
             addBebida(refresco);
 
         }
@@ -303,8 +306,8 @@ namespace Vista
 
                 String nodeSeleccionado = treeViewPedido.SelectedNode.Text; //producto seleccionado
                                
-                Pizza p = cp.listarUnaPizza(nodeSeleccionado);
-                Refresco r = cp.listarUnRefresco(nodeSeleccionado);
+                Pizza p = cp.buscarPizzaPorNombre(nodeSeleccionado);
+                Refresco r = cp.buscarRefrescoPorNombre(nodeSeleccionado);
 
                 if (p != null)
                 {

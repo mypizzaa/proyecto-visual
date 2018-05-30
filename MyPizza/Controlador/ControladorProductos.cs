@@ -23,77 +23,15 @@ namespace Controlador
         {
            hreq = new HttpRequest();
         }
-
-        
+                
         //this method clear the lists param and values 
-        public void clearListas()
+        public void limpiarListas()
         {
             this.listaParam.Clear();
             this.listaValues.Clear();
         }
 
-        // this method call the service method listall and list all pizzas
-        // return null if not found else return list of pizzas
-        public List<Pizza> listarPizzas()
-        {
-            List<Pizza> listaPizzas = null;
-
-                try
-                {
-                    var json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/pizzas");                         
-                    listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
-                                        
-                }
-                catch (System.Net.WebException swe)
-                {
-                    listaPizzas = null;
-                }
-            
-            return listaPizzas;
-        }
-
-        //this method call the service method listall and lista all ingredients
-        //return null if not found else return list of ingredients      
-        public List<Ingrediente> listarIngredientes()
-        {
-
-            List<Ingrediente> listaIngredientes;
-
-            try
-            {
-
-                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/ingredientes");
-                listaIngredientes = JsonConvert.DeserializeObject<List<Ingrediente>>(json);
-         
-            }
-            catch (System.Net.WebException swe)
-            {
-                listaIngredientes = null;
-            }
-           
-            return listaIngredientes;
-        }
-        
-        //Lista todas las bebidas
-        //return null si no hay o si falla el servicio sino devuelve una lista de refrescos
-        public List<Refresco> listarRefrescos()
-        {
-            List<Refresco> listaBebidas;
-
-            try
-            {
-                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/bebidas");
-                listaBebidas = JsonConvert.DeserializeObject<List<Refresco>>(json);
-            }
-            catch (System.Net.WebException swe)
-            {
-                listaBebidas = null;
-            }
-           
-            return listaBebidas;
-        }
-
-
+        // esto esta mal hay que quitar este metodo !!!!!!!!!!!!!!!!!!
         /// <summary>
         /// this method list a prodcut by name, sends by POST
         /// </summary>
@@ -109,9 +47,13 @@ namespace Controlador
                 this.listaValues.Add(nombre);
 
                 var json = await hreq.sendRequestPOST("/ServicioMyPizza/servicios/WSProducto/buscar", listaParam, listaValues);
-                Console.WriteLine("++++++++"+json.ToString());
-                p = JsonConvert.DeserializeObject<Producto>(json);
-                Console.WriteLine("--------------------"+p.toString());
+                              
+                if(json != null)
+                {
+                    p = JsonConvert.DeserializeObject<Producto>(json.ToString());
+                   
+                }
+               
             }
             catch (System.Net.WebException swe)
             {
@@ -122,25 +64,78 @@ namespace Controlador
         }
 
 
-        //Se envia por parametro el nombre de la pizza y nos muestra esa pizza
-        //Si no existe devuelve null si existe devuelve la pizza
-        public Pizza listarUnaPizza(String nombrePizza)
+
+        //--- PIZZAS --------------------------------------------------------------------//
+
+        // this method call the service method listall and list all pizzas
+        // return null if not found else return list of pizzas
+        public List<Pizza> listarPizzas()
+        {
+            List<Pizza> listaPizzas = null;
+
+            try
+            {
+                var json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/pizzas");
+                listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
+
+            }
+            catch (System.Net.WebException swe)
+            {
+                listaPizzas = null;
+            }
+
+            return listaPizzas;
+        }
+               
+        public void agregarPizza(String nombre, List<Ingrediente> listaIngredientes)
+        {
+
+        }
+
+        public void modificarPizza(Pizza p)
+        {
+
+        }
+
+        public void eliminarPizza(Pizza p)
+        {
+
+        }
+
+        public List<Ingrediente> listarIngredientesPizza(String idPizza)
+        {
+            List<Ingrediente> listaIngredientes;
+
+            try
+            {
+                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/ingredientespizza/" + idPizza);
+                listaIngredientes = JsonConvert.DeserializeObject<List<Ingrediente>>(json);
+
+            }
+            catch (System.Net.WebException swe)
+            {
+                listaIngredientes = null;
+            }
+
+            return listaIngredientes;
+        }
+
+        public Pizza buscarPizzaPorNombre(String nombrePizza)
         {
             List<Pizza> listaPizzas;
             Pizza pizza = null;
 
             try
             {
-                
-                
-                    String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/pizzas");
-                    listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
 
-                    foreach (Pizza p in listaPizzas)
-                    {
-                        if (p.getNombre() == nombrePizza) pizza = p;
+                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/pizzas");
+                listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
 
-                    }
+                foreach (Pizza p in listaPizzas)
+                {
+                    if (p.getNombre() == nombrePizza) pizza = p;
+
+                }
 
             }
             catch (System.Net.WebException swe)
@@ -150,7 +145,93 @@ namespace Controlador
             return pizza;
         }
 
-        public Refresco listarUnRefresco(String nombreRefresco)
+
+        //--- INGREDIENTES ----------------------------------------------------------------//
+
+        //this method call the service method listall and lista all ingredients
+        //return null if not found else return list of ingredients      
+        public List<Ingrediente> listarIngredientes()
+        {
+
+            List<Ingrediente> listaIngredientes;
+
+            try
+            {
+
+                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/ingredientes");
+                listaIngredientes = JsonConvert.DeserializeObject<List<Ingrediente>>(json);
+
+            }
+            catch (System.Net.WebException swe)
+            {
+                listaIngredientes = null;
+            }
+
+            return listaIngredientes;
+        }
+        
+        public void agregarIngrediente(Ingrediente i)
+        {
+
+        }
+
+        public void modificarIngrediente(Ingrediente i)
+        {
+
+        }
+
+        public void eliminarIngrediente(Ingrediente i)
+        {
+
+        }
+
+        public Ingrediente buscarIngredientePorNombre(String nombre)
+        {
+            Ingrediente ingrediente = null;
+
+
+            return ingrediente;
+        }
+
+
+        //--- BEBIDAS --------------------------------------------------------------------//
+
+        //Lista all drinks
+        //return null if not found else return list of drinks
+        public List<Refresco> listarRefrescos()
+        {
+            List<Refresco> listaBebidas;
+
+            try
+            {
+                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/bebidas");
+                listaBebidas = JsonConvert.DeserializeObject<List<Refresco>>(json);
+
+            }
+            catch (System.Net.WebException swe)
+            {
+                listaBebidas = null;
+            }
+
+            return listaBebidas;
+        }
+              
+        public void agregarBebida(Refresco r)
+        {
+
+        }
+
+        public void modificarBebida(Refresco r)
+        {
+
+        }
+
+        public void eliminarBebida(Refresco r)
+        {
+
+        }
+
+        public Refresco buscarRefrescoPorNombre(String nombreRefresco)
         {
             Refresco r = null;
             List<Refresco> listaBebidas;
@@ -170,56 +251,13 @@ namespace Controlador
             {
                 r = null;
             }
-            
+
             return r;
         }
 
-        public List<Ingrediente> listarIngredientesPizza(String idPizza)
-        {
-            List<Ingrediente> listaIngredientes;
 
-            try
-            {
-                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/ingredientespizza/"+idPizza);
-                listaIngredientes = JsonConvert.DeserializeObject<List<Ingrediente>>(json);
+        //--------------------------------------------------------------------------------//
 
-            }
-            catch (System.Net.WebException swe)
-            {
-                listaIngredientes = null;
-            } 
-
-            return listaIngredientes;
-        }
-
-       
-        public Ingrediente listarUnIngrediente(String nombre)
-        {
-            Ingrediente i = null;
-
-            List<String> listaParametros = new List<String>();
-            List<String> listaValues = new List<String>();
-            String url = "/ServicioMyPizza/servicios/WSProducto/buscar";
-
-            try
-            {
-                listaParametros.Add("name");
-                listaValues.Add(nombre);
-                
-                var json = hreq.sendRequestPOST(url,listaParametros,listaValues);
-                i = JsonConvert.DeserializeObject<Ingrediente>(json.ToString());
-
-                Console.WriteLine(i.toString());
-
-
-            }
-            catch (System.Net.WebException swe)
-            {
-                i = null;
-            }
-
-            return i;
-        }
 
     }
 }

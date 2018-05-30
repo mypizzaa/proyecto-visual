@@ -43,6 +43,7 @@ namespace Controlador
             return token;
 
         }
+
         public String sendRequest(String url)
         {
             String json = "";
