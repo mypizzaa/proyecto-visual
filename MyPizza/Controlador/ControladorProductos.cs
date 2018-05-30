@@ -15,11 +15,22 @@ namespace Controlador
 
         private HttpRequest hreq;
 
+        private List<String> listaParam = new List<String>();
+        private List<String> listaValues = new List<String>();
+
+
         public ControladorProductos()
         {
            hreq = new HttpRequest();
         }
-         
+
+        
+        //this method clear the lists param and values 
+        public void clearListas()
+        {
+            this.listaParam.Clear();
+            this.listaValues.Clear();
+        }
 
         // this method call the service method listall and list all pizzas
         // return null if not found else return list of pizzas
@@ -81,7 +92,36 @@ namespace Controlador
            
             return listaBebidas;
         }
-        
+
+
+        /// <summary>
+        /// this method list a prodcut by name, sends by POST
+        /// </summary>
+        /// <param name="nombre">nombre producto</param>
+        /// <returns></returns>
+        public async Task<Producto> listarUnProducto(String nombre)
+        {
+            Producto p = null;
+
+            try
+            {
+                this.listaParam.Add("name");
+                this.listaValues.Add(nombre);
+
+                var json = await hreq.sendRequestPOST("/ServicioMyPizza/servicios/WSProducto/buscar", listaParam, listaValues);
+                Console.WriteLine("++++++++"+json.ToString());
+                p = JsonConvert.DeserializeObject<Producto>(json);
+                Console.WriteLine("--------------------"+p.toString());
+            }
+            catch (System.Net.WebException swe)
+            {
+                p = null;
+            }
+            
+            return p;
+        }
+
+
         //Se envia por parametro el nombre de la pizza y nos muestra esa pizza
         //Si no existe devuelve null si existe devuelve la pizza
         public Pizza listarUnaPizza(String nombrePizza)
@@ -163,7 +203,7 @@ namespace Controlador
 
             try
             {
-                listaParametros.Add("nombre");
+                listaParametros.Add("name");
                 listaValues.Add(nombre);
                 
                 var json = hreq.sendRequestPOST(url,listaParametros,listaValues);

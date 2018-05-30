@@ -138,7 +138,7 @@ namespace Vista
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// 
-        private void ListViewPizzas_SelectedIndexChanged(object sender, EventArgs e)
+        private async void ListViewPizzas_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             if (ListViewPizzas.SelectedItems.Count > 0)
@@ -149,14 +149,15 @@ namespace Vista
                 txtNombrePizza.Text = nombrepizza;
 
                 //take the price of the pizza and show it
-                p = cp.listarUnaPizza(nombrepizza);
+                Producto prod = await cp.listarUnProducto(nombrepizza);
+                p = (Pizza)prod;
                 txtPrecio.Text = p.getPrecio().ToString();
 
                 //we call the method marcaIngredientes to select the ingredients that takes the pizza
                 idPizza = p.getIdPizza();
                 List<Ingrediente> listaIngredientes = cp.listarIngredientesPizza(idPizza.ToString());
                 marcarIngredientesPizza(listaIngredientes);
-                
+
                 //load image to the picturebox
                 String pathImage = p.getImagen();
                 pictureBox1.ImageLocation = "http://provenapps.cat/~dam1804/Images/pizzas/" + pathImage;

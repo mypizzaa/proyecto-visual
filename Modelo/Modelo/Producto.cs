@@ -24,6 +24,11 @@ namespace Modelo
             this.id_tipo = id_tip;
         }
 
+        public Producto(String nombre)
+        {
+            this.nombre = nombre;
+        }
+
         //Getters
         public long getIdProducto()
         {
