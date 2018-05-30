@@ -93,7 +93,7 @@
             // 
             // buscarClienteToolStripMenuItem
             // 
-            this.buscarClienteToolStripMenuItem.Image = global::Vista.Properties.Resources.collaboration;
+            this.buscarClienteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("collaboration.Image")));
             this.buscarClienteToolStripMenuItem.Name = "buscarClienteToolStripMenuItem";
             this.buscarClienteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.B)));
             this.buscarClienteToolStripMenuItem.Size = new System.Drawing.Size(184, 22);

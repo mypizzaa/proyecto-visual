@@ -83,7 +83,7 @@
             this.bAñadirImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bAñadirImagen.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.bAñadirImagen.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.bAñadirImagen.Location = new System.Drawing.Point(343, 216);
+            this.bAñadirImagen.Location = new System.Drawing.Point(342, 237);
             this.bAñadirImagen.Name = "bAñadirImagen";
             this.bAñadirImagen.Size = new System.Drawing.Size(221, 30);
             this.bAñadirImagen.TabIndex = 44;
@@ -135,7 +135,7 @@
             // txtPrecio
             // 
             this.txtPrecio.Enabled = false;
-            this.txtPrecio.Location = new System.Drawing.Point(343, 166);
+            this.txtPrecio.Location = new System.Drawing.Point(342, 187);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(221, 20);
             this.txtPrecio.TabIndex = 40;
@@ -144,7 +144,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(343, 146);
+            this.label4.Location = new System.Drawing.Point(342, 167);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 17);
             this.label4.TabIndex = 39;
@@ -153,7 +153,7 @@
             // txtBebida
             // 
             this.txtBebida.Enabled = false;
-            this.txtBebida.Location = new System.Drawing.Point(343, 107);
+            this.txtBebida.Location = new System.Drawing.Point(342, 128);
             this.txtBebida.Name = "txtBebida";
             this.txtBebida.Size = new System.Drawing.Size(221, 20);
             this.txtBebida.TabIndex = 38;
@@ -162,7 +162,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(343, 87);
+            this.label3.Location = new System.Drawing.Point(342, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(146, 17);
             this.label3.TabIndex = 37;
@@ -172,7 +172,7 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Enabled = false;
-            this.pictureBox1.Location = new System.Drawing.Point(138, 87);
+            this.pictureBox1.Location = new System.Drawing.Point(137, 108);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(182, 159);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -208,7 +208,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label1.Location = new System.Drawing.Point(134, 36);
+            this.label1.Location = new System.Drawing.Point(133, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(238, 21);
             this.label1.TabIndex = 33;

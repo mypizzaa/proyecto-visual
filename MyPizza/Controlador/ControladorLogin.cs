@@ -17,6 +17,13 @@ namespace Controlador
             servidor = "http://provenapps.cat:8080";
         }
 
+
+        /// <summary>
+        /// Check if the user exists
+        /// </summary>
+        /// <param name="correo"></param>
+        /// <param name="password"></param>
+        /// <returns>if exists retruns a token else return null</returns>
         public async Task<Token> login(String correo, String password)
         {
             Token token = null;            

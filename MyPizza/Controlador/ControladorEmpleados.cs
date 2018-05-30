@@ -11,24 +11,25 @@ namespace Controlador
 {
     public class ControladorEmpleados
     {
-        private String servidor;
+        private HttpRequest hreq;
 
         public ControladorEmpleados()
         {
-            servidor = "http://localhost:8080";
+            hreq = new HttpRequest();
         }
 
         public List<Empleado> listarEmpleados()
         {
             List<Empleado> listaEmpleados;
 
-            using (WebClient wc = new WebClient())
-            {
-                wc.Encoding = System.Text.Encoding.UTF8;
-                String json = wc.DownloadString(servidor+"/ServicioMyPizza/servicios/WSEmpleado/listall");
+            try {
 
+                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSEmpleado/listall");
                 listaEmpleados = JsonConvert.DeserializeObject<List<Empleado>>(json);
-
+            }
+            catch (System.Net.WebException swe)
+            {
+                listaEmpleados = null;
             }
             return listaEmpleados;
 
@@ -38,14 +39,16 @@ namespace Controlador
         {
             Empleado e;
 
-            using (WebClient wc = new WebClient())
+            try
             {
-                wc.Encoding = System.Text.Encoding.UTF8;
-                String json = wc.DownloadString(servidor + "/ServicioMyPizza/servicios/WSEmpleado/buscar/" +dni);
-
+                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSEmpleado/buscar/" + dni);
                 e = JsonConvert.DeserializeObject<Empleado>(json);
-
             }
+            catch (System.Net.WebException swe)
+            {
+                e = null;
+            }
+            
             return e;
 
         }

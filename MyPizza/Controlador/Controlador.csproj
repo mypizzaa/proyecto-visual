@@ -53,6 +53,7 @@
     <Compile Include="ControladorPedidos.cs" />
     <Compile Include="ControladorProductos.cs" />
     <Compile Include="ControladorServicio.cs" />
+    <Compile Include="HttpRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

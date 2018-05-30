@@ -12,14 +12,13 @@ namespace Controlador
 {
     public class ControladorPedidos
     {
-        private String servidor;
+        private HttpRequest hreq;
 
         private double total = 0;
 
         public ControladorPedidos()
         {
-            servidor = "http://localhost:8080";
-            
+            hreq = new HttpRequest();
         } 
 
         //this method call the service method listall
@@ -28,17 +27,17 @@ namespace Controlador
         {
             List<PedidoInfo> listaPedidosInfo = new List<PedidoInfo>();
 
-            using (WebClient wc = new WebClient())
+            try
             {
-                wc.Encoding = System.Text.Encoding.UTF8;
-                String json = wc.DownloadString(servidor+"/ServicioMyPizza/servicios/WSPedido/listall");
+
+                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSPedido/listall");
                 listaPedidosInfo = JsonConvert.DeserializeObject<List<PedidoInfo>>(json);
-                Console.WriteLine(json);
-                foreach (PedidoInfo p in listaPedidosInfo)
-                {
-                    Console.WriteLine(p.toString());
-                }
             }
+            catch (System.Net.WebException swe)
+            {
+                listaPedidosInfo = null;
+            }                       
+            
             return listaPedidosInfo;
 
         }

@@ -19,7 +19,6 @@ namespace Vista
     {
         
         private ControladorServicio cs;
-
         private ControladorProductos cp;
         private ControladorPedidos cPed;
 
@@ -57,8 +56,9 @@ namespace Vista
         /// </summary>
         private void loadPizzas()
         {
-
+            
             listaPizzas = cp.listarPizzas();
+            
             int j = 0;
             int x = 0;
             int x1 = 0;
@@ -77,7 +77,7 @@ namespace Vista
                     pb.Name = listaPizzas[i].getNombre();
                     pb.Width = 141;
                     pb.Height = 133;
-                    pb.ImageLocation = "http://provenapps.cat/~dam1804/Images/pizzas/" + pathimg;
+                    pb.ImageLocation = "http://provenapps.cat/~dam1804/Images/pizzas/"+pathimg;
                     pb.BorderStyle = BorderStyle.FixedSingle;
                     pb.BackColor = Color.White;
                     pb.Click += new System.EventHandler(this.pressedPizza);
@@ -124,6 +124,7 @@ namespace Vista
                 {
                     listViewIngredientes.Items.Add(i.getNombre());
                 }
+
             }else
             {
                 MessageBox.Show("Se perdió la conexion con el servicio");
@@ -192,7 +193,8 @@ namespace Vista
                 {
                     seleccionado = item.Text;
                     treeViewPedido.Nodes[nodeSeleccionado].Nodes.Add(seleccionado);
-                    
+                    //buscar ingrediente por nombre
+
 
                 }
             }

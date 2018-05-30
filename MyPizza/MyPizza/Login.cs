@@ -15,6 +15,7 @@ using Modelo;
 using Newtonsoft.Json;
 using System.Net.Http;
 using Controlador;
+using System.IO;
 
 namespace Vista
 {
@@ -100,7 +101,9 @@ namespace Vista
                     if (tk != null)
                     {
                         String token = tk.getToken();
+                        writeTokenInFile(token);
                         saberRolUsuario(tk.getUsuario());
+                        
                     }
                     else
                     {
@@ -118,6 +121,27 @@ namespace Vista
             else
             {
                 MessageBox.Show("Inserte un usuario y una contraseña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+        }
+
+        /// <summary>
+        /// This method writes the token that recives by parameter in a file
+        /// The file location is inside the project
+        /// </summary>
+        /// <param name="token"></param>
+        private void writeTokenInFile(String token)
+        {
+            try
+            {         
+                using (StreamWriter sw = new StreamWriter("tokens.txt"))
+                {
+                         sw.WriteLine(token);
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
 
         }
