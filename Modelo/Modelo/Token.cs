@@ -45,12 +45,12 @@ namespace Modelo
             this.id_token = id_token;
         }
 
-        public Usuario getId_usuario()
+        public Usuario getUsuario()
         {
             return usuario;
         }
 
-        public void setId_usuario(Usuario usuario)
+        public void setUsuario(Usuario usuario)
         {
             this.usuario = usuario;
         }

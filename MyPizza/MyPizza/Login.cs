@@ -66,8 +66,7 @@ namespace Vista
                 txtPassword.UseSystemPasswordChar = false;
             }
         }
-
-
+        
         private void Login_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -85,7 +84,7 @@ namespace Vista
             Application.Exit();
         }
 
-        //Boton para logearse
+        //button to access
         private async void bAcceder_Click(object sender, EventArgs e)
         {
 
@@ -100,8 +99,8 @@ namespace Vista
 
                     if (tk != null)
                     {
-                        MessageBox.Show(tk.toString());
-                        //saberRolUsuario(u);
+                        String token = tk.getToken();
+                        saberRolUsuario(tk.getUsuario());
                     }
                     else
                     {

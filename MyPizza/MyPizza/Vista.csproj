@@ -85,6 +85,12 @@
     <Compile Include="AdminEmpleados.Designer.cs">
       <DependentUpon>AdminEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminIngrediente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminIngrediente.Designer.cs">
+      <DependentUpon>AdminIngrediente.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminPizza.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminEmpleados.resx">
       <DependentUpon>AdminEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminIngrediente.resx">
+      <DependentUpon>AdminIngrediente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminPizza.resx">
       <DependentUpon>AdminPizza.cs</DependentUpon>
@@ -254,15 +263,6 @@
     <None Include="Resources\icon cerrar2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\icon maximizar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon minimizar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icon restaurar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\pizza.png" />
   </ItemGroup>
   <ItemGroup>
@@ -272,9 +272,6 @@
     <None Include="Resources\collaboration.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\warehouse.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\money-bag.png" />
   </ItemGroup>
   <ItemGroup>
@@ -282,6 +279,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\ing.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

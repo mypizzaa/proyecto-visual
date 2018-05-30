@@ -124,6 +124,10 @@ namespace Vista
             
         }
 
-      
+        //Menu vertical - Ingredientes
+        private void button3_Click(object sender, EventArgs e)
+        {
+            AbrirPanel(new AdminIngrediente());
+        }
     }
 }

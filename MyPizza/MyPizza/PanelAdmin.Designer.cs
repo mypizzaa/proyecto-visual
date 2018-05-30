@@ -30,27 +30,29 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PanelAdmin));
             this.menuVertical = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelTitulo = new System.Windows.Forms.Panel();
+            this.iconoMini = new System.Windows.Forms.PictureBox();
             this.iconoCerrar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.iconoMini = new System.Windows.Forms.PictureBox();
             this.menuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelTitulo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconoMini)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconoCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconoMini)).BeginInit();
             this.SuspendLayout();
             // 
             // menuVertical
             // 
             this.menuVertical.BackColor = System.Drawing.Color.Black;
+            this.menuVertical.Controls.Add(this.button3);
             this.menuVertical.Controls.Add(this.button5);
             this.menuVertical.Controls.Add(this.button4);
             this.menuVertical.Controls.Add(this.button2);
@@ -62,6 +64,23 @@
             this.menuVertical.Size = new System.Drawing.Size(188, 788);
             this.menuVertical.TabIndex = 0;
             // 
+            // button3
+            // 
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button3.Image = global::Vista.Properties.Resources.ing;
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.Location = new System.Drawing.Point(0, 350);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(188, 40);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Ingredientes";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // button5
             // 
             this.button5.FlatAppearance.BorderSize = 0;
@@ -71,7 +90,7 @@
             this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button5.Image = global::Vista.Properties.Resources.money_bag;
             this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(0, 455);
+            this.button5.Location = new System.Drawing.Point(0, 490);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(188, 40);
             this.button5.TabIndex = 5;
@@ -88,7 +107,7 @@
             this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button4.Image = global::Vista.Properties.Resources.can;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(0, 291);
+            this.button4.Location = new System.Drawing.Point(0, 280);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(188, 40);
             this.button4.TabIndex = 4;
@@ -105,7 +124,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.button2.Image = global::Vista.Properties.Resources.collaboration;
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(0, 373);
+            this.button2.Location = new System.Drawing.Point(0, 420);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(188, 40);
             this.button2.TabIndex = 2;
@@ -152,6 +171,18 @@
             this.panelTitulo.Size = new System.Drawing.Size(1198, 31);
             this.panelTitulo.TabIndex = 1;
             // 
+            // iconoMini
+            // 
+            this.iconoMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconoMini.Image = ((System.Drawing.Image)(resources.GetObject("iconoMini.Image")));
+            this.iconoMini.Location = new System.Drawing.Point(1140, 5);
+            this.iconoMini.Name = "iconoMini";
+            this.iconoMini.Size = new System.Drawing.Size(20, 20);
+            this.iconoMini.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconoMini.TabIndex = 2;
+            this.iconoMini.TabStop = false;
+            this.iconoMini.Click += new System.EventHandler(this.iconoMini_Click);
+            // 
             // iconoCerrar
             // 
             this.iconoCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -184,18 +215,6 @@
             this.panelContenedor.Size = new System.Drawing.Size(1198, 757);
             this.panelContenedor.TabIndex = 2;
             // 
-            // iconoMini
-            // 
-            this.iconoMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconoMini.Image = ((System.Drawing.Image)(resources.GetObject("iconoMini.Image")));
-            this.iconoMini.Location = new System.Drawing.Point(1140, 5);
-            this.iconoMini.Name = "iconoMini";
-            this.iconoMini.Size = new System.Drawing.Size(20, 20);
-            this.iconoMini.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconoMini.TabIndex = 2;
-            this.iconoMini.TabStop = false;
-            this.iconoMini.Click += new System.EventHandler(this.iconoMini_Click);
-            // 
             // PanelAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,9 +232,9 @@
             this.menuVertical.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelTitulo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconoMini)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconoCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconoMini)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -233,5 +252,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.PictureBox iconoMini;
+        private System.Windows.Forms.Button button3;
     }
 }

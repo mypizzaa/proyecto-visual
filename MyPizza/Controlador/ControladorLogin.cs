@@ -9,9 +9,9 @@ namespace Controlador
 {
     public class ControladorLogin
     {
+
         private String servidor;
-
-
+        
         public ControladorLogin()
         {
             servidor = "http://provenapps.cat:8080";
@@ -34,12 +34,10 @@ namespace Controlador
                 var response = await client.PostAsync(servidor+ "/ServicioMyPizza/servicios/WSLogin/login", content);
 
                 var json = await response.Content.ReadAsStringAsync();
-                Console.WriteLine("----------------"+json.ToString());
-
+                
                 if (json != null)
                 {
-                    token = JsonConvert.DeserializeObject<Token>(json);
-                    
+                    token = JsonConvert.DeserializeObject<Token>(json); 
                                                     
                 }
             }
