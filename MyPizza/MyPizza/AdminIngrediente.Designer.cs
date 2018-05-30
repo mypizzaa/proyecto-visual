@@ -36,7 +36,7 @@
             this.bGuardar = new System.Windows.Forms.Button();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtBebida = new System.Windows.Forms.TextBox();
+            this.txtIngrediente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -44,6 +44,7 @@
             this.Id_Prod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,6 +91,7 @@
             this.bAñadirImagen.Text = "Añadir imagen";
             this.bAñadirImagen.UseVisualStyleBackColor = false;
             this.bAñadirImagen.Visible = false;
+            this.bAñadirImagen.Click += new System.EventHandler(this.bAñadirImagen_Click);
             // 
             // bNuevo
             // 
@@ -150,13 +152,13 @@
             this.label4.TabIndex = 39;
             this.label4.Text = "Precio:";
             // 
-            // txtBebida
+            // txtIngrediente
             // 
-            this.txtBebida.Enabled = false;
-            this.txtBebida.Location = new System.Drawing.Point(342, 128);
-            this.txtBebida.Name = "txtBebida";
-            this.txtBebida.Size = new System.Drawing.Size(221, 20);
-            this.txtBebida.TabIndex = 38;
+            this.txtIngrediente.Enabled = false;
+            this.txtIngrediente.Location = new System.Drawing.Point(342, 128);
+            this.txtIngrediente.Name = "txtIngrediente";
+            this.txtIngrediente.Size = new System.Drawing.Size(221, 20);
+            this.txtIngrediente.TabIndex = 38;
             // 
             // label3
             // 
@@ -203,6 +205,7 @@
             this.listViewIngredientes.TabIndex = 34;
             this.listViewIngredientes.UseCompatibleStateImageBehavior = false;
             this.listViewIngredientes.View = System.Windows.Forms.View.Tile;
+            this.listViewIngredientes.SelectedIndexChanged += new System.EventHandler(this.listViewIngredientes_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -213,6 +216,10 @@
             this.label1.Size = new System.Drawing.Size(238, 21);
             this.label1.TabIndex = 33;
             this.label1.Text = "ADMINISTRAR INGREDIENTES";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // AdminIngrediente
             // 
@@ -228,7 +235,7 @@
             this.Controls.Add(this.bGuardar);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtBebida);
+            this.Controls.Add(this.txtIngrediente);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -254,7 +261,7 @@
         private System.Windows.Forms.Button bGuardar;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtBebida;
+        private System.Windows.Forms.TextBox txtIngrediente;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
@@ -262,5 +269,6 @@
         private System.Windows.Forms.ColumnHeader Id_Prod;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

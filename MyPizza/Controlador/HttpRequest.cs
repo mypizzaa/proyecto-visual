@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Modelo;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -58,33 +60,26 @@ namespace Controlador
 
         public async Task<string> sendRequestPOST(String url, List<String> parametros, List<String> valores)
         {
-            String json = null;
+            String json;
 
             using (HttpClient client = new HttpClient())
             {
+                client.DefaultRequestHeaders.Add("X-API-KEY", this.token); //Add the token to request
+
                 var values = new Dictionary<String, String>();
-                
-                    for (int i = 0; i < parametros.Count; i++)
-                    {
-                    values.Add(parametros[i],valores[i]);
-                    }
-                
+
+                for (int i = 0; i < parametros.Count; i++)
+                {
+                    values.Add(parametros[i], valores[i]);
+                }
 
                 var content = new FormUrlEncodedContent(values);
+                
+                var response = await client.PostAsync(servidor+url,content);
 
-                var response = await client.PostAsync(servidor + url, content);
+                json = await response.Content.ReadAsStringAsync();
 
-                var json = await response.Content.ReadAsStringAsync();
-
-                if (json != null)
-                {
-                    token = JsonConvert.DeserializeObject<Token>(json);
-
-                }
             }
-
-
-
             return json;
         }
 

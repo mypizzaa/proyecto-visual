@@ -17,11 +17,9 @@ namespace Controlador
 
         public ControladorProductos()
         {
-           
-            hreq = new HttpRequest();
+           hreq = new HttpRequest();
         }
-               
-
+         
 
         // this method call the service method listall and list all pizzas
         // return null if not found else return list of pizzas
@@ -142,7 +140,7 @@ namespace Controlador
 
             try
             {
-                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/ingredientespizza/" + idPizza);
+                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/ingredientespizza/"+idPizza);
                 listaIngredientes = JsonConvert.DeserializeObject<List<Ingrediente>>(json);
 
             }
@@ -155,19 +153,24 @@ namespace Controlador
         }
 
        
-        public Ingrediente buscarIngredienteNombre(String nombre)
+        public Ingrediente listarUnIngrediente(String nombre)
         {
             Ingrediente i = null;
 
+            List<String> listaParametros = new List<String>();
+            List<String> listaValues = new List<String>();
+            String url = "/ServicioMyPizza/servicios/WSProducto/buscar";
+
             try
             {
-                List<String> listaParametros = new List<string>();
-                List<String> listaValues = new List<string>();
-
+                listaParametros.Add("nombre");
                 listaValues.Add(nombre);
+                
+                var json = hreq.sendRequestPOST(url,listaParametros,listaValues);
+                i = JsonConvert.DeserializeObject<Ingrediente>(json.ToString());
 
-                String json = hreq.sendRequestPOST("/ServicioMyPizza/servicios/WSProducto/buscar");
-                i = JsonConvert.DeserializeObject<Ingrediente>(json);
+                Console.WriteLine(i.toString());
+
 
             }
             catch (System.Net.WebException swe)

@@ -193,6 +193,8 @@ namespace Vista
                 {
                     seleccionado = item.Text;
                     treeViewPedido.Nodes[nodeSeleccionado].Nodes.Add(seleccionado);
+                    Ingrediente i = cp.listarUnIngrediente(seleccionado);
+                    MessageBox.Show(i.toString());
                     //buscar ingrediente por nombre
 
 
@@ -258,11 +260,16 @@ namespace Vista
 
             List<Ingrediente> listaIng = cp.listarIngredientesPizza(p.getIdPizza().ToString());
 
-            foreach (Ingrediente i in listaIng)
+            if (listaIng != null)
             {
-                treeViewPedido.Nodes[key].Nodes.Add(i.getNombre());   //childs             
+                foreach (Ingrediente i in listaIng)
+                {
+                    treeViewPedido.Nodes[key].Nodes.Add(i.getNombre());   //childs             
+                }
+            }else
+            {
+                Alert("No se encuentran ingredientes.","Error servicio");
             }
-            
             treeViewPedido.ImageList = imagelist1;
             treeViewPedido.ExpandAll();                      
                        
