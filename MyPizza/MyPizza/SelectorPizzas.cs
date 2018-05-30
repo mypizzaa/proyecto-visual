@@ -18,7 +18,8 @@ namespace Vista
     public partial class SelectorPizzas : Form
     {
         
-        
+        private ControladorServicio cs;
+
         private ControladorProductos cp;
         private ControladorPedidos cPed;
 
@@ -28,12 +29,13 @@ namespace Vista
 
         public SelectorPizzas()
         {
-           
+
+            cs = new ControladorServicio();
             cp = new ControladorProductos();
             cPed = new ControladorPedidos();
             InitializeComponent();
             
-            Boolean connected = cp.getConnection();
+            Boolean connected = cs.getConnection();
 
             if (connected != false)
             {

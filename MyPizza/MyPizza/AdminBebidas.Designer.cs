@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bNuevo = new System.Windows.Forms.Button();
+            this.bCancelar = new System.Windows.Forms.Button();
+            this.bGuardar = new System.Windows.Forms.Button();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBebida = new System.Windows.Forms.TextBox();
@@ -48,47 +48,52 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button3
+            // bNuevo
             // 
-            this.button3.BackColor = System.Drawing.Color.Black;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(864, 579);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(90, 40);
-            this.button3.TabIndex = 22;
-            this.button3.Text = "AÑADIR";
-            this.button3.UseVisualStyleBackColor = false;
+            this.bNuevo.BackColor = System.Drawing.Color.Black;
+            this.bNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bNuevo.Location = new System.Drawing.Point(864, 579);
+            this.bNuevo.Name = "bNuevo";
+            this.bNuevo.Size = new System.Drawing.Size(90, 40);
+            this.bNuevo.TabIndex = 22;
+            this.bNuevo.Text = "NUEVO";
+            this.bNuevo.UseVisualStyleBackColor = false;
+            this.bNuevo.Click += new System.EventHandler(this.bNuevo_Click);
             // 
-            // button2
+            // bCancelar
             // 
-            this.button2.BackColor = System.Drawing.Color.Black;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(768, 579);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 40);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "CANCELAR";
-            this.button2.UseVisualStyleBackColor = false;
+            this.bCancelar.BackColor = System.Drawing.Color.Black;
+            this.bCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bCancelar.Location = new System.Drawing.Point(768, 579);
+            this.bCancelar.Name = "bCancelar";
+            this.bCancelar.Size = new System.Drawing.Size(90, 40);
+            this.bCancelar.TabIndex = 21;
+            this.bCancelar.Text = "CANCELAR";
+            this.bCancelar.UseVisualStyleBackColor = false;
+            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
-            // button1
+            // bGuardar
             // 
-            this.button1.BackColor = System.Drawing.Color.Black;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(672, 579);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 40);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "GUARDAR";
-            this.button1.UseVisualStyleBackColor = false;
+            this.bGuardar.BackColor = System.Drawing.Color.Black;
+            this.bGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bGuardar.Location = new System.Drawing.Point(864, 579);
+            this.bGuardar.Name = "bGuardar";
+            this.bGuardar.Size = new System.Drawing.Size(90, 40);
+            this.bGuardar.TabIndex = 20;
+            this.bGuardar.Text = "GUARDAR";
+            this.bGuardar.UseVisualStyleBackColor = false;
+            this.bGuardar.Visible = false;
+            this.bGuardar.Click += new System.EventHandler(this.bGuardar_Click);
             // 
             // txtPrecio
             // 
+            this.txtPrecio.Enabled = false;
             this.txtPrecio.Location = new System.Drawing.Point(342, 187);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(221, 20);
@@ -106,6 +111,7 @@
             // 
             // txtBebida
             // 
+            this.txtBebida.Enabled = false;
             this.txtBebida.Location = new System.Drawing.Point(342, 128);
             this.txtBebida.Name = "txtBebida";
             this.txtBebida.Size = new System.Drawing.Size(221, 20);
@@ -124,6 +130,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Enabled = false;
             this.pictureBox1.Location = new System.Drawing.Point(137, 108);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(182, 159);
@@ -180,6 +187,7 @@
             this.bAñadirImagen.TabIndex = 23;
             this.bAñadirImagen.Text = "Añadir imagen";
             this.bAñadirImagen.UseVisualStyleBackColor = false;
+            this.bAñadirImagen.Visible = false;
             this.bAñadirImagen.Click += new System.EventHandler(this.bAñadirImagen_Click);
             // 
             // openFileDialog1
@@ -213,6 +221,7 @@
             this.bModificar.TabIndex = 31;
             this.bModificar.Text = "MODIFICAR";
             this.bModificar.UseVisualStyleBackColor = false;
+            this.bModificar.Click += new System.EventHandler(this.bModificar_Click);
             // 
             // AdminBebidas
             // 
@@ -223,9 +232,9 @@
             this.Controls.Add(this.bEliminar);
             this.Controls.Add(this.bModificar);
             this.Controls.Add(this.bAñadirImagen);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.bNuevo);
+            this.Controls.Add(this.bCancelar);
+            this.Controls.Add(this.bGuardar);
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtBebida);
@@ -246,9 +255,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bNuevo;
+        private System.Windows.Forms.Button bCancelar;
+        private System.Windows.Forms.Button bGuardar;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtBebida;

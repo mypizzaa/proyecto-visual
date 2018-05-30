@@ -20,34 +20,7 @@ namespace Controlador
         {
             servidor = "http://localhost:8080";
         }
-
-        public Boolean getConnection()
-        {
-            Boolean connection = true;
-            try
-            {
-                using (WebClient wc = new WebClient())
-                {
-                    wc.Encoding = System.Text.Encoding.UTF8;
-                    String json = wc.DownloadString(servidor + "/ServicioMyPizza/servicios/WSProducto/pizzas");
-
-                    //buscar ingrediente por nombre en el controlador
-                    //sumar al total el precio del ingrediente 
-
-                    List<Pizza> listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
-                    if(listaPizzas == null)
-                    {
-                        connection = false;
-                    }
-                }
-            }
-            catch (System.Net.WebException swe)
-            {
-                connection = false;
-            }
-
-            return connection;
-        }
+               
 
 
         // this method call the service method listall and list all pizzas
@@ -130,7 +103,6 @@ namespace Controlador
             try
             {
                 
-
                 using (WebClient wc = new WebClient())
                 {
                     wc.Encoding = System.Text.Encoding.UTF8;

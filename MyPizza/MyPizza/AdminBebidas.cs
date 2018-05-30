@@ -16,21 +16,40 @@ namespace Vista
     {
 
         private ControladorProductos cp;
+        private ControladorServicio cs;
+
+        Boolean service;
 
 
         public AdminBebidas()
         {
             cp = new ControladorProductos();
+            cs = new ControladorServicio();
+
             InitializeComponent();
-            cargarBebidas();
+
+            service = cs.getConnection();
+
+            if (service != false)
+            {
+                cargarBebidas();
+
+            }else
+            {
+                ErrorServicio es = new ErrorServicio();
+                es.ShowDialog();
+            }
+
         }
 
-
+        /// <summary>
+        /// This method load all drinks to the listViewBebidas
+        /// </summary>
         public void cargarBebidas()
         {
             List<Refresco> listaBebidas = cp.listarRefrescos();
 
-                        foreach (Refresco r in listaBebidas)
+            foreach (Refresco r in listaBebidas)
             {
                 listViewBebidas.Items.Add(r.getNombre());
             }
@@ -64,6 +83,12 @@ namespace Vista
             }
         }
 
+
+        /// <summary>
+        /// This method save the select item from listview and put the name, image and price in the form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listViewBebidas_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewBebidas.SelectedItems.Count > 0)
@@ -78,8 +103,45 @@ namespace Vista
                 String pathImage = r.getImagen();
                 pictureBox1.ImageLocation = "http://provenapps.cat/~dam1804/Images/bebidas/" + pathImage;
 
-
             }
+        }
+
+
+
+        private void bGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Enabled = false;
+            txtBebida.Enabled = false;
+            txtPrecio.Enabled = false;
+            bAñadirImagen.Visible = false;
+        }
+
+        /// <summary>
+        /// This method put reset the form and put the button guardar visible and the buton nuevo not visible.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void bNuevo_Click(object sender, EventArgs e)
+        {
+            bNuevo.Visible = false;
+            bGuardar.Visible = true;
+
+            txtBebida.Text = "";
+            txtPrecio.Text = "";            
+        }
+
+        private void bModificar_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Enabled = true;
+            txtBebida.Enabled = true;
+            txtPrecio.Enabled = true;
+            bAñadirImagen.Visible = true;
         }
     }
     

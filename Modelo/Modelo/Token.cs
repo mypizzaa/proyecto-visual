@@ -8,18 +8,24 @@ namespace Modelo
 {
     public class Token
     {
-        private long id_token;
-        private Usuario usuario;
-        private String token;
-        private DateTime date_time;
+        public long id_token;
+        public Usuario usuario;
+        public String token;
+        public DateTime date_time;
 
-        public Token(long id_token, Usuario usuario, String token, DateTime date_time)
+        public Token()
         {
+
+        }
+        public Token(long id_token,Usuario u, String token, DateTime date_time)
+        {
+
             this.id_token = id_token;
-            this.usuario = usuario;
+            this.usuario = u;
             this.token = token;
             this.date_time = date_time;
         }
+
 
         public Token(Usuario usuario, String token, DateTime date_time)
         {
@@ -27,10 +33,7 @@ namespace Modelo
             this.token = token;
             this.date_time = date_time;
         }
-
-        public Token()
-        {
-        }
+              
 
         public long getId_token()
         {
@@ -75,7 +78,7 @@ namespace Modelo
         
         public String toString()
         {
-            return "Token{" + "id_token=" + id_token + ", usuario=" + usuario + ", token=" + token + ", date_time=" + date_time + '}';
+            return "Token{" + "id_token=" +id_token + ", usuario=" + usuario.toString() + ", token=" + token + ", date_time=" + date_time + '}';
         }
 
 

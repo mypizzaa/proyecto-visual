@@ -36,20 +36,16 @@
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelTitulo = new System.Windows.Forms.Panel();
-            this.iconoRestaurar = new System.Windows.Forms.PictureBox();
-            this.iconoMini = new System.Windows.Forms.PictureBox();
-            this.iconoMaxi = new System.Windows.Forms.PictureBox();
             this.iconoCerrar = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.iconoMini = new System.Windows.Forms.PictureBox();
             this.menuVertical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconoRestaurar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconoMini)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconoMaxi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconoCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconoMini)).BeginInit();
             this.SuspendLayout();
             // 
             // menuVertical
@@ -147,9 +143,7 @@
             // panelTitulo
             // 
             this.panelTitulo.BackColor = System.Drawing.Color.Black;
-            this.panelTitulo.Controls.Add(this.iconoRestaurar);
             this.panelTitulo.Controls.Add(this.iconoMini);
-            this.panelTitulo.Controls.Add(this.iconoMaxi);
             this.panelTitulo.Controls.Add(this.iconoCerrar);
             this.panelTitulo.Controls.Add(this.pictureBox1);
             this.panelTitulo.Dock = System.Windows.Forms.DockStyle.Top;
@@ -157,40 +151,6 @@
             this.panelTitulo.Name = "panelTitulo";
             this.panelTitulo.Size = new System.Drawing.Size(1198, 31);
             this.panelTitulo.TabIndex = 1;
-            // 
-            // iconoRestaurar
-            // 
-            this.iconoRestaurar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconoRestaurar.Location = new System.Drawing.Point(1140, 5);
-            this.iconoRestaurar.Name = "iconoRestaurar";
-            this.iconoRestaurar.Size = new System.Drawing.Size(20, 20);
-            this.iconoRestaurar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconoRestaurar.TabIndex = 4;
-            this.iconoRestaurar.TabStop = false;
-            this.iconoRestaurar.Visible = false;
-            this.iconoRestaurar.Click += new System.EventHandler(this.iconoRestaurar_Click);
-            // 
-            // iconoMini
-            // 
-            this.iconoMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconoMini.Location = new System.Drawing.Point(1114, 5);
-            this.iconoMini.Name = "iconoMini";
-            this.iconoMini.Size = new System.Drawing.Size(20, 20);
-            this.iconoMini.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconoMini.TabIndex = 3;
-            this.iconoMini.TabStop = false;
-            this.iconoMini.Click += new System.EventHandler(this.iconoMini_Click);
-            // 
-            // iconoMaxi
-            // 
-            this.iconoMaxi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconoMaxi.Location = new System.Drawing.Point(1140, 5);
-            this.iconoMaxi.Name = "iconoMaxi";
-            this.iconoMaxi.Size = new System.Drawing.Size(20, 20);
-            this.iconoMaxi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconoMaxi.TabIndex = 2;
-            this.iconoMaxi.TabStop = false;
-            this.iconoMaxi.Click += new System.EventHandler(this.iconoMaxi_Click);
             // 
             // iconoCerrar
             // 
@@ -224,6 +184,18 @@
             this.panelContenedor.Size = new System.Drawing.Size(1198, 757);
             this.panelContenedor.TabIndex = 2;
             // 
+            // iconoMini
+            // 
+            this.iconoMini.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.iconoMini.Image = ((System.Drawing.Image)(resources.GetObject("iconoMini.Image")));
+            this.iconoMini.Location = new System.Drawing.Point(1140, 5);
+            this.iconoMini.Name = "iconoMini";
+            this.iconoMini.Size = new System.Drawing.Size(20, 20);
+            this.iconoMini.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconoMini.TabIndex = 2;
+            this.iconoMini.TabStop = false;
+            this.iconoMini.Click += new System.EventHandler(this.iconoMini_Click);
+            // 
             // PanelAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,11 +213,9 @@
             this.menuVertical.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelTitulo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.iconoRestaurar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconoMini)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconoMaxi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconoCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.iconoMini)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -258,12 +228,10 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.PictureBox iconoCerrar;
-        private System.Windows.Forms.PictureBox iconoMaxi;
-        private System.Windows.Forms.PictureBox iconoMini;
-        private System.Windows.Forms.PictureBox iconoRestaurar;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.PictureBox iconoMini;
     }
 }

@@ -4,19 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Modelo
 {
     public class Usuario
     {
-        private long id_usuario;
-        private String dni;
-        private String nombre;
-        private String apellidos;
-        private String password;
-        private String imagen;
-        private String tipo_Usuario;
-        private String correo;
-        private int activo;
+        public long id_usuario;
+        public String dni;
+        public String nombre;
+        public String apellidos;
+        public String password;
+        public String imagen;
+        public String tipo_Usuario;
+        public String correo;
+        public int activo;
 
         //Constructor
         public Usuario(long id_usuario, String dni, String nombre, String apellidos, String password, String imagen, String tipo_Usuario, String correo, int activo)

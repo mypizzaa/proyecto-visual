@@ -20,25 +20,41 @@ namespace Vista
     {
 
         private ControladorProductos cp;
+        private ControladorServicio cs;
 
         private List<CheckBox> listCheckbox;
 
         private Pizza p;
         private long idPizza;
 
-
-
+        Boolean connection;
+        
 
         public AdminPizza()
         {
             cp = new ControladorProductos();
-            listCheckbox = new List<CheckBox>();
-            
+            cs = new ControladorServicio();
+
+            listCheckbox = new List<CheckBox>();             
             InitializeComponent();
-            cargarListViewPizzas();
-            cargarCheckBoxesIngredientes();
+
+            connection = cs.getConnection();
+
+            if (connection != false)
+            {
+                cargarListViewPizzas();
+                cargarCheckBoxesIngredientes();
+
+            }else
+            {
+                ErrorServicio es = new ErrorServicio();
+                es.ShowDialog();
+            }
         }
 
+        /// <summary>
+        /// This method loads all pizzas in the listview
+        /// </summary>
         private void cargarListViewPizzas()
         {
 
@@ -52,8 +68,8 @@ namespace Vista
         }
 
         /// <summary>
-        /// Este metodo carga de la base de datos todos los ingredientes y genera dinamicamente 
-        /// los checkbox correspondientes con su informacion.
+        /// This method loads all the ingredients from the server
+        /// and dynamically generates the corresponding checkboxes with their information.
         /// </summary>
         private void cargarCheckBoxesIngredientes()
         {
@@ -62,12 +78,10 @@ namespace Vista
             int j = 0;
             int x = 14;
             int y = 34;
-            int x1 = 0;
-          
+            int x1 = 0;          
 
             for (int i = 0; i < listaIngredientes.Count; i++)            
-            {
-                     
+            {                     
                 CheckBox cb = new CheckBox();
                 cb.Text = (listaIngredientes[i].getNombre().ToString());
                 cb.Height= 21;
@@ -82,7 +96,7 @@ namespace Vista
                 x1 = x+(135*j);
                 
                 cb.Location = new Point(x1,y);
-                //MessageBox.Show(listaIngredientes[i].getNombre().ToString());
+                
                 listCheckbox.Add(cb);
                 groupBoxIngredientes.Controls.Add(cb);
                 j++;
@@ -90,22 +104,10 @@ namespace Vista
 
         }
 
-              
-
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void AdminPizza_Load(object sender, EventArgs e)
-        {
-
-        }
 
         /// <summary>
-        /// Metodo que abre un open file dialog para seleccionar una imagen y ponerla en el picture box
-        /// Por defecto abre el open file dialog en C:// y solamente deja seleccionar ficheros png o jpg
+        ///Method that opens an open file dialog to select an image and put it in the picture box.
+        ///By default it opens the open file dialog in C:// and only lets select png or jpg files
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -131,31 +133,31 @@ namespace Vista
         }
 
         /// <summary>
-        /// Este metodo cuando se selecciona un item de la lista de pizzas pone el nombre
-        /// en el text box correspondiente y el precio y todos los ingredientes que pertocan a cada pizza
+        /// This method when you select an item from the list of pizzas puts the name in the corresponding text box and the price and selects the ingredients of the checkboxes that pertocan each pizza along with the image.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
         private void ListViewPizzas_SelectedIndexChanged(object sender, EventArgs e)
         {
 
             if (ListViewPizzas.SelectedItems.Count > 0)
             {
-                //seleccionamos el nombre de la pizza
+                //select the name of the pizza (item listview)
                 ListViewItem listItem = ListViewPizzas.SelectedItems[0];
                 String nombrepizza = listItem.Text;
                 txtNombrePizza.Text = nombrepizza;
 
-                //cogemos el precio de la pizza y lo mostramos
+                //take the price of the pizza and show it
                 p = cp.listarUnaPizza(nombrepizza);
                 txtPrecio.Text = p.getPrecio().ToString();
 
-                //llamamos al metodo marcarIngredientes para seleccionar los ingredientes que lleva la pizza
+                //we call the method marcaIngredientes to select the ingredients that takes the pizza
                 idPizza = p.getIdPizza();
                 List<Ingrediente> listaIngredientes = cp.listarIngredientesPizza(idPizza.ToString());
                 marcarIngredientesPizza(listaIngredientes);
                 
-                //ponemos la imagen de la pizza
+                //load image to the picturebox
                 String pathImage = p.getImagen();
                 pictureBox1.ImageLocation = "http://provenapps.cat/~dam1804/Images/pizzas/" + pathImage;
 
@@ -171,13 +173,13 @@ namespace Vista
             bAñadirImagen.Enabled = true;
             bAñadirImagen.Visible = true;
             groupBoxIngredientes.Enabled = true;
+            
 
         }
 
         private void bNueva_Click(object sender, EventArgs e)
         {
-            bNueva.Visible = false;
-            bAdd.Visible = true;
+           
             txtNombrePizza.Text = "";
             txtPrecio.Text = "";
             
@@ -212,14 +214,79 @@ namespace Vista
                         cb.Checked = false;
                     }
                 }
-
             }
-
 
         }
 
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            txtNombrePizza.Enabled = false;
+            txtPrecio.Enabled = false;
+            bAñadirImagen.Enabled = false;
+            bAñadirImagen.Visible = false;
+            groupBoxIngredientes.Enabled = false;
+           
+            txtNombrePizza.Text = "";
+            txtPrecio.Text = "";
+        }
 
+        private void bModificar_Click_1(object sender, EventArgs e)
+        {
+            bGuardar.Visible = true;
+            bCancelar.Visible = true;
+            bAñadirImagen.Visible = true;
 
+            activarControles();
 
+        }
+
+        private void activarControles()
+        {
+            txtNombrePizza.Enabled = true;
+            txtPrecio.Enabled = true;
+            groupBoxIngredientes.Enabled = true;
+        }
+
+        private void desactivarControles()
+        {
+            txtNombrePizza.Enabled = false;
+            txtPrecio.Enabled = false;
+            groupBoxIngredientes.Enabled = false;
+        }
+
+        private void bNueva_Click_1(object sender, EventArgs e)
+        {
+            bGuardar.Visible = true;
+            bCancelar.Visible = true;
+            bAñadirImagen.Visible = true;
+            resetControles();
+            activarControles();
+
+        }
+
+        private void resetControles()
+        {
+            txtNombrePizza.Text = "";
+            txtPrecio.Text = "";
+            foreach(CheckBox cb in listCheckbox)
+            {
+                cb.ForeColor = Color.Black;
+                cb.Checked = false;
+            }
+        }
+
+        private void bGuardar_Click(object sender, EventArgs e)
+        {
+            bGuardar.Visible = false;
+            bCancelar.Visible = false;
+            desactivarControles();
+        }
+
+        private void bCancelar_Click_1(object sender, EventArgs e)
+        {
+            bGuardar.Visible = false;
+            bCancelar.Visible = false;
+            desactivarControles();
+        }
     }
 }

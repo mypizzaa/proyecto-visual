@@ -13,13 +13,15 @@ namespace Vista
 {
     public partial class PanelAdmin : Form
     {
-        ControladorProductos cp;
+
+        ControladorServicio cs;
+
         public PanelAdmin()
         {
-            cp = new ControladorProductos();
+            cs = new ControladorServicio();
             InitializeComponent();
 
-            if(cp.getConnection() != false)
+            if(cs.getConnection() != false)
             {
                 welcome();
 
@@ -27,14 +29,13 @@ namespace Vista
             {
                 ErrorServicio es = new ErrorServicio();
                 es.ShowDialog();
-            }
-
-
-
-            
+            }            
 
         }
 
+        /// <summary>
+        /// Open welcome form
+        /// </summary>
         public void welcome()
         {
             Welcome w = new Welcome();
@@ -42,8 +43,11 @@ namespace Vista
         }
 
 
-
-        //Menu burger
+        /// <summary>
+        /// expands the menu vertical or shrink menu  
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (menuVertical.Width == 188)
@@ -58,29 +62,19 @@ namespace Vista
             }
         }
 
-        //Icono de cerrar ventana
+
+
+        /// <summary>
+        /// Close the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void iconoCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-        //Icono de maximizar ventana
-        private void iconoMaxi_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            iconoMaxi.Visible = false;
-            iconoRestaurar.Visible = true;
             
-        }
-
-        //Icono de restaurar ventana
-        private void iconoRestaurar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal;
-            iconoMaxi.Visible = true;
-            iconoRestaurar.Visible = false;
-        }
-
+        
         //Icono de minimizar
         private void iconoMini_Click(object sender, EventArgs e)
         {
@@ -129,5 +123,7 @@ namespace Vista
             AbrirPanel(new AdminVentas());
             
         }
+
+      
     }
 }

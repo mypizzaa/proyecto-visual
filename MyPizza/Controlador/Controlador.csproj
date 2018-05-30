@@ -52,6 +52,7 @@
     <Compile Include="ControladorLogin.cs" />
     <Compile Include="ControladorPedidos.cs" />
     <Compile Include="ControladorProductos.cs" />
+    <Compile Include="ControladorServicio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -28,27 +28,12 @@ namespace Vista
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wsmg, int wparam, int lparam);
 
-     
         public Login()
         {
             cl = new ControladorLogin();              
-            InitializeComponent();
-           
+            InitializeComponent();           
         }
-                
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            PanelAdmin ap = new PanelAdmin();
-            ap.ShowDialog();
-
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-                
+                   
         private void txtCorreo_Enter(object sender, EventArgs e)
         {
             if(txtCorreo.Text == "Usuario")
@@ -89,7 +74,12 @@ namespace Vista
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        //Boton para salir de la aplicación
+
+        /// <summary>
+        /// Button to exit application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -98,19 +88,16 @@ namespace Vista
         //Boton para logearse
         private async void bAcceder_Click(object sender, EventArgs e)
         {
-            //SelectorPizzas sp = new SelectorPizzas() ;
-            //sp.ShowDialog();
-            //this.Close();
 
             String correo = txtCorreo.Text;
             String password = txtPassword.Text;
 
             if (correo != null && password != null)
             {
-                    try
-                    {
-                        Token tk = await cl.login(correo, password);
-                
+                try
+                {
+                    Token tk = await cl.login(correo, password);
+
                     if (tk != null)
                     {
                         MessageBox.Show(tk.toString());
@@ -121,7 +108,8 @@ namespace Vista
                         MessageBox.Show("Usuario o contraseña incorrectos.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
 
-                }catch (System.Net.Http.HttpRequestException hre)
+                }
+                catch (System.Net.Http.HttpRequestException hre)
                 {
                     ErrorServicio es = new ErrorServicio();
                     es.ShowDialog();
@@ -130,12 +118,15 @@ namespace Vista
             }
             else
             {
-                MessageBox.Show("Inserte un usuario y contraseña");
+                MessageBox.Show("Inserte un usuario y una contraseña", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
 
-
+        /// <summary>
+        /// This method opens a form depending on the type of user that is
+        /// </summary>
+        /// <param name="u"></param>
         public void saberRolUsuario(Usuario u)
         {
             String tipo = u.getTipoUsuario();
