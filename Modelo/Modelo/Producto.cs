@@ -34,6 +34,14 @@ namespace Modelo
             this.nombre = nombre;
         }
 
+        public Producto(long id_producto, string nombre, double precio, string imagen)
+        {
+            this.id_producto = id_producto;
+            this.nombre = nombre;
+            this.precio = precio;
+            this.imagen = imagen;
+        }
+
         //Getters
         public long getIdProducto()
         {

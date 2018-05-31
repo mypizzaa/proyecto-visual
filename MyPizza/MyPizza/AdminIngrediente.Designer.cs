@@ -53,7 +53,7 @@
             this.bEliminar.BackColor = System.Drawing.Color.Black;
             this.bEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.bEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bEliminar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.bEliminar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.bEliminar.Location = new System.Drawing.Point(234, 558);
             this.bEliminar.Name = "bEliminar";
@@ -61,13 +61,14 @@
             this.bEliminar.TabIndex = 46;
             this.bEliminar.Text = "ELIMINAR";
             this.bEliminar.UseVisualStyleBackColor = false;
+            this.bEliminar.Click += new System.EventHandler(this.bEliminar_Click);
             // 
             // bModificar
             // 
             this.bModificar.BackColor = System.Drawing.Color.Black;
             this.bModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.bModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.bModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.bModificar.Location = new System.Drawing.Point(138, 558);
             this.bModificar.Name = "bModificar";
@@ -82,7 +83,7 @@
             this.bAñadirImagen.BackColor = System.Drawing.Color.Black;
             this.bAñadirImagen.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.bAñadirImagen.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bAñadirImagen.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bAñadirImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.bAñadirImagen.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.bAñadirImagen.Location = new System.Drawing.Point(342, 237);
             this.bAñadirImagen.Name = "bAñadirImagen";
@@ -97,7 +98,7 @@
             // 
             this.bNuevo.BackColor = System.Drawing.Color.Black;
             this.bNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.bNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.bNuevo.Location = new System.Drawing.Point(330, 558);
             this.bNuevo.Name = "bNuevo";
@@ -105,12 +106,13 @@
             this.bNuevo.TabIndex = 43;
             this.bNuevo.Text = "NUEVO INGREDIENTE ";
             this.bNuevo.UseVisualStyleBackColor = false;
+            this.bNuevo.Click += new System.EventHandler(this.bNuevo_Click);
             // 
             // bCancelar
             // 
             this.bCancelar.BackColor = System.Drawing.Color.Black;
             this.bCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bCancelar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.bCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.bCancelar.Location = new System.Drawing.Point(769, 558);
             this.bCancelar.Name = "bCancelar";
@@ -119,12 +121,13 @@
             this.bCancelar.Text = "CANCELAR";
             this.bCancelar.UseVisualStyleBackColor = false;
             this.bCancelar.Visible = false;
+            this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
             // bGuardar
             // 
             this.bGuardar.BackColor = System.Drawing.Color.Black;
             this.bGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.bGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.bGuardar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.bGuardar.Location = new System.Drawing.Point(865, 558);
             this.bGuardar.Name = "bGuardar";
@@ -133,6 +136,7 @@
             this.bGuardar.Text = "GUARDAR";
             this.bGuardar.UseVisualStyleBackColor = false;
             this.bGuardar.Visible = false;
+            this.bGuardar.Click += new System.EventHandler(this.bGuardar_Click);
             // 
             // txtPrecio
             // 
@@ -145,10 +149,10 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(342, 167);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 17);
+            this.label4.Size = new System.Drawing.Size(50, 16);
             this.label4.TabIndex = 39;
             this.label4.Text = "Precio:";
             // 
@@ -163,10 +167,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(342, 108);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(146, 17);
+            this.label3.Size = new System.Drawing.Size(133, 16);
             this.label3.TabIndex = 37;
             this.label3.Text = "Nombre Ingrediente :";
             // 
@@ -184,10 +188,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label2.Location = new System.Drawing.Point(134, 304);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(106, 19);
+            this.label2.Size = new System.Drawing.Size(114, 17);
             this.label2.TabIndex = 35;
             this.label2.Text = "INGREDIENTES:";
             // 
@@ -197,7 +201,7 @@
             this.listViewIngredientes.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Id_Prod,
             this.columnHeader1});
-            this.listViewIngredientes.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewIngredientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewIngredientes.GridLines = true;
             this.listViewIngredientes.Location = new System.Drawing.Point(138, 337);
             this.listViewIngredientes.Name = "listViewIngredientes";
@@ -210,10 +214,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label1.Location = new System.Drawing.Point(133, 43);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(238, 21);
+            this.label1.Size = new System.Drawing.Size(247, 20);
             this.label1.TabIndex = 33;
             this.label1.Text = "ADMINISTRAR INGREDIENTES";
             // 

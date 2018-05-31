@@ -20,6 +20,10 @@ namespace Vista
 
         Boolean service;
 
+        string buttonText = null;
+        long id_ingrediente = 0;
+        long id_producto = 0;
+
         public AdminIngrediente()
         {
             cp = new ControladorProductos();
@@ -46,6 +50,7 @@ namespace Vista
         /// </summary>
         private void loadIngredientes()
         {
+            listViewIngredientes.Clear();
             List<Ingrediente> listaIngredientes = cp.listarIngredientes();
 
             foreach (Ingrediente i in listaIngredientes)
@@ -56,7 +61,23 @@ namespace Vista
 
         private void bModificar_Click(object sender, EventArgs e)
         {
+
+            Button b = (Button)sender;
+            buttonText = b.Text;
             
+            bGuardar.Visible = true;
+            bCancelar.Visible = true;
+
+            bNuevo.Visible = false;
+            bEliminar.Visible = false;
+            bModificar.Visible = false;
+
+            txtIngrediente.Enabled = true;
+            txtPrecio.Enabled = true;
+
+            pictureBox1.Enabled = true;
+
+            listViewIngredientes.Enabled = false;
         }
 
         private void bAñadirImagen_Click(object sender, EventArgs e)
@@ -93,8 +114,157 @@ namespace Vista
                 txtPrecio.Text = i.getPrecio().ToString();
 
                 String pathImage = i.getImagen();
-                pictureBox1.ImageLocation = "http://provenapps.cat/~dam1804/Images/bebidas/" + pathImage;
+                pictureBox1.ImageLocation = "http://provenapps.cat/~dam1804/Images/ingredientes/" + pathImage;
+                id_ingrediente = i.getIdIngrediente();
+                id_producto = i.getIdProducto();
 
+            }
+        }
+
+        private async void bGuardar_Click(object sender, EventArgs e)
+        {
+            string name = txtIngrediente.Text;
+            string precio = txtPrecio.Text;
+            string imagen = "";
+
+            precio = precio.Replace(",", ".");
+
+            if (!"".Equals(name) && !"".Equals(precio))
+            {
+                try
+                {
+                    if (!"MODIFICAR".Equals(buttonText))
+                    {
+                        Ingrediente i = new Ingrediente(name, double.Parse(precio), imagen);
+
+                        int answ = await cp.agregarIngrediente(i);
+
+                        if (answ != 0)
+                        {
+                            MessageBox.Show("Se ha añadido correctamente el ingrediente", "Correcto");
+                            resetComponents();
+                            loadIngredientes();
+                        }
+                        else
+                        {
+                            Alert("No se ha podido añadir el ingrediente", "Error!");
+                        }
+                    } else if (buttonText.Equals("MODIFICAR")) {
+                        if (id_producto != 0)
+                        {
+                            Ingrediente i = new Ingrediente(id_producto, name, double.Parse(precio), imagen);
+
+                            int answ = await cp.modificarIngrediente(i);
+
+                            if (answ != 0)
+                            {
+                                MessageBox.Show("Se ha modificado correctamente el ingrediente", "Correcto");
+                                resetComponents();
+                                loadIngredientes();
+                            }
+                            else
+                            {
+                                Alert("No se ha podido modificar el ingrediente", "Error!");
+                            }
+                        }
+                        else {
+                            Alert("Ingrediente no seleccionado", "Error!");
+                        }
+                    }
+                }
+                catch (FormatException fe)
+                {
+                    Alert("El campo precio es incorrecto", "Campos no validos");
+                }
+            }
+            else
+            {
+                Alert("El campo nombre y precio no pueden estar vacíos", "Campos no validos");
+            }
+        }
+
+        private void bNuevo_Click(object sender, EventArgs e)
+        {
+            txtIngrediente.Text = "";
+            txtPrecio.Text = "";
+            pictureBox1.Image = null;
+
+            Button b = (Button)sender;
+            buttonText = b.Text;
+            bNuevo.Visible = false;
+            bGuardar.Visible = true;
+            bCancelar.Visible = true;
+
+            bEliminar.Visible = false;
+            bModificar.Visible = false;
+
+            txtIngrediente.Enabled = true;
+            txtPrecio.Enabled = true;
+
+            pictureBox1.Enabled = true;
+
+            listViewIngredientes.Enabled = false;
+
+        }
+
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            resetComponents();
+        }
+
+        private void resetComponents()
+        {
+            txtIngrediente.Text = "";
+            txtPrecio.Text = "";
+            pictureBox1.Image = null;            
+            bCancelar.Visible = false;
+            bGuardar.Visible = false;
+
+            bNuevo.Visible = true;
+            bEliminar.Visible = true;
+            bModificar.Visible = true;
+
+            txtIngrediente.Enabled = false;
+            txtPrecio.Enabled = false;
+
+            pictureBox1.Enabled = false;
+
+            listViewIngredientes.Enabled = true;
+
+            id_ingrediente = 0;
+            id_producto = 0;
+            buttonText = "";
+        }
+
+        public void Alert(String mensaje, string titulo)
+        {
+            MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private async void bEliminar_Click(object sender, EventArgs e)
+        {
+            if (id_ingrediente > 0)
+            {
+                DialogResult dialogResult = MessageBox.Show("Estas seguro que quieres eliminar el ingrediente \""+txtIngrediente.Text + "\"?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    int answ = await cp.eliminarIngrediente(new Ingrediente(id_ingrediente));
+
+                    if (answ != 0)
+                    {
+                        MessageBox.Show("Se ha eliminado correctamente el ingrediente", "Correcto");
+                        resetComponents();
+                        loadIngredientes();
+                    }
+                    else
+                    {
+                        Alert("No se ha podido eliminar el ingrediente", "Error!");
+                    }
+                }
+            }
+            else
+            {
+                Alert("No has seleccionado ningun ingrediente", "Error!");
             }
         }
     }

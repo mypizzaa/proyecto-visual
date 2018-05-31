@@ -17,10 +17,28 @@ namespace Modelo
             this.id_ingrediente = id_ingrediente;
         }
 
+        public Ingrediente(long id_prod, string nombre, double precio, string img) : base(id_prod, nombre, precio, img)
+        {
+            this.id_ingrediente = id_ingrediente;
+        }
+
+        public Ingrediente() { }
+
+        public Ingrediente(long id_ingrediente) {
+            this.id_ingrediente = id_ingrediente;
+        }
+
         //Getters
         public long getIdIngrediente()
         {
             return this.id_ingrediente;
+        }
+
+        public Ingrediente(String nombre, double precio, String imagen)
+        {
+            this.nombre = nombre;
+            this.precio = precio;
+            this.imagen = imagen;
         }
 
         //Setter
