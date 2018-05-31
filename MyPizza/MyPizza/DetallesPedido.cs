@@ -16,13 +16,17 @@ namespace Vista
     {
         private ControladorPago cp;
         private List<MetodoPago> mpList = null;
+        private Cliente c;
 
-        public DetallesPedido()
+        public DetallesPedido() { }
+
+        public DetallesPedido(Cliente c)
         {
             cp = new ControladorPago();
             InitializeComponent();
             loadPayMethods();
             txtDetalles.Enabled = false;
+            this.c = c;
         }
 
         private void loadPayMethods()
@@ -32,16 +36,28 @@ namespace Vista
             {
                 cbPago.Items.Add(mp.getNombre());
             }
-        }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
+            cargarDatosCliente(c);
+        }
+                
+        public void cargarDatosCliente(Cliente c)
+        {
+            txtNombre.Text = c.getNombre();
+            txtApellidos.Text = c.getApellidos();
+            txtDireccion1.Text = c.getPrimeraDireccion();
+            txtDireccion2.Text = c.getSegundaDireccion();
+            txtTelefono.Text = c.getTelefono();
+            txtCodigoPostal.Text = c.getCodigoPostal();
+
+            DateTime localDate = DateTime.Now;
+            txtDiaHora.Text = localDate.ToString();
+        
+        }
+            
+
+        private void toolStripButton2_Click_1(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void DetallesPedido_Load(object sender, EventArgs e)

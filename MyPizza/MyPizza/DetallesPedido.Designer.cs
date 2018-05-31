@@ -1,4 +1,6 @@
-﻿namespace Vista
+﻿using System;
+
+namespace Vista
 {
     partial class DetallesPedido
     {
@@ -336,6 +338,16 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
