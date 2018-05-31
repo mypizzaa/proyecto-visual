@@ -32,39 +32,6 @@ namespace Controlador
         }
 
 
-        // esto esta mal hay que quitar este metodo !!!!!!!!!!!!!!!!!!
-        /// <summary>
-        /// this method list a prodcut by name, sends by POST
-        /// </summary>
-        /// <param name="nombre">nombre producto</param>
-        /// <returns></returns>
-        public async Task<Producto> listarUnProducto(String nombre)
-        {
-            Producto p = null;
-
-            try
-            {
-                this.listaParam.Add("name");
-                this.listaValues.Add(nombre);
-
-                var json = await hreq.sendRequestPOST("/ServicioMyPizza/servicios/WSProducto/buscar", listaParam, listaValues);
-                              
-                if(json != null)
-                {
-                    p = JsonConvert.DeserializeObject<Producto>(json.ToString());
-                   
-                }
-               
-            }
-            catch (System.Net.WebException swe)
-            {
-                p = null;
-            }
-            
-            return p;
-        }
-
-
 
         //--- PIZZAS --------------------------------------------------------------------//
 
