@@ -20,7 +20,7 @@ namespace Vista
 
         Boolean service;
 
-        String nombreBoton= "";
+        String nombreBoton = "";
 
         private String nombreBebida;
         private String precio;
@@ -39,7 +39,8 @@ namespace Vista
             {
                 cargarBebidas();
 
-            }else
+            }
+            else
             {
                 ErrorServicio es = new ErrorServicio();
                 es.ShowDialog();
@@ -58,7 +59,7 @@ namespace Vista
             {
                 listViewBebidas.Items.Add(r.getNombre());
             }
-            
+
         }
 
 
@@ -103,8 +104,8 @@ namespace Vista
                 txtBebida.Text = nombreBebida;
 
 
-                Refresco r= await cp.buscarRefrescoPorNombre(nombreBebida);
-                
+                Refresco r = await cp.buscarRefrescoPorNombre(nombreBebida);
+
                 txtPrecio.Text = r.getPrecio().ToString();
 
                 String pathImage = r.getImagen();
@@ -146,9 +147,10 @@ namespace Vista
 
                         break;
                 }
-            }else
+            }
+            else
             {
-                Alert("Nombre del boton vacio","Error");
+                Alert("Nombre del boton vacio", "Error");
             }
 
             bGuardar.Visible = false;
@@ -181,10 +183,10 @@ namespace Vista
             this.nombreBebida = txtBebida.Text;
             this.precio = txtPrecio.Text;
             this.imagen = null;
-            
-           
+
+
         }
-              
+
 
         //boton modificar
         private void bModificar_Click(object sender, EventArgs e)
@@ -197,7 +199,7 @@ namespace Vista
         {
 
         }
-             
+
 
         //boton cancelar
         private void bCancelar_Click(object sender, EventArgs e)
@@ -205,7 +207,7 @@ namespace Vista
             desactivarCampos();
             bCancelar.Visible = false;
         }
-        
+
         public void activarCampos()
         {
             pictureBox1.Enabled = true;
@@ -260,7 +262,7 @@ namespace Vista
         private async Task<int> guardarBebida(String nombreBebida, String precio, String imagen)
         {
             int answ = 0;
-            MessageBox.Show(nombreBebida+precio+imagen);
+            MessageBox.Show(nombreBebida + precio + imagen);
 
             if (nombreBebida != "" && precio != "")
             {

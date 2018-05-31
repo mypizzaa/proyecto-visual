@@ -133,20 +133,83 @@ namespace Controlador
 
             return listaIngredientes;
         }
-        
-        public void agregarIngrediente(Ingrediente i)
-        {
 
+        public async Task<int> agregarIngrediente(Ingrediente i)
+        {
+            int agregado = 0;
+            try
+            {
+                limpiarListas();
+                listaParam.Add("name");
+                listaParam.Add("price");
+                listaParam.Add("image");
+
+                listaValues.Add(i.getNombre());
+                listaValues.Add(i.getPrecio().ToString());
+                listaValues.Add(i.getImagen());
+
+
+                String json = await hreq.sendRequestPOST("/ServicioMyPizza/servicios/WSProducto/addingrediente", listaParam, listaValues);
+                agregado = JsonConvert.DeserializeObject<int>(json);
+
+            }
+            catch (System.Net.WebException swe)
+            {
+                agregado = 0;
+            }
+            return agregado;
         }
 
-        public void modificarIngrediente(Ingrediente i)
+        public async Task<int> modificarIngrediente(Ingrediente i)
         {
+            int modificado = 0;
+            try
+            {
+                limpiarListas();
+                listaParam.Add("id_product");
+                listaParam.Add("name");
+                listaParam.Add("price");
+                listaParam.Add("image");
 
+                listaValues.Add(i.getIdProducto().ToString());
+                listaValues.Add(i.getNombre());
+                listaValues.Add(i.getPrecio().ToString());
+                listaValues.Add(i.getImagen());
+
+
+
+                String json = await hreq.sendRequestPOST("/ServicioMyPizza/servicios/WSProducto/modificarproducto", listaParam, listaValues);
+                modificado = JsonConvert.DeserializeObject<int>(json);
+
+            }
+            catch (System.Net.WebException swe)
+            {
+                modificado = 0;
+            }
+            return modificado;
         }
 
-        public void eliminarIngrediente(Ingrediente i)
+        public async Task<int> eliminarIngrediente(Ingrediente i)
         {
+            int eliminado = 0;
+            try
+            {
+                limpiarListas();
+                listaParam.Add("id_ingredient");
 
+                listaValues.Add(i.getIdIngrediente().ToString());
+
+
+
+                String json = await hreq.sendRequestPOST("/ServicioMyPizza/servicios/WSProducto/eliminaringredient", listaParam, listaValues);
+                eliminado = JsonConvert.DeserializeObject<int>(json);
+
+            }
+            catch (System.Net.WebException swe)
+            {
+                eliminado = 0;
+            }
+            return eliminado;
         }
 
         public async Task<Ingrediente> buscarIngredientePorNombre(String nombre)
