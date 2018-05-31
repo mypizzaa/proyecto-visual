@@ -26,6 +26,9 @@ namespace Vista
         private String precio;
         private String imagen;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public AdminBebidas()
         {
             cp = new ControladorProductos();
@@ -206,6 +209,9 @@ namespace Vista
             bCancelar.Visible = false;
         }
         
+        /// <summary>
+        /// Active components
+        /// </summary>
         public void activarCampos()
         {
             pictureBox1.Enabled = true;
@@ -213,7 +219,9 @@ namespace Vista
             txtPrecio.Enabled = true;
             bAñadirImagen.Visible = true;
         }
-
+        /// <summary>
+        /// Deactivate components
+        /// </summary>
         public void desactivarCampos()
         {
             pictureBox1.Enabled = false;
@@ -222,6 +230,9 @@ namespace Vista
             bAñadirImagen.Visible = false;
         }
 
+        /// <summary>
+        /// Reset components
+        /// </summary>
         public void resetearCampos()
         {
             pictureBox1.Image = null;
@@ -229,12 +240,19 @@ namespace Vista
             txtPrecio.Text = "";
         }
 
+        /// <summary>
+        /// Hide buttons
+        /// </summary>
         public void ocultarBotones()
         {
             bModificar.Visible = false;
             bEliminar.Visible = false;
             bNuevo.Visible = false;
         }
+
+        /// <summary>
+        /// Show buttons
+        /// </summary>
         public void mostrarBotones()
         {
             bModificar.Visible = true;
@@ -242,13 +260,21 @@ namespace Vista
             bGuardar.Visible = true;
         }
 
-
-
+        /// <summary>
+        /// Alert for user
+        /// </summary>
+        /// <param name="mensaje">Message of the alert</param>
+        /// <param name="titulo">Title of the alert</param>
         public void Alert(String mensaje, string titulo)
         {
             MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        /// <summary>
+        /// Show message to user
+        /// </summary>
+        /// <param name="mensaje">Message of the message box</param>
+        /// <param name="titulo">Title of the message box</param>
         public void ShowMessage(String mensaje, string titulo)
         {
             MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Information);

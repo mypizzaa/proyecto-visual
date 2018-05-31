@@ -7,3 +7,11 @@ E:\SEGUNDO_DAM\PROYECTO\proyecto-visual\Modelo\Modelo\obj\Debug\Modelo.csprojRes
 E:\SEGUNDO_DAM\PROYECTO\proyecto-visual\Modelo\Modelo\obj\Debug\Modelo.csproj.CoreCompileInputs.cache
 E:\SEGUNDO_DAM\PROYECTO\proyecto-visual\Modelo\Modelo\obj\Debug\Modelo.dll
 E:\SEGUNDO_DAM\PROYECTO\proyecto-visual\Modelo\Modelo\obj\Debug\Modelo.pdb
+C:\Users\Miki\Documents\GitHub\proyecto-visual\Modelo\Modelo\bin\Debug\Modelo.dll
+C:\Users\Miki\Documents\GitHub\proyecto-visual\Modelo\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Miki\Documents\GitHub\proyecto-visual\Modelo\Modelo\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Miki\Documents\GitHub\proyecto-visual\Modelo\Modelo\bin\Debug\MySql.Data.xml
+C:\Users\Miki\Documents\GitHub\proyecto-visual\Modelo\Modelo\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Miki\Documents\GitHub\proyecto-visual\Modelo\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
+C:\Users\Miki\Documents\GitHub\proyecto-visual\Modelo\Modelo\obj\Debug\Modelo.dll
+C:\Users\Miki\Documents\GitHub\proyecto-visual\Modelo\Modelo\obj\Debug\Modelo.pdb

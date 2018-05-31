@@ -26,6 +26,7 @@ namespace Vista
             cargarListViewEmpleados();
         }
 
+        // Load the list view with a list of employees
         private void cargarListViewEmpleados()
         {
             List<Empleado> lista = ce.listarEmpleados();
@@ -33,9 +34,12 @@ namespace Vista
             {
                 listViewEmpleados.Items.Add(e.getDni());
             }
-
         }
 
+        /*
+         * Clicking the add button opens an openFileDialog to select an image
+         * in case of failure returns a MessageBox
+         */
         private void bAñadirImagen_Click(object sender, EventArgs e)
         {
             openFileDialog1.InitialDirectory = "C:\\";
@@ -57,12 +61,14 @@ namespace Vista
             }
         }
 
+        /**
+         * If there are employees in the database when selecting an employee,
+         * the data is added in the corresponding textView.
+         */
         private async void listViewEmpleados_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (listViewEmpleados.SelectedItems.Count > 0)
             {
-
                 ListViewItem listItem = listViewEmpleados.SelectedItems[0];
                 String dni = listItem.Text;
                 txtDni.Text = dni;
@@ -71,12 +77,12 @@ namespace Vista
                 {
                     rellenarFomrularioEmpleado(empleado);
                 }
-
-
-
             }
         }
-
+        /// <summary>
+        ///     This method updates the textview to be displayed, by selecting an employee in the listView
+        /// </summary>
+        /// <param name="empleado">is receibed</param>
         public void rellenarFomrularioEmpleado(Empleado empleado)
         {
             txtNombre.Text = empleado.getNombre();
@@ -85,7 +91,11 @@ namespace Vista
             txtCorreo.Text = empleado.getCorreo();
             txtHorasSemanales.Text = empleado.getHorasSemanales().ToString();
         }
-
+        /// <summary>
+        /// By clicking on the modify button, the buttons to be displayed and the textView are adjusted.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bModificar_Click(object sender, EventArgs e)
         {
             bModificar.Visible = false;
@@ -98,24 +108,37 @@ namespace Vista
             txtHorasSemanales.Enabled = true;
         }
 
+        /// <summary>
+        /// By clicking the objects will be resets
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bCancelar_Click(object sender, EventArgs e)
         {
             objetosporDefecto();
-            
+
         }
 
+        /// <summary>
+        /// When button Save is clicked, first search a employee from dni to get all info about he
+        /// the new changes about this employee are changed, and after it we send to and other method the employee
+        /// to update, if this method return 2 the operation was succesfully if return and other number is failed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void bGuardar_ClickAsync(object sender, EventArgs e)
         {
-            try { 
+            try
+            {
                 Empleado emp = await ce.buscarEmpleado(txtDni.Text);
                 Console.WriteLine(emp.toString());
                 emp.setNombre(txtNombre.Text);
                 emp.setApellidos(txtApellidos.Text);
                 emp.setDni(txtDni.Text);
-                emp.setCorreo(txtCorreo.Text);            
+                emp.setCorreo(txtCorreo.Text);
                 emp.setHorasSemanales(Convert.ToInt16(txtHorasSemanales.Text));
 
-                Boolean b= await ce.modificarEmpleadoAsync(emp);
+                Boolean b = await ce.modificarEmpleadoAsync(emp);
                 if (b)
                 {
                     MessageBox.Show("Datos actualizados correctamente!");
@@ -124,21 +147,27 @@ namespace Vista
                 {
                     MessageBox.Show("No se han podido actualizar los datos!");
                 }
-            }catch(FormatException ex)
+            }
+            catch (FormatException ex)
             {
                 MessageBox.Show("Datos mal introducidos!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }catch(NullReferenceException ex)
+            }
+            catch (NullReferenceException ex)
             {
                 MessageBox.Show("Ningun empleado seleccionado!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             objetosporDefecto();
-            
+
         }
 
-            private void bAdd_Click(object sender, EventArgs e)
+        private void bAdd_Click(object sender, EventArgs e)
         {
 
         }
+
+        /// <summary>
+        /// This reset the components by defect
+        /// </summary>
         private void objetosporDefecto()
         {
             bModificar.Visible = true;
