@@ -20,6 +20,11 @@ namespace Vista
 
         Boolean service;
 
+        String nombreBoton= "";
+
+        private String nombreBebida;
+        private String precio;
+        private String imagen;
 
         public AdminBebidas()
         {
@@ -109,20 +114,53 @@ namespace Vista
         }
 
 
-
-        private void bGuardar_Click(object sender, EventArgs e)
+        //boton guardar
+        private async void bGuardar_Click(object sender, EventArgs e)
         {
+            if (nombreBoton != null)
+            {
+                switch (this.nombreBoton)
+                {
+                    case "bNuevo":
+
+                        int answ = await guardarBebida(this.nombreBebida, this.precio, this.imagen);
+
+                        if (answ != 0)
+                        {
+                            ShowMessage("Se ha añadido correctamente el refresco", "Correcto");
+                        }
+                        else
+                        {
+                            Alert("Ha habido un problema al añadir el refresco", "Error");
+                        }
+
+                        break;
+
+                    case "bModificar":
+
+
+                        break;
+
+                    case "bEliminar":
+
+
+                        break;
+                }
+            }else
+            {
+                Alert("Nombre del boton vacio","Error");
+            }
+
+            bGuardar.Visible = false;
+            bCancelar.Visible = false;
+
+            resetearCampos();
+            desactivarCampos();
+            mostrarBotones();
 
         }
 
 
-        private void bCancelar_Click(object sender, EventArgs e)
-        {
-            pictureBox1.Enabled = false;
-            txtBebida.Enabled = false;
-            txtPrecio.Enabled = false;
-            bAñadirImagen.Visible = false;
-        }
 
         /// <summary>
         /// This method put reset the form and put the button guardar visible and the buton nuevo not visible.
@@ -131,36 +169,112 @@ namespace Vista
         /// <param name="e"></param>
         private async void bNuevo_Click(object sender, EventArgs e)
         {
-            bNuevo.Visible = false;
+            activarCampos();
+            ocultarBotones();
+            resetearCampos();
+
+            this.nombreBoton = bNuevo.Name;
+
+            bCancelar.Visible = true;
             bGuardar.Visible = true;
 
-       
+            this.nombreBebida = txtBebida.Text;
+            this.precio = txtPrecio.Text;
+            this.imagen = null;
+            
+           
+        }
+              
 
-            String nombreBebida = txtBebida.Text;
-            String precio = txtPrecio.Text;
-            String imagen = null;
-
-            Refresco r = new Refresco(nombreBebida, Double.Parse(precio), imagen);
-
-            int answ = await cp.agregarBebida(r);
-
-            if(answ != 0)
-            {
-                MessageBox.Show("Se ha añadido correctamente el refresco","Correcto");
-            }else
-            {
-                MessageBox.Show("Ha habido un problema al añadir el refresco","Error");
-            }
-
+        //boton modificar
+        private void bModificar_Click(object sender, EventArgs e)
+        {
+            activarCampos();
         }
 
-        private void bModificar_Click(object sender, EventArgs e)
+        //boton eliminar
+        private void bEliminar_Click(object sender, EventArgs e)
+        {
+
+        }
+             
+
+        //boton cancelar
+        private void bCancelar_Click(object sender, EventArgs e)
+        {
+            desactivarCampos();
+            bCancelar.Visible = false;
+        }
+        
+        public void activarCampos()
         {
             pictureBox1.Enabled = true;
             txtBebida.Enabled = true;
             txtPrecio.Enabled = true;
             bAñadirImagen.Visible = true;
         }
+
+        public void desactivarCampos()
+        {
+            pictureBox1.Enabled = false;
+            txtBebida.Enabled = false;
+            txtPrecio.Enabled = false;
+            bAñadirImagen.Visible = false;
+        }
+
+        public void resetearCampos()
+        {
+            pictureBox1.Image = null;
+            txtBebida.Text = "";
+            txtPrecio.Text = "";
+        }
+
+        public void ocultarBotones()
+        {
+            bModificar.Visible = false;
+            bEliminar.Visible = false;
+            bNuevo.Visible = false;
+        }
+        public void mostrarBotones()
+        {
+            bModificar.Visible = true;
+            bEliminar.Visible = true;
+            bGuardar.Visible = true;
+        }
+
+
+
+        public void Alert(String mensaje, string titulo)
+        {
+            MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void ShowMessage(String mensaje, string titulo)
+        {
+            MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
+        //Metodo guardar bebida
+        private async Task<int> guardarBebida(String nombreBebida, String precio, String imagen)
+        {
+            int answ = 0;
+            MessageBox.Show(nombreBebida+precio+imagen);
+
+            if (nombreBebida != "" && precio != "")
+            {
+                Refresco r = new Refresco(nombreBebida, Double.Parse(precio), imagen);
+                answ = await cp.agregarBebida(r);
+
+            }
+            else
+            {
+                Alert("Porfavor rellene los campos", "Campos vacios");
+            }
+
+            return answ;
+        }
+
     }
-    
+
 }

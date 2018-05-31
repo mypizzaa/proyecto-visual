@@ -93,7 +93,7 @@ namespace Vista
                 txtPrecio.Text = i.getPrecio().ToString();
 
                 String pathImage = i.getImagen();
-                pictureBox1.ImageLocation = "http://provenapps.cat/~dam1804/Images/bebidas/" + pathImage;
+                pictureBox1.ImageLocation = "http://provenapps.cat/~dam1804/Images/ingredientes/" + pathImage;
 
             }
         }

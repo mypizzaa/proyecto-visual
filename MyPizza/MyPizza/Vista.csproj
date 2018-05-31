@@ -121,6 +121,12 @@
     <Compile Include="ErrorServicio.Designer.cs">
       <DependentUpon>ErrorServicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="EstadoPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EstadoPedidos.Designer.cs">
+      <DependentUpon>EstadoPedidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="LocalizadorEnvios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ErrorServicio.resx">
       <DependentUpon>ErrorServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EstadoPedidos.resx">
+      <DependentUpon>EstadoPedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LocalizadorEnvios.resx">
       <DependentUpon>LocalizadorEnvios.cs</DependentUpon>
@@ -279,6 +288,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\settings.png" />
     <None Include="Resources\ing.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
