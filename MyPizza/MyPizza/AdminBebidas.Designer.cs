@@ -74,6 +74,7 @@
             this.bCancelar.TabIndex = 21;
             this.bCancelar.Text = "CANCELAR";
             this.bCancelar.UseVisualStyleBackColor = false;
+            this.bCancelar.Visible = false;
             this.bCancelar.Click += new System.EventHandler(this.bCancelar_Click);
             // 
             // bGuardar
@@ -207,6 +208,7 @@
             this.bEliminar.TabIndex = 32;
             this.bEliminar.Text = "ELIMINAR";
             this.bEliminar.UseVisualStyleBackColor = false;
+            this.bEliminar.Click += new System.EventHandler(this.bEliminar_Click);
             // 
             // bModificar
             // 

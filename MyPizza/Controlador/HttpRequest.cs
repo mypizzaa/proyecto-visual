@@ -15,8 +15,8 @@ namespace Controlador
     {
         private String token;
         private String servidor = "http://provenapps.cat:8080";
-        
-        
+        //private String servidor = "62.83.228.129:8084";
+
         public HttpRequest()
         {
             readToken();

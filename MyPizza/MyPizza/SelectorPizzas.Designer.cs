@@ -32,9 +32,12 @@
             this.listViewIngredientes = new System.Windows.Forms.ListView();
             this.treeViewPedido = new System.Windows.Forms.TreeView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSessionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buscarClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lOCALIZARPEDIDOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.verEstadoPedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -47,6 +50,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.Label();
+            this.lbleur = new System.Windows.Forms.Label();
             this.iconoCerrar = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconoCerrar)).BeginInit();
@@ -74,13 +78,31 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.Black;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configuraciónToolStripMenuItem,
             this.pedidosToolStripMenuItem,
-            this.lOCALIZARPEDIDOSToolStripMenuItem1});
+            this.lOCALIZARPEDIDOSToolStripMenuItem1,
+            this.verEstadoPedidosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1370, 24);
             this.menuStrip1.TabIndex = 34;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // configuraciónToolStripMenuItem
+            // 
+            this.configuraciónToolStripMenuItem.BackColor = System.Drawing.Color.Black;
+            this.configuraciónToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cerrarSessionToolStripMenuItem});
+            this.configuraciónToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
+            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(41, 20);
+            this.configuraciónToolStripMenuItem.Text = "Salir";
+            // 
+            // cerrarSessionToolStripMenuItem
+            // 
+            this.cerrarSessionToolStripMenuItem.Name = "cerrarSessionToolStripMenuItem";
+            this.cerrarSessionToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.cerrarSessionToolStripMenuItem.Text = "Cerrar sesión";
             // 
             // pedidosToolStripMenuItem
             // 
@@ -88,12 +110,11 @@
             this.buscarClienteToolStripMenuItem});
             this.pedidosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.pedidosToolStripMenuItem.Text = "PEDIDO";
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.pedidosToolStripMenuItem.Text = "Buscar";
             // 
             // buscarClienteToolStripMenuItem
             // 
-            this.buscarClienteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("collaboration.Image")));
             this.buscarClienteToolStripMenuItem.Name = "buscarClienteToolStripMenuItem";
             this.buscarClienteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.B)));
             this.buscarClienteToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
@@ -104,9 +125,17 @@
             // 
             this.lOCALIZARPEDIDOSToolStripMenuItem1.ForeColor = System.Drawing.Color.White;
             this.lOCALIZARPEDIDOSToolStripMenuItem1.Name = "lOCALIZARPEDIDOSToolStripMenuItem1";
-            this.lOCALIZARPEDIDOSToolStripMenuItem1.Size = new System.Drawing.Size(131, 20);
-            this.lOCALIZARPEDIDOSToolStripMenuItem1.Text = "LOCALIZAR PEDIDOS";
+            this.lOCALIZARPEDIDOSToolStripMenuItem1.Size = new System.Drawing.Size(110, 20);
+            this.lOCALIZARPEDIDOSToolStripMenuItem1.Text = "Localizar pedidos";
             this.lOCALIZARPEDIDOSToolStripMenuItem1.Click += new System.EventHandler(this.lOCALIZARPEDIDOSToolStripMenuItem1_Click);
+            // 
+            // verEstadoPedidosToolStripMenuItem
+            // 
+            this.verEstadoPedidosToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.verEstadoPedidosToolStripMenuItem.Name = "verEstadoPedidosToolStripMenuItem";
+            this.verEstadoPedidosToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
+            this.verEstadoPedidosToolStripMenuItem.Text = "Ver estado pedidos";
+            this.verEstadoPedidosToolStripMenuItem.Click += new System.EventHandler(this.verEstadoPedidosToolStripMenuItem_Click);
             // 
             // label12
             // 
@@ -247,6 +276,15 @@
             this.txtTotal.Size = new System.Drawing.Size(0, 13);
             this.txtTotal.TabIndex = 47;
             // 
+            // lbleur
+            // 
+            this.lbleur.AutoSize = true;
+            this.lbleur.Location = new System.Drawing.Point(173, 556);
+            this.lbleur.Name = "lbleur";
+            this.lbleur.Size = new System.Drawing.Size(13, 13);
+            this.lbleur.TabIndex = 0;
+            this.lbleur.Text = "€";
+            // 
             // iconoCerrar
             // 
             this.iconoCerrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -266,6 +304,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.lbleur);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.iconoCerrar);
@@ -316,5 +355,9 @@
         private System.Windows.Forms.PictureBox iconoCerrar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label txtTotal;
+        private System.Windows.Forms.Label lbleur;
+        private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSessionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verEstadoPedidosToolStripMenuItem;
     }
 }

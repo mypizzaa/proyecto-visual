@@ -76,7 +76,7 @@ namespace Controlador
 
             try
             {
-                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/ingredientespizza/" + idPizza);
+                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/ingredientespizza/"+idPizza);
                 listaIngredientes = JsonConvert.DeserializeObject<List<Ingrediente>>(json);
 
             }
