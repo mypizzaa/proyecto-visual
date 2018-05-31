@@ -109,6 +109,12 @@
     <Compile Include="BuscarCliente.Designer.cs">
       <DependentUpon>BuscarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuscarPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarPedido.Designer.cs">
+      <DependentUpon>BuscarPedido.cs</DependentUpon>
+    </Compile>
     <Compile Include="DetallesPedido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BuscarCliente.resx">
       <DependentUpon>BuscarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarPedido.resx">
+      <DependentUpon>BuscarPedido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DetallesPedido.resx">
       <DependentUpon>DetallesPedido.cs</DependentUpon>
@@ -288,6 +297,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\search.png" />
     <None Include="Resources\settings.png" />
     <None Include="Resources\ing.png" />
   </ItemGroup>

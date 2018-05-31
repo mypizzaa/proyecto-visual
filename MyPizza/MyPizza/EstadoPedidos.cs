@@ -27,5 +27,12 @@ namespace Vista
         {
             this.Close();
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            BuscarPedido bp = new BuscarPedido();
+            bp.Show();
+
+        }
     }
 }
