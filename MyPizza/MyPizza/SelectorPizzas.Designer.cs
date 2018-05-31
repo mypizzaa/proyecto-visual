@@ -1,4 +1,6 @@
-﻿namespace Vista
+﻿using System;
+
+namespace Vista
 {
     partial class SelectorPizzas
     {
@@ -333,6 +335,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void verEstadoPedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

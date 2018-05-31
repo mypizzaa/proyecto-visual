@@ -82,6 +82,7 @@ namespace Vista
             Cliente c = await cc.buscarCliente(telefono);
             if (c != null)
             {
+                MessageBox.Show(c.toString());
                 DetallesPedido dp = new DetallesPedido(c);
                 ShowMessage("Cliente encontrado, la informacion se guardara en el pedido", "Cliente encontrado");
 
