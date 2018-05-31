@@ -31,6 +31,7 @@ namespace Controlador
             this.listaValues.Clear();
         }
 
+
         // esto esta mal hay que quitar este metodo !!!!!!!!!!!!!!!!!!
         /// <summary>
         /// this method list a prodcut by name, sends by POST
@@ -224,10 +225,31 @@ namespace Controlador
 
             return listaBebidas;
         }
-              
-        public void agregarBebida(Refresco r)
-        {
 
+        public async Task<int> agregarBebida(Refresco r)
+        {
+            int agregado = 0;
+            try
+            {
+                limpiarListas();
+                listaParam.Add("name");
+                listaParam.Add("price");
+                listaParam.Add("image");
+
+                listaValues.Add(r.getNombre());
+                listaValues.Add(r.getPrecio().ToString());
+                listaValues.Add(r.getImagen());
+
+
+                String json = await hreq.sendRequestPOST("/ServicioMyPizza/servicios/WSProducto/addbebida", listaParam, listaValues);
+                agregado = JsonConvert.DeserializeObject<int>(json);
+
+            }
+            catch (System.Net.WebException swe)
+            {
+                agregado = 0;
+            }
+            return agregado;
         }
 
         public void modificarBebida(Refresco r)

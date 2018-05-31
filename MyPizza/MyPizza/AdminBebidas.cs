@@ -129,13 +129,29 @@ namespace Vista
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void bNuevo_Click(object sender, EventArgs e)
+        private async void bNuevo_Click(object sender, EventArgs e)
         {
             bNuevo.Visible = false;
             bGuardar.Visible = true;
 
-            txtBebida.Text = "";
-            txtPrecio.Text = "";            
+       
+
+            String nombreBebida = txtBebida.Text;
+            String precio = txtPrecio.Text;
+            String imagen = null;
+
+            Refresco r = new Refresco(nombreBebida, Double.Parse(precio), imagen);
+
+            int answ = await cp.agregarBebida(r);
+
+            if(answ != 0)
+            {
+                MessageBox.Show("Se ha añadido correctamente el refresco","Correcto");
+            }else
+            {
+                MessageBox.Show("Ha habido un problema al añadir el refresco","Error");
+            }
+
         }
 
         private void bModificar_Click(object sender, EventArgs e)

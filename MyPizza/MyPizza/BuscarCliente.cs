@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Controlador;
+using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,8 +15,11 @@ namespace Vista
 {
     public partial class BuscarCliente : Form
     {
+        private ControladorCliente cc;
+
         public BuscarCliente()
         {
+            cc = new ControladorCliente();
             InitializeComponent();
         }
 
@@ -35,7 +40,7 @@ namespace Vista
                     Boolean sonNumeros = IsNumber(telefono);
                     if (sonNumeros)
                     {
-                        buscarCliente(telefono);
+                        this.buscarCliente(telefono);
 
                     }else
                     {
@@ -73,9 +78,12 @@ namespace Vista
             MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public void buscarCliente(String telefono)
+        public async void buscarCliente(String telefono)
         {
-            MessageBox.Show("hola");
+            
+            Cliente c = await cc.buscarCliente(telefono);
+            MessageBox.Show(c.toString());
+
         }
     }
 }

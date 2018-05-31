@@ -12,9 +12,20 @@ namespace Modelo
 
 
         //Constructor
-        public Refresco(long id_prod, string nombre, double precio, string img, long id_tip, long id_refresco) : base(id_prod, nombre, precio, img, id_tip)
+        public Refresco()
+        {
+
+        }
+        public Refresco(long id_prod, String nombre, double precio, String img, long id_tip, long id_refresco) : base(id_prod, nombre, precio, img, id_tip)
         {
             this.id_refresco = id_refresco;
+        }
+
+        public Refresco(String nombre , double precio ,String imagen)
+        {
+            this.nombre = nombre;
+            this.precio = precio;
+            this.imagen = imagen;
         }
 
         //Getters

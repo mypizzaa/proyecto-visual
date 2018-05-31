@@ -54,11 +54,11 @@
             this.bNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.bNuevo.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.bNuevo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.bNuevo.Location = new System.Drawing.Point(864, 579);
+            this.bNuevo.Location = new System.Drawing.Point(329, 579);
             this.bNuevo.Name = "bNuevo";
-            this.bNuevo.Size = new System.Drawing.Size(90, 40);
+            this.bNuevo.Size = new System.Drawing.Size(133, 40);
             this.bNuevo.TabIndex = 22;
-            this.bNuevo.Text = "NUEVO";
+            this.bNuevo.Text = "NUEVA BEBIDA";
             this.bNuevo.UseVisualStyleBackColor = false;
             this.bNuevo.Click += new System.EventHandler(this.bNuevo_Click);
             // 

@@ -8,21 +8,25 @@ namespace Modelo
 {
     public class Cliente : Usuario
     {
-        private long id_cliente;
-        private String primeraDireccion;
-        private String segundaDireccion;
-        private String telefono;
-        private String poblacion;
-        private String codigoPostal;
+        public long id_cliente;
+        public String telefono;
+        public String primeraDireccion;
+        public String segundaDireccion;
+        public String poblacion;
+        public String codigoPostal;
 
-        public Cliente(long id_usuario, string dni, string nombre, string apellidos, string password, string imagen, string tipo_Usuario, string correo,long id_cliente,string primeraDireccion, string segundaDireccion,String telefono,String poblacion, String codigoPostal) : base(id_usuario, dni, nombre, apellidos, password, imagen, tipo_Usuario, correo)
+        public Cliente()
+        {
+
+        }
+        public Cliente(long id_cliente,String telefono, String primeraDireccion, string segundaDireccion,String poblacion, String codigo_postal, long id_usuario, String dni, String nombre, String apellidos, String password, String imagen, String tipo_Usuario, String correo, int activo) : base(id_usuario, dni, nombre, apellidos, password, imagen, tipo_Usuario, correo, activo)
         {
             this.id_cliente = id_cliente;
-            this.primeraDireccion = primeraDireccion;
-            this.segundaDireccion = segundaDireccion;
             this.telefono = telefono;
+            this.primeraDireccion = primeraDireccion;
+            this.segundaDireccion = segundaDireccion;            
             this.poblacion = poblacion;
-            this.codigoPostal = codigoPostal;
+            this.codigoPostal = codigo_postal;
         }
 
         //getters
@@ -98,7 +102,7 @@ namespace Modelo
             sb.Append(" ,telefono = " + telefono);
             sb.Append(" ,poblacion = " + poblacion);
             sb.Append(" ,codigo postal = "+codigoPostal);
-            sb.Append(base.ToString());
+            sb.Append(base.toString());
 
             return sb.ToString();
         }
