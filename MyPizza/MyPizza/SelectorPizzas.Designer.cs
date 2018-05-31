@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Vista
+﻿namespace Vista
 {
     partial class SelectorPizzas
     {
@@ -137,7 +135,7 @@ namespace Vista
             this.verEstadoPedidosToolStripMenuItem.Name = "verEstadoPedidosToolStripMenuItem";
             this.verEstadoPedidosToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
             this.verEstadoPedidosToolStripMenuItem.Text = "Ver estado pedidos";
-            this.verEstadoPedidosToolStripMenuItem.Click += new System.EventHandler(this.verEstadoPedidosToolStripMenuItem_Click);
+            this.verEstadoPedidosToolStripMenuItem.Click += new System.EventHandler(this.buscarClienteToolStripMenuItem_Click);
             // 
             // label12
             // 
@@ -335,11 +333,6 @@ namespace Vista
             this.ResumeLayout(false);
             this.PerformLayout();
 
-        }
-
-        private void verEstadoPedidosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         #endregion

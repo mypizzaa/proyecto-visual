@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -74,16 +75,15 @@ namespace Vista
         }
       
 
-
-
         public async void buscarCliente(String telefono)
         {
             
             Cliente c = await cc.buscarCliente(telefono);
             if (c != null)
             {
-                MessageBox.Show(c.toString());
-                DetallesPedido dp = new DetallesPedido(c);
+                
+                escribirClienteFichero(c);
+
                 ShowMessage("Cliente encontrado, la informacion se guardara en el pedido", "Cliente encontrado");
 
             }else
@@ -91,8 +91,15 @@ namespace Vista
                 Alert("Cliente no registrado","No se encontró");
             }
 
-        }  
+        }
 
+        private void escribirClienteFichero(Cliente c)
+        {
+            using (StreamWriter sw = new StreamWriter("DatosCliente.txt"))
+            {
+                sw.WriteLine(c.getNombre()+";"+c.getApellidos()+";"+c.getPrimeraDireccion()+";"+c.getSegundaDireccion()+";"+c.getTelefono()+";"+c.getCodigoPostal());
+            }
+        }
 
         public void Alert(String mensaje, string titulo)
         {
