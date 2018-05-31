@@ -49,10 +49,10 @@ namespace Vista
                 es.ShowDialog();
             }
         }
-
+        
         /// <summary>
-        /// This method loads the images of the pizzas in a dynamic way and generates a picture box of each one.
-        /// The image is collected from the provenapps.cat server
+        /// Este metodo carga las imagenes de las pizzas de forma dinamica y genera un picture box de cada una.
+        /// La imagen la recoge de el servidor de provenapps.cat
         /// </summary>
         private void loadPizzas()
         {
@@ -113,7 +113,7 @@ namespace Vista
         }
              
         /// <summary>
-        /// this method loads the ingredients in listviewingredients
+        /// Este metodo carga los ingredientes de la bbdd en el listviewingredientes
         /// </summary>
         private void loadIngredientes()
         {
@@ -132,9 +132,6 @@ namespace Vista
 
         }
 
-        /// <summary>
-        /// this method  loads the drinks in the listviewbebidas
-        /// </summary>
         private void loadBebidas()
         {
             List<Refresco> listaRefrescos = cp.listarRefrescos();
@@ -180,12 +177,7 @@ namespace Vista
         }
 
 
-        /// <summary>
-        /// this method takes the node of the selected pizza and put the selected node from listview1 and add the item selected
-        /// to the selected pizza.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        //listview ingredeintes
         private async void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 

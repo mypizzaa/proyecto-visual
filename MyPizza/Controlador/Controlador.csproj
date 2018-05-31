@@ -51,7 +51,6 @@
     <Compile Include="ControladorCliente.cs" />
     <Compile Include="ControladorEmpleados.cs" />
     <Compile Include="ControladorLogin.cs" />
-    <Compile Include="ControladorPago.cs" />
     <Compile Include="ControladorPedidos.cs" />
     <Compile Include="ControladorProductos.cs" />
     <Compile Include="ControladorServicio.cs" />

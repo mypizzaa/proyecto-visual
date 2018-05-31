@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -83,23 +82,8 @@ namespace Vista
         {
             
             Cliente c = await cc.buscarCliente(telefono);
-            if (c != null)
-            {
-                MessageBox.Show("Cliente encontrado, los datos se guardaran en el pedido.","Info",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                escribirDatosCliente(c);
-            }else
-            {
-                Alert("No se ha encontrado el cliente","No se encontró");
-            }
-            
-        }
+            MessageBox.Show(c.toString());
 
-        private void escribirDatosCliente(Cliente c)
-        {
-            using (StreamWriter sw = new StreamWriter("datosCliente.txt"))
-            {
-                sw.WriteLine(c.getNombre()+";"+c.getApellidos()+";"+c.getPrimeraDireccion()+";"+c.getTelefono()+";"+c.getCodigoPostal());
-            }
         }
     }
 }

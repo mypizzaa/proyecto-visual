@@ -22,8 +22,7 @@ namespace Vista
     public partial class Login : Form
     {
         private ControladorLogin cl;
-        private ControladorServicio cs;
-        private ControladorPedidos cp;   
+        private ControladorServicio cs;       
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -34,8 +33,7 @@ namespace Vista
         public Login()
         {
             cl = new ControladorLogin();
-            cs = new ControladorServicio();
-            cp = new ControladorPedidos();           
+            cs = new ControladorServicio();             
             InitializeComponent();           
         }
                    
@@ -98,14 +96,12 @@ namespace Vista
 
             if (correo != null && password != null)
             {
-                List<PedidoInfo> listaPedidosInfo = cp.listarPedidos();
-                if (listaPedidosInfo != null)
-                {
+                
                     Boolean connected = cs.getConnection();
 
                     if (connected != false)
                     {
-
+                        
                         Token tk = await cl.login(correo, password);
 
                         if (tk != null)
@@ -120,17 +116,11 @@ namespace Vista
                             MessageBox.Show("Usuario o contraseña incorrectos.", "Error al iniciar sesion", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
-                    }
-                    else
+                    }else
                     {
                         ErrorServicio es = new ErrorServicio();
                         es.ShowDialog();
-                    }
-                }else
-                {
-                    ErrorServicio es = new ErrorServicio();
-                    es.ShowDialog();
-                }  
+                    }  
 
             }
             else
