@@ -115,7 +115,6 @@ namespace Vista
 
                 String pathImage = i.getImagen();
                 pictureBox1.ImageLocation = "http://provenapps.cat/~dam1804/Images/ingredientes/" + pathImage;
-<<<<<<< HEAD
                 id_ingrediente = i.getIdIngrediente();
                 id_producto = i.getIdProducto();
 
@@ -189,8 +188,6 @@ namespace Vista
             txtIngrediente.Text = "";
             txtPrecio.Text = "";
             pictureBox1.Image = null;
-=======
->>>>>>> f257954fd0866f223c2d5e7fd73fc6fbf9b79025
 
             Button b = (Button)sender;
             buttonText = b.Text;
