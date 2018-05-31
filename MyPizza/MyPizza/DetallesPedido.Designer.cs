@@ -49,8 +49,12 @@
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.bModificar = new System.Windows.Forms.Button();
+            this.bAceptar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.cbPago = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtDetalles = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,7 +67,7 @@
             this.toolStripButton2});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(422, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(415, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -219,49 +223,91 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label9.Location = new System.Drawing.Point(123, 46);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(148, 21);
+            this.label9.Size = new System.Drawing.Size(158, 20);
             this.label9.TabIndex = 24;
             this.label9.Text = "DETALLES PEDIDO";
             // 
-            // bModificar
+            // bAceptar
             // 
-            this.bModificar.BackColor = System.Drawing.Color.Black;
-            this.bModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
-            this.bModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.bModificar.Font = new System.Drawing.Font("Century Gothic", 9.75F);
-            this.bModificar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.bModificar.Location = new System.Drawing.Point(291, 371);
-            this.bModificar.Name = "bModificar";
-            this.bModificar.Size = new System.Drawing.Size(87, 31);
-            this.bModificar.TabIndex = 40;
-            this.bModificar.Text = "Acceptar";
-            this.bModificar.UseVisualStyleBackColor = false;
+            this.bAceptar.BackColor = System.Drawing.Color.Black;
+            this.bAceptar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
+            this.bAceptar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.bAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.bAceptar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.bAceptar.Location = new System.Drawing.Point(273, 497);
+            this.bAceptar.Name = "bAceptar";
+            this.bAceptar.Size = new System.Drawing.Size(87, 31);
+            this.bAceptar.TabIndex = 40;
+            this.bAceptar.Text = "Acceptar";
+            this.bAceptar.UseVisualStyleBackColor = false;
+            this.bAceptar.Click += new System.EventHandler(this.bAceptar_Click);
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Black;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(89)))), ((int)(((byte)(91)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 9.75F);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(185, 371);
+            this.button1.Location = new System.Drawing.Point(163, 497);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 31);
             this.button1.TabIndex = 41;
             this.button1.Text = "Cancelar";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // cbPago
+            // 
+            this.cbPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPago.FormattingEnabled = true;
+            this.cbPago.Location = new System.Drawing.Point(162, 371);
+            this.cbPago.Name = "cbPago";
+            this.cbPago.Size = new System.Drawing.Size(176, 21);
+            this.cbPago.TabIndex = 42;
+            this.cbPago.SelectedIndexChanged += new System.EventHandler(this.cbPago_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(64, 374);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(88, 13);
+            this.label10.TabIndex = 43;
+            this.label10.Text = "Metodo de pago:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(64, 408);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(75, 13);
+            this.label11.TabIndex = 44;
+            this.label11.Text = "Detalles pago:";
+            // 
+            // txtDetalles
+            // 
+            this.txtDetalles.Location = new System.Drawing.Point(162, 405);
+            this.txtDetalles.Multiline = true;
+            this.txtDetalles.Name = "txtDetalles";
+            this.txtDetalles.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDetalles.Size = new System.Drawing.Size(176, 55);
+            this.txtDetalles.TabIndex = 45;
+            // 
             // DetallesPedido
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 430);
+            this.ClientSize = new System.Drawing.Size(415, 550);
+            this.Controls.Add(this.txtDetalles);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.cbPago);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.bModificar);
+            this.Controls.Add(this.bAceptar);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox7);
@@ -284,6 +330,7 @@
             this.Name = "DetallesPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DetallesPedido";
+            this.Load += new System.EventHandler(this.DetallesPedido_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -313,7 +360,11 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button bModificar;
+        private System.Windows.Forms.Button bAceptar;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbPago;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtDetalles;
     }
 }

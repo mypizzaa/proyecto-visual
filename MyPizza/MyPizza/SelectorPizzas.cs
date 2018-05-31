@@ -183,21 +183,19 @@ namespace Vista
 
             try
             {
-                String pizzaSeleccionada = treeViewPedido.SelectedNode.Text;
-                
-                String ingredienteSeleccionado = ""; 
+                String nodeSeleccionado = treeViewPedido.SelectedNode.Text; //pizza selected
+
+                String seleccionado = ""; //ingredient selected
 
                 ListView.SelectedListViewItemCollection listItems = this.listViewIngredientes.SelectedItems;
 
                 foreach (ListViewItem item in listItems)
                 {
-                    ingredienteSeleccionado = item.Text;
+                    seleccionado = item.Text;
+                    treeViewPedido.Nodes[nodeSeleccionado].Nodes.Add(seleccionado);
+                    Ingrediente i = await cp.buscarIngredientePorNombre(seleccionado);
 
-                    
-                    treeViewPedido.SelectedNode.Nodes.Add(ingredienteSeleccionado);
-                    Ingrediente i = await cp.buscarIngredientePorNombre(ingredienteSeleccionado);
-                    double num = cPed.sumarTotal(i.getPrecio());
-                    actualizarTxtTotal(num);
+                    cPed.sumarTotal(i.getPrecio());
                                         
                 }
             }
@@ -212,8 +210,15 @@ namespace Vista
         {
             MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-        
-                      
+
+
+
+
+        /// <summary>
+        /// Este metodo es al que acuden todos los botones de cada pizza
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void pressedPizza(object sender, EventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
@@ -246,24 +251,25 @@ namespace Vista
 
             ImageList imagelist1 = new ImageList();                            
             imagelist1.Images.Add(Image.FromFile("..\\..\\Resources\\pizza.png"));
-
+            
+            string key = p.getNombre();
             double num = cPed.sumarTotal(p.getPrecio());
             actualizarTxtTotal(num);
+            
+            treeViewPedido.Nodes.Add(key, p.getNombre()); //parent
 
             List<Ingrediente> listaIng = cp.listarIngredientesPizza(p.getIdPizza().ToString());
-            List<TreeNode> nodesIngredientes = new List<TreeNode>();
 
-            foreach (Ingrediente i in listaIng)
+            if (listaIng != null)
             {
-
-                TreeNode nodeIng = new TreeNode(i.getNombre());
-                nodesIngredientes.Add(nodeIng);
+                foreach (Ingrediente i in listaIng)
+                {
+                    treeViewPedido.Nodes[key].Nodes.Add(i.getNombre());   //childs             
+                }
+            }else
+            {
+                Alert("No se encuentran ingredientes.","Error servicio");
             }
-
-            TreeNode pizza = new TreeNode(p.getNombre(), nodesIngredientes.ToArray());
-            treeViewPedido.Nodes.Add(pizza);
-
-
             treeViewPedido.ImageList = imagelist1;
             treeViewPedido.ExpandAll();                      
                        
@@ -278,8 +284,9 @@ namespace Vista
         {
             ImageList imagelist2 = new ImageList();
             imagelist2.Images.Add(Image.FromFile("..\\..\\Resources\\can.png"));
-                       
-            treeViewPedido.Nodes.Add(bebida.getNombre());
+
+            String key = bebida.getNombre();
+            treeViewPedido.Nodes.Add(key, bebida.getNombre());
 
             double num = cPed.sumarTotal(bebida.getPrecio());
             actualizarTxtTotal(num);
@@ -351,7 +358,6 @@ namespace Vista
             
         }
 
-
         private void buscarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BuscarCliente bc = new BuscarCliente();
@@ -370,12 +376,6 @@ namespace Vista
                
                 txtTotal.Text = num.ToString();
             }
-        }
-
-        private void verEstadoPedidosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            EstadoPedidos ep = new EstadoPedidos();
-            ep.ShowDialog();
         }
     }
 }

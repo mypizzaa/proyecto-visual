@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Modelo
 {
-    class MetodoPago
+    public class MetodoPago
     {
-        private long id_metodoPago;
-        private String nombre;
-        private String detalles;
+        public long id_metodoPago;
+        public String nombre;
+        public String detalles;
 
         public MetodoPago(long id_metodo, String nombre , String detalles)
         {

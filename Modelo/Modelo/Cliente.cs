@@ -13,7 +13,7 @@ namespace Modelo
         public String primeraDireccion;
         public String segundaDireccion;
         public String poblacion;
-        public String codigoPostal;
+        public String codigo_postal;
 
         public Cliente()
         {
@@ -26,7 +26,7 @@ namespace Modelo
             this.primeraDireccion = primeraDireccion;
             this.segundaDireccion = segundaDireccion;            
             this.poblacion = poblacion;
-            this.codigoPostal = codigo_postal;
+            this.codigo_postal = codigo_postal;
         }
 
         //getters
@@ -57,7 +57,7 @@ namespace Modelo
 
         public String getCodigoPostal()
         {
-            return this.codigoPostal;
+            return this.codigo_postal;
         }
 
         //setters
@@ -88,7 +88,7 @@ namespace Modelo
 
         public void setCodigoPostal(String codigop)
         {
-            this.codigoPostal = codigop;
+            this.codigo_postal = codigop;
         }
 
 
@@ -101,7 +101,7 @@ namespace Modelo
             sb.Append(" ,segundaDireccion = " + segundaDireccion);
             sb.Append(" ,telefono = " + telefono);
             sb.Append(" ,poblacion = " + poblacion);
-            sb.Append(" ,codigo postal = "+codigoPostal);
+            sb.Append(" ,codigo postal = "+ codigo_postal);
             sb.Append(base.toString());
 
             return sb.ToString();
