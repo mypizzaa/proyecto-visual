@@ -55,22 +55,25 @@ namespace Controlador
 
         }
 
-        //public List<PedidoInfo> buscarPedido(String id)
+        //public List<Pedido> buscarPedido(String id)
         //{
 
-        //    //PedidoInfo pi;
+        //    Pedido pedido;
 
-        //    //using (WebClient wc = new WebClient())
-        //    //{
-        //    //    wc.Encoding = System.Text.Encoding.UTF8;
-        //    //    String json = wc.DownloadString("http://localhost:8080/ServicioMyPizza/servicios/WSPedido/buscar/"+id);
-        //    //    pi = JsonConvert.DeserializeObject<PedidoInfo>(json);
+        //    try
+        //    {
 
-        //    //}
-
-        //    //return pi;
-        //}
+        //        String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSPedido/productsorder");
+        //        pedido = JsonConvert.DeserializeObject<Pedido>(json);
+        //    }
+        //    catch (System.Net.WebException swe)
+        //    {
+        //        pedido = null;
+        //    }
         
+        //    return pedido;
+        //}
+
         public void crearPedido()
         {
 
@@ -80,7 +83,7 @@ namespace Controlador
         {
 
         }
-        
+                
 
         public double sumarTotal(double num)
         {

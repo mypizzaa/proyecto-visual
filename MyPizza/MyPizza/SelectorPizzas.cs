@@ -346,7 +346,8 @@ namespace Vista
         
         private void bRealizarPedido_Click(object sender, EventArgs e)
         {
-            DetallesPedido dp = new DetallesPedido();
+            Cliente c = null;
+            DetallesPedido dp = new DetallesPedido(c);
             dp.ShowDialog();
             
         }

@@ -235,6 +235,7 @@ namespace Vista
             bEliminar.Visible = false;
             bNuevo.Visible = false;
         }
+
         public void mostrarBotones()
         {
             bModificar.Visible = true;

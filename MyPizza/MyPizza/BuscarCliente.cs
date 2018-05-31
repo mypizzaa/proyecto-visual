@@ -72,18 +72,35 @@ namespace Vista
 
             return sonNumeros;
         }
-        
-        public void Alert(String mensaje, string titulo)
-        {
-            MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
-        }
+      
+
+
 
         public async void buscarCliente(String telefono)
         {
             
             Cliente c = await cc.buscarCliente(telefono);
-            MessageBox.Show(c.toString());
+            if (c != null)
+            {
+                DetallesPedido dp = new DetallesPedido(c);
+                ShowMessage("Cliente encontrado, la informacion se guardara en el pedido", "Cliente encontrado");
 
+            }else
+            {
+                Alert("Cliente no registrado","No se encontró");
+            }
+
+        }  
+
+
+        public void Alert(String mensaje, string titulo)
+        {
+            MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public void ShowMessage(String mensaje, string titulo)
+        {
+            MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

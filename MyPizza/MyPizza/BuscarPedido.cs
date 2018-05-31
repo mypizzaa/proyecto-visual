@@ -16,5 +16,11 @@ namespace Vista
         {
             InitializeComponent();
         }
+
+        //cerrar form
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

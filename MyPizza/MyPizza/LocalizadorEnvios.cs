@@ -135,5 +135,15 @@ namespace Vista
             listViewPedidos.Clear();
             cargarPedidos();
         }
+
+        private void iconoCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void configuraciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

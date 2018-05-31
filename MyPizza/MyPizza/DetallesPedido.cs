@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,19 +13,30 @@ namespace Vista
 {
     public partial class DetallesPedido : Form
     {
-        public DetallesPedido()
+        public DetallesPedido(Cliente c)
         {
             InitializeComponent();
+            cargarDatosCliente(c);
         }
+                
+        public void cargarDatosCliente(Cliente c)
+        {
+            txtNombre.Text = c.getNombre();
+            txtApellidos.Text = c.getApellidos();
+            txtDireccion1.Text = c.getPrimeraDireccion();
+            txtDireccion2.Text = c.getSegundaDireccion();
+            txtTelefono.Text = c.getTelefono();
+            txtCodigoPostal.Text = c.getCodigoPostal();
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
+            DateTime localDate = DateTime.Now;
+            txtDiaHora.Text = localDate.ToString();
+        
+        }
+            
+
+        private void toolStripButton2_Click_1(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }
