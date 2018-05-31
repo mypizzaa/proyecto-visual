@@ -150,14 +150,14 @@ namespace Vista
 
                 //take the price of the pizza and show it
 
-                
-                Producto p = await cp.listarUnProducto(nombrepizza);
-                
+                Pizza p = await cp.buscarPizzaPorNombre(nombrepizza);
+
                 if (p != null)
                 {
                     txtPrecio.Text = p.getPrecio().ToString();
-                
+
                     //we call the method marcaIngredientes to select the ingredients that takes the pizza
+
                     idPizza = p.getIdPizza();
                     List<Ingrediente> listaIngredientes = cp.listarIngredientesPizza(idPizza.ToString());
                     marcarIngredientesPizza(listaIngredientes);
@@ -171,7 +171,7 @@ namespace Vista
                 {
                     Alert("No se ha encontrado ninguna pizza.", "Error");
                 }
-                
+
 
             }
 

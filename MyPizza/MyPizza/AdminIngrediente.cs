@@ -88,9 +88,8 @@ namespace Vista
                 String nombreIngrediente = listItem.Text;
                 txtIngrediente.Text = nombreIngrediente;
 
-                Producto p = await cp.listarUnProducto(nombreIngrediente);
-                Ingrediente i = (Ingrediente) p;
-
+                Ingrediente i = await cp.buscarIngredientePorNombre(nombreIngrediente);
+                
                 txtPrecio.Text = i.getPrecio().ToString();
 
                 String pathImage = i.getImagen();

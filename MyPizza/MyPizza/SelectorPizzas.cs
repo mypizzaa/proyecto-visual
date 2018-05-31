@@ -193,13 +193,10 @@ namespace Vista
                 {
                     seleccionado = item.Text;
                     treeViewPedido.Nodes[nodeSeleccionado].Nodes.Add(seleccionado);
-                    Producto p = await cp.listarUnProducto(seleccionado);
-                    Ingrediente i = (Ingrediente)p;
+                    Ingrediente i = await cp.buscarIngredientePorNombre(seleccionado);
 
-                    MessageBox.Show(i.toString());
-                    //buscar ingrediente por nombre
-
-
+                    cPed.sumarTotal(i.getPrecio());
+                                        
                 }
             }
             catch (System.NullReferenceException snf)
@@ -222,24 +219,24 @@ namespace Vista
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void pressedPizza(object sender, EventArgs e)
+        private async void pressedPizza(object sender, EventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
 
             String nombrepizza = pb.Name;
-            Pizza p = cp.buscarPizzaPorNombre(nombrepizza);
-                        
+            Pizza p = await cp.buscarPizzaPorNombre(nombrepizza);
+
             addPizza(p);
-            
+
         }
 
         private async void pressedBebida(object sender, EventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
 
-            Producto p = await cp.listarUnProducto(pb.Name);
+            Refresco r = await cp.buscarRefrescoPorNombre(pb.Name);
 
-            addBebida(refresco);
+            addBebida(r);
 
         }
 
@@ -296,38 +293,38 @@ namespace Vista
 
             treeViewPedido.ImageList = imagelist2;
         }
-                
-             
+
+
         //remove the node selected
-        private void bQuitar_Click(object sender, EventArgs e)
+        private async void bQuitar_Click(object sender, EventArgs e)
         {
             try
             {
 
                 String nodeSeleccionado = treeViewPedido.SelectedNode.Text; //producto seleccionado
-                               
-                Pizza p = cp.buscarPizzaPorNombre(nodeSeleccionado);
-                Refresco r = cp.buscarRefrescoPorNombre(nodeSeleccionado);
+
+                Pizza p = await cp.buscarPizzaPorNombre(nodeSeleccionado);
+                Refresco r = await cp.buscarRefrescoPorNombre(nodeSeleccionado);
 
                 if (p != null)
                 {
                     double num = cPed.restarTotal(p.getPrecio());
                     treeViewPedido.SelectedNode.Remove();
-                    actualizarTxtTotal(num); 
+                    actualizarTxtTotal(num);
                 }
-                else if( r != null)
+                else if (r != null)
                 {
                     double num = cPed.restarTotal(r.getPrecio());
                     treeViewPedido.SelectedNode.Remove();
                     actualizarTxtTotal(num);
                 }
 
-               
-                
+
+
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No hay ningun item seleccionado","Error");
+                MessageBox.Show("No hay ningun item seleccionado", "Error");
             }
         }
 

@@ -14,7 +14,7 @@ namespace Controlador
         
         public ControladorLogin()
         {
-            servidor = "http://provenapps.cat:8080";
+            servidor = "http://192.168.127.92:8084";
         }
 
 

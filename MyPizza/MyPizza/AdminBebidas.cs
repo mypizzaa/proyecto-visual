@@ -98,8 +98,8 @@ namespace Vista
                 txtBebida.Text = nombreBebida;
 
 
-                Producto p = await cp.listarUnProducto(nombreBebida);
-                Refresco r = (Refresco)p;
+                Refresco r= await cp.buscarRefrescoPorNombre(nombreBebida);
+                
                 txtPrecio.Text = r.getPrecio().ToString();
 
                 String pathImage = r.getImagen();

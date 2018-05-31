@@ -11,7 +11,7 @@ namespace Controlador
 {
     public class ControladorServicio
     {
-        String servidor = "provenapps.cat";
+        String servidor = "192.168.127.92";
 
         private Boolean connection;
 

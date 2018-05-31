@@ -120,22 +120,18 @@ namespace Controlador
             return listaIngredientes;
         }
 
-        public Pizza buscarPizzaPorNombre(String nombrePizza)
+        public async Task<Pizza> buscarPizzaPorNombre(String nombrePizza)
         {
-            List<Pizza> listaPizzas;
             Pizza pizza = null;
 
             try
             {
+                limpiarListas();
+                listaParam.Add("name");
+                listaValues.Add(nombrePizza);
 
-                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/pizzas");
-                listaPizzas = JsonConvert.DeserializeObject<List<Pizza>>(json);
-
-                foreach (Pizza p in listaPizzas)
-                {
-                    if (p.getNombre() == nombrePizza) pizza = p;
-
-                }
+                String json = await hreq.sendRequestPOST("/ServicioMyPizza/servicios/WSProducto/buscarpizza",listaParam,listaValues);
+                pizza = JsonConvert.DeserializeObject<Pizza>(json);
 
             }
             catch (System.Net.WebException swe)
@@ -185,12 +181,25 @@ namespace Controlador
 
         }
 
-        public Ingrediente buscarIngredientePorNombre(String nombre)
+        public async Task<Ingrediente> buscarIngredientePorNombre(String nombre)
         {
-            Ingrediente ingrediente = null;
+            Ingrediente i = null;
 
+            try
+            {
+                limpiarListas();
+                listaParam.Add("name");
+                listaValues.Add(nombre);
 
-            return ingrediente;
+                String json = await hreq.sendRequestPOST("/ServicioMyPizza/servicios/WSProducto/buscaringrediente", listaParam, listaValues);
+                i = JsonConvert.DeserializeObject<Ingrediente>(json);
+
+            }
+            catch (System.Net.WebException swe)
+            {
+                i = null;
+            }
+            return i;
         }
 
 
@@ -231,27 +240,24 @@ namespace Controlador
 
         }
 
-        public Refresco buscarRefrescoPorNombre(String nombreRefresco)
+        public async Task<Refresco> buscarRefrescoPorNombre(String nombreRefresco)
         {
             Refresco r = null;
-            List<Refresco> listaBebidas;
 
             try
             {
-                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/bebidas");
-                listaBebidas = JsonConvert.DeserializeObject<List<Refresco>>(json);
+                limpiarListas();
+                listaParam.Add("name");
+                listaValues.Add(nombreRefresco);
 
-                foreach (Refresco refresco in listaBebidas)
-                {
-                    if (refresco.getNombre() == nombreRefresco) r = refresco;
+                String json = await hreq.sendRequestPOST("/ServicioMyPizza/servicios/WSProducto/buscarbebida", listaParam, listaValues);
+                r = JsonConvert.DeserializeObject<Refresco>(json);
 
-                }
             }
             catch (System.Net.WebException swe)
             {
                 r = null;
             }
-
             return r;
         }
 
