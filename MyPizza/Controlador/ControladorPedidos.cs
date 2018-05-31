@@ -73,12 +73,12 @@ namespace Controlador
         
         public void crearPedido()
         {
-
+            //todo
         }
 
         public void eliminarPedido()
         {
-
+            //todo
         }
         
 

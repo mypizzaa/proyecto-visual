@@ -20,16 +20,24 @@ namespace Controlador
            hreq = new HttpRequest();
         }
 
+        /*
+         * clear the list param and list values
+         */
         public void limpiarListas()
         {
             this.listaParam.Clear();
             this.listaValues.Clear();
         }
 
+        /*
+         * This method search a client by phone
+         * @param telefono
+         * return client if found or null if not
+         */
         public async Task<Cliente> buscarCliente(String telefono)
         {
             Cliente c = null;
-            Console.WriteLine("hooooooooooooooooooooooooooooooola");   
+             
             try
             {
                 limpiarListas();
@@ -44,7 +52,7 @@ namespace Controlador
             catch (System.Net.WebException swe)
             {
                 c = null;
-                Console.WriteLine(swe.Message);
+               
             }
         
 
