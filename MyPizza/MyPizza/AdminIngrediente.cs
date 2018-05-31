@@ -24,6 +24,9 @@ namespace Vista
         long id_ingrediente = 0;
         long id_producto = 0;
 
+        /// <summary>
+        /// Constructor
+        /// </summary>
         public AdminIngrediente()
         {
             cp = new ControladorProductos();
@@ -59,6 +62,11 @@ namespace Vista
             }
         }
 
+        /// <summary>
+        /// Change components properties to modify
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bModificar_Click(object sender, EventArgs e)
         {
 
@@ -80,6 +88,11 @@ namespace Vista
             listViewIngredientes.Enabled = false;
         }
 
+        /// <summary>
+        /// Add an image to picture box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bAñadirImagen_Click(object sender, EventArgs e)
         {
             openFileDialog1.InitialDirectory = "C:\\";
@@ -101,6 +114,11 @@ namespace Vista
             }
         }
 
+        /// <summary>
+        /// When user select an ingredient displays the information of the ingredient in text views
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void listViewIngredientes_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listViewIngredientes.SelectedItems.Count > 0)
@@ -122,6 +140,11 @@ namespace Vista
             }
         }
 
+        /// <summary>
+        /// Save a new ingredient or a modified ingredients, it depends on what user want to do
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void bGuardar_Click(object sender, EventArgs e)
         {
             string name = txtIngrediente.Text;
@@ -184,6 +207,11 @@ namespace Vista
             }
         }
 
+        /// <summary>
+        /// Change components properties to add a new ingredient
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bNuevo_Click(object sender, EventArgs e)
         {
             txtIngrediente.Text = "";
@@ -209,11 +237,19 @@ namespace Vista
 
         }
 
+        /// <summary>
+        /// Reset components to the default format
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void bCancelar_Click(object sender, EventArgs e)
         {
             resetComponents();
         }
 
+        /// <summary>
+        /// Reset components
+        /// </summary>
         private void resetComponents()
         {
             txtIngrediente.Text = "";
@@ -238,11 +274,21 @@ namespace Vista
             buttonText = "";
         }
 
+        /// <summary>
+        /// Show an alert for user
+        /// </summary>
+        /// <param name="mensaje">Message of the alert</param>
+        /// <param name="titulo">Title of the alert</param>
         public void Alert(String mensaje, string titulo)
         {
             MessageBox.Show(mensaje, titulo, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        /// <summary>
+        /// Delete an ingredient according on what ingredient is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void bEliminar_Click(object sender, EventArgs e)
         {
             if (id_ingrediente > 0)

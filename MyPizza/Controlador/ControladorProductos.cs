@@ -21,9 +21,9 @@ namespace Controlador
 
         public ControladorProductos()
         {
-           hreq = new HttpRequest();
+            hreq = new HttpRequest();
         }
-                
+
         //this method clear the lists param and values 
         public void limpiarListas()
         {
@@ -54,7 +54,7 @@ namespace Controlador
 
             return listaPizzas;
         }
-               
+
         public void agregarPizza(String nombre, List<Ingrediente> listaIngredientes)
         {
 
@@ -76,7 +76,7 @@ namespace Controlador
 
             try
             {
-                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/ingredientespizza/"+idPizza);
+                String json = hreq.sendRequest("/ServicioMyPizza/servicios/WSProducto/ingredientespizza/" + idPizza);
                 listaIngredientes = JsonConvert.DeserializeObject<List<Ingrediente>>(json);
 
             }
@@ -88,6 +88,11 @@ namespace Controlador
             return listaIngredientes;
         }
 
+        /// <summary>
+        /// This method search a pizza by name
+        /// </summary>
+        /// <param name="nombrePizza"></param>
+        /// <returns>a pizza if was found or return null if don't exist</returns>
         public async Task<Pizza> buscarPizzaPorNombre(String nombrePizza)
         {
             Pizza pizza = null;
@@ -98,7 +103,7 @@ namespace Controlador
                 listaParam.Add("name");
                 listaValues.Add(nombrePizza);
 
-                String json = await hreq.sendRequestPOST("/ServicioMyPizza/servicios/WSProducto/buscarpizza",listaParam,listaValues);
+                String json = await hreq.sendRequestPOST("/ServicioMyPizza/servicios/WSProducto/buscarpizza", listaParam, listaValues);
                 pizza = JsonConvert.DeserializeObject<Pizza>(json);
 
             }
@@ -134,6 +139,11 @@ namespace Controlador
             return listaIngredientes;
         }
 
+        /// <summary>
+        /// This method add a new ingredient in database
+        /// </summary>
+        /// <param name="i"></param>
+        /// <returns>0 if ingredient is not added succesfully or return 1 if ingredient is added succesfully</returns>
         public async Task<int> agregarIngrediente(Ingrediente i)
         {
             int agregado = 0;
@@ -256,6 +266,11 @@ namespace Controlador
             return listaBebidas;
         }
 
+        /// <summary>
+        /// This method add a new refresh in database if something fall, return 0
+        /// </summary>
+        /// <param name="r"></param>
+        /// <returns> 0 if refresh is not added succesfully or return 1 if refresh is added succesfully</returns>
         public async Task<int> agregarBebida(Refresco r)
         {
             int agregado = 0;
@@ -292,10 +307,16 @@ namespace Controlador
 
         }
 
+        /// <summary>
+        /// this method assigns the received parameter to a list and sends it by post, and that information
+        /// is collected in a string, that string is serialized to a refresh, if the refresh has not been found, it
+        /// returns null, if it does not return the refresh
+        /// </summary>
+        /// <param name="nombreRefresco"></param>
+        /// <returns></returns>
         public async Task<Refresco> buscarRefrescoPorNombre(String nombreRefresco)
         {
             Refresco r = null;
-
             try
             {
                 limpiarListas();
@@ -312,10 +333,6 @@ namespace Controlador
             }
             return r;
         }
-
-
-        //--------------------------------------------------------------------------------//
-
 
     }
 }
